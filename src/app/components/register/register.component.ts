@@ -364,7 +364,7 @@ export class RegisterComponent {
             },
             pattern: {
               message: 'Weak password',
-              hint: 'Use at least one uppercase letter, one lowercase letter, one number, and one special character',
+              hint: 'Use at least one uppercase letter, one lowercase letter, one number, and one special character{@ $ ! % * ? &}',
             },
           },
         };

@@ -80,6 +80,67 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
       });
     } else {
       console.log('Form is invalid');
+      this.resetPasswordForm.markAllAsTouched();
+
+      const firstInvalid = Object.entries(this.resetPasswordForm.controls).find(
+        ([_, control]) => control.invalid,
+      );
+
+      if (firstInvalid) {
+        const [fieldName, control] = firstInvalid;
+        const errorType = Object.keys(control.errors!)[0];
+
+        const errorMessages: any = {
+          email: {
+            required: {
+              message: 'Email is required',
+              hint: 'Enter your email address',
+            },
+            email: {
+              message: 'Invalid email address',
+              hint: 'Enter a valid email like example@gmail.com',
+            },
+          },
+
+          code: {
+            required: {
+              message: 'Verification code is required',
+              hint: 'Enter the code sent to your email',
+            },
+            minlength: {
+              message: 'Invalid code',
+              hint: 'The verification code is too short',
+            },
+          },
+
+          newPassword: {
+            required: {
+              message: 'New password is required',
+              hint: 'Enter your new password',
+            },
+            minlength: {
+              message: 'Password is too short',
+              hint: 'Password must be at least 8 characters',
+            },
+            maxlength: {
+              message: 'Password is too long',
+              hint: 'Password must not exceed 20 characters',
+            },
+            pattern: {
+              message: 'Weak password',
+              hint: 'Use at least one uppercase letter, one lowercase letter, one number, and one special character (@ $ ! % * ? &)',
+            },
+          },
+        };
+
+        const errorData = errorMessages[fieldName]?.[errorType];
+
+        if (errorData) {
+          this.showErrorHint(errorData.message, errorData.hint);
+        } else {
+          this.showErrorHint('Invalid field', 'Please check your input');
+        }
+      }
     }
   }
   resendCode(): void {
@@ -124,5 +185,8 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
   }
   showError(message: string) {
     this.toastr.error(message);
+  }
+  showErrorHint(message: string, hint: string) {
+    this.toastr.error(hint, message);
   }
 }
