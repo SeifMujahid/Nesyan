@@ -84,3 +84,10 @@ export interface Violation {
   durationMinutes: number;
   status: string;
 }
+
+export interface Place {
+  lat: number;
+  lng: number;
+  recordedAt: string;
+  placeName: string;
+}

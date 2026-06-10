@@ -172,6 +172,59 @@
   <div
     class="w-100 p-2 d-flex flex-column justify-content-center align-items-center gap-3"
   >
-    history goes heer
+    <div
+      class="w-100 p-2 d-flex justify-content-center align-items-center border-b"
+    >
+      <form
+        class="w-100 d-flex justify-content-between align-items-center border-a rounded"
+        [formGroup]="historyFrom"
+      >
+        <div class="form-group w-100 p-2">
+          <label for="from" class="form-label">From</label>
+          <input
+            type="date"
+            id="from"
+            name="from"
+            class="form-control"
+            formControlName="from"
+          />
+        </div>
+        <div class="form-group w-100 p-2">
+          <label for="to" class="form-label">To</label>
+          <input
+            type="date"
+            id="to"
+            name="to"
+            class="form-control"
+            formControlName="to"
+          />
+        </div>
+        <div class="form-group w-100 p-2">
+          <label for="limit" class="form-label">Limit</label>
+          <input
+            type="number"
+            id="limit"
+            name="limit"
+            class="form-control"
+            placeholder="Maximum Value Is 100"
+            max="100"
+            min="1"
+            formControlName="limit"
+          />
+        </div>
+        <Button class="btn main-btn w-25 mx-3" (click)="completeHitory()"
+          >Get History</Button
+        >
+      </form>
+    </div>
+    <div
+      class="history w-100 border-a d-flex justify-content-between align-items-center p-2 rounded fw-bold text-muted"
+      *ngFor="let place of patientPlaces; let i = index"
+    >
+      <div>
+        <p class="m-0 p-0">Zone Name: {{ place.placeName }}</p>
+        <p class="m-0 p-0">Visted At: {{ place.recordedAt | cleanDate: 2 }}</p>
+      </div>
+    </div>
   </div>
 </div>
