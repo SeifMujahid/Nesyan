@@ -8,7 +8,15 @@
     </a>
     <a routerLink="/nesyan" class="logo-text ps-2">Nesyan</a>
   </div>
-  <a routerLink="/auth" class="d-flex align-content-center btn btn-primary"
-    >Login</a
-  >
+  <div class="d-flex justify-content-end align-items-center gap-2">
+    <button
+      class="lang-btn btn btn-outline-primary fw-bold"
+      (click)="toggleLang()"
+    >
+      {{ "NAV.TOGGLE_LANG" | translate }}
+    </button>
+    <a routerLink="/auth" class="d-flex align-content-center btn btn-primary">{{
+      "COMMON.LOGIN" | translate
+    }}</a>
+  </div>
 </nav>

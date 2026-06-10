@@ -4,11 +4,12 @@ import { DoctorService } from 'src/app/core/services/doctor.service';
 import { MainService } from 'src/app/context/main.service';
 import { DoctorPatientsList } from 'src/app/core/interfaces/patients';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-stage-management',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, TranslateModule],
   templateUrl: './stage-management.component.html',
   styleUrls: ['./stage-management.component.scss'],
 })

@@ -11,10 +11,10 @@
           class="fa-solid fa-people-group me-1 fs-3"
           style="color: #f54900"
         ></i>
-        Family Members
+        {{ "FAMILY.FAMILY_MEMBERS" | translate }}
       </p>
       <p class="text-muted m-0 p-0">
-        Manage Patient's family members with photos and audio notes.
+        {{ "FAMILY.SUBTITLE" | translate }}
       </p>
     </div>
     <div class="left">
@@ -23,7 +23,8 @@
         data-bs-toggle="modal"
         (click)="changeToAdd()"
       >
-        <i class="fa-regular fa-square-plus me-1 fs-5"></i>Add Family Member
+        <i class="fa-regular fa-square-plus me-1 fs-5"></i
+        >{{ "FAMILY.ADD_MEMBER" | translate }}
       </button>
     </div>
   </div>

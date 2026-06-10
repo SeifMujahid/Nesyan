@@ -2,11 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router, RouterLink } from '@angular/router';
 import { MainService } from 'src/app/context/main.service';
+import { TranslateModule } from '@ngx-translate/core';
+import { LanguageService } from 'src/app/context/language.service';
 
 @Component({
   selector: 'app-main-nav',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, TranslateModule],
   templateUrl: './main-nav.component.html',
   styleUrls: ['./main-nav.component.scss'],
 })
@@ -14,7 +16,9 @@ export class MainNavComponent implements OnInit {
   constructor(
     private _router: Router,
     private _mainService: MainService,
+    public languageService: LanguageService,
   ) {}
+
   userName: string = '';
   userRole: string = '';
 
@@ -25,6 +29,10 @@ export class MainNavComponent implements OnInit {
     this._mainService.currentRole.subscribe((role) => {
       this.userRole = role;
     });
+  }
+
+  toggleLang(): void {
+    this.languageService.toggleLanguage();
   }
 
   logout(): void {

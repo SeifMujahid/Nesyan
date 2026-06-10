@@ -13,11 +13,13 @@ import {
 import { ForgetPasswordInterface } from 'src/app/core/interfaces/forget-password-interface';
 import { VerifayAccountInterface } from 'src/app/core/interfaces/verifay-account-interface';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core';
+
 
 @Component({
   selector: 'app-login',
   standalone: true,
-  imports: [CommonModule, RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule,TranslateModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
 })

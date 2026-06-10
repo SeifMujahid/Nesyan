@@ -9,23 +9,31 @@
     <div
       class="top d-flex justify-content-between align-items-center mb-4 border-b"
     >
-      <h2><i class="fa-solid fa-clipboard-user me-2"></i>Request Tratment</h2>
+      <h2>
+        <i class="fa-solid fa-clipboard-user me-2"></i
+        >{{ "REQUEST_TREATMENT.TITLE" | translate }}
+      </h2>
       <div>
         <button
           class="btn btn-outline-primary fw-bold me-2"
           data-bs-target="#exampleModalToggle2"
           data-bs-toggle="modal"
         >
-          Send New Request
+          {{ "COMMON.SEND_NEW_REQUEST" | translate }}
         </button>
-        <a routerLink="/relative" class="btn btn-primary">Back to Home</a>
+        <a routerLink="/relative" class="btn btn-primary">{{
+          "COMMON.BACK_HOME" | translate
+        }}</a>
       </div>
     </div>
     <div
       class="filter d-flex justify-content-between align-items-center gap-3 mb-4 pb-4 border-b px-5"
     >
       <div class="d-flex justify-content-between align-items-center gap-4">
-        <h4 class="m-0 p-0">Filter<i class="fa-solid fa-sliders ms-1"></i></h4>
+        <h4 class="m-0 p-0">
+          {{ "COMMON.FILTER" | translate
+          }}<i class="fa-solid fa-sliders ms-1"></i>
+        </h4>
         <ul
           class="tabs-list d-flex justify-content-start align-items-center gap-4 list-unstyled m-0 p-0"
         >
@@ -34,43 +42,43 @@
             [class.active]="filter === 'pending'"
             (click)="getPendingRequests()"
           >
-            Pending
+            {{ "COMMON.PENDING" | translate }}
           </li>
           <li
             class="btn btn-outline-primary fw-bold"
             [class.active]="filter === 'accepted'"
             (click)="getAcceptedRequests()"
           >
-            Accepted
+            {{ "COMMON.ACCEPTED" | translate }}
           </li>
           <li
             class="btn btn-outline-primary fw-bold"
             [class.active]="filter === 'rejected'"
             (click)="getRejectedRequests()"
           >
-            Rejected
+            {{ "COMMON.REJECTED" | translate }}
           </li>
           <li
             class="btn btn-outline-primary fw-bold"
             [class.active]="filter === 'removed'"
             (click)="getRemovedPatients()"
           >
-            Removed
+            {{ "TREATMENT.REMOVED" | translate }}
           </li>
         </ul>
       </div>
       <div class="d-flex justify-content-center align-items-center">
         <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'pending'">
-          Pending Requests Are Waiting For Doctor's Action
+          {{ "TREATMENT.PENDING_STATUS_DOCTOR" | translate }}
         </p>
         <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'accepted'">
-          Accepted Requests Are Waiting For Your Action
+          {{ "TREATMENT.ACCEPTED_STATUS" | translate }}
         </p>
         <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'rejected'">
-          Rejected Requests By You Or Doctor
+          {{ "TREATMENT.REJECTED_STATUS" | translate }}
         </p>
         <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'removed'">
-          Pending Patients Removed By Doctor
+          {{ "TREATMENT.REMOVED_STATUS" | translate }}
         </p>
       </div>
     </div>
@@ -85,7 +93,7 @@
           class="patient d-flex justify-content-center align-items-center gap-3 text-center"
         >
           <div class="info">
-            <span class="m-0 p-0">Patient</span>
+            <span class="m-0 p-0">{{ "TREATMENT.PATIENT" | translate }}</span>
             <h3>{{ request.patientInfo?.patientSummary?.fullName }}</h3>
             <div
               class="sub-info d-flex justify-content-between align-items-center gap-3"

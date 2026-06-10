@@ -8,13 +8,14 @@
     <div class="right">
       <p class="p-0 m-0 fw-bold fs-5">
         <i class="fa-solid fa-list-check me-1 fs-4" style="color: #00a63e"></i>
-        Daily Tasks
+        {{ "TASKS.DAILY_TASKS" | translate }}
       </p>
-      <p class="text-muted m-0 p-0">Manage patient's Daily Routine</p>
+      <p class="text-muted m-0 p-0">{{ "TASKS.SUBTITLE" | translate }}</p>
     </div>
     <div class="left">
       <button data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-        <i class="fa-regular fa-square-plus me-1 fs-5"></i>Add Task
+        <i class="fa-regular fa-square-plus me-1 fs-5"></i
+        >{{ "TASKS.ADD_TASK" | translate }}
       </button>
     </div>
   </div>
@@ -55,7 +56,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
-          Add New Task
+          {{ "TASKS.ADD_NEW" | translate }}
         </h1>
         <button
           type="button"
@@ -66,11 +67,11 @@
       </div>
       <div class="modal-body overflow-y-scroll" style="max-height: 400px">
         <div class="form-container">
-          <p>Task Details Form</p>
+          <p>{{ "TASKS.TASK_DETAILS" | translate }}</p>
         </div>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary">{{ "COMMON.SAVE" | translate }}</button>
       </div>
     </div>
   </div>

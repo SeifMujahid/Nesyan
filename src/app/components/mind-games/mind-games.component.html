@@ -8,13 +8,14 @@
     <div class="right">
       <p class="p-0 m-0 fw-bold fs-5">
         <i class="fa-solid fa-gamepad me-1 fs-4" style="color: #9810fa"></i>
-        Mind Games
+        {{ "MIND_GAMES.TITLE" | translate }}
       </p>
-      <p class="text-muted m-0 p-0">Assign congnitive games to patients</p>
+      <p class="text-muted m-0 p-0">{{ "MIND_GAMES.SUBTITLE" | translate }}</p>
     </div>
     <div class="left">
       <button data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-        <i class="fa-regular fa-square-plus me-1 fs-5"></i>Add Game
+        <i class="fa-regular fa-square-plus me-1 fs-5"></i
+        >{{ "MIND_GAMES.ADD_GAME" | translate }}
       </button>
     </div>
   </div>
@@ -47,7 +48,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
-          Add New Game
+          {{ "MIND_GAMES.ADD_NEW" | translate }}
         </h1>
         <button
           type="button"
@@ -70,8 +71,10 @@
               <p class="m-0 p-0 text-muted">Level: {{ game.level }}</p>
               <form class="w-100" [formGroup]="addGame">
                 <div class="form-group mb-2">
-                  <label for="mindgame-frequency" class="form-label text-muted"
-                    >Frequency</label
+                  <label
+                    for="mindgame-frequency"
+                    class="form-label text-muted"
+                    >{{ "MIND_GAMES.FREQUENCY" | translate }}</label
                   >
 
                   <select

@@ -5,6 +5,7 @@ import { MainNavComponent } from 'src/app/components/main-nav/main-nav.component
 import { DoctorService } from 'src/app/core/services/doctor.service';
 import { MainService } from 'src/app/context/main.service';
 import { DoctorPatientsList } from 'src/app/core/interfaces/patients';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-doctor',
@@ -15,6 +16,7 @@ import { DoctorPatientsList } from 'src/app/core/interfaces/patients';
     RouterLink,
     RouterLinkActive,
     MainNavComponent,
+    TranslateModule,
   ],
   templateUrl: './doctor.component.html',
   styleUrls: ['./doctor.component.scss'],

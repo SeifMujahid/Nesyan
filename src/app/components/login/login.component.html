@@ -3,12 +3,12 @@
 <!-- ---------------------------------------------------------------------------- -->
 <section class="login-section">
   <div class="login-container">
-    <h1>Login</h1>
+    <h1>{{ "AUTH.LOGIN_TITLE" | translate }}</h1>
     <div class="image w-25 h-25">
       <img src="./assets/images/Nesyan.png" alt="logo" class="w-100" />
     </div>
-    <p class="welcome">Welcome Back</p>
-    <p>Sign in to your Nesyan account</p>
+    <p class="welcome">{{ "AUTH.WELCOME_BACK" | translate }}</p>
+    <p>{{ "AUTH.SIGN_IN" | translate }}</p>
     <div class="login-form w-100">
       <form
         class="d-flex flex-column justify-content-center align-items-center gap-2 w-100"
@@ -16,23 +16,23 @@
         (ngSubmit)="login()"
       >
         <div class="input-group d-flex flex-column w-100">
-          <label for="email">Email</label>
+          <label for="email">{{ "AUTH.EMAIL" | translate }}</label>
           <input
             type="email"
             id="email"
             name="email"
-            placeholder="Your Email"
+            [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate"
             formControlName="email"
             required
           />
         </div>
         <div class="input-group d-flex flex-column w-100">
-          <label for="password">Password</label>
+          <label for="password">{{ "AUTH.PASSWORD" | translate }}</label>
           <input
             type="password"
             id="password"
             name="password"
-            placeholder="Your Password"
+            [placeholder]="'AUTH.PASSWORD_PLACEHOLDER' | translate"
             formControlName="password"
             required
           />
@@ -49,24 +49,30 @@
               role="button"
               (change)="onRemeberMeChange($event)"
             />
-            <label role="button" for="remember-me" class="ps-1"
-              >Remember me</label
-            >
+            <label role="button" for="remember-me" class="ps-1">{{
+              "AUTH.REMEMBER_ME" | translate
+            }}</label>
           </div>
-          <a (click)="forgetPassword()" role="button">Forgot Password?</a>
+          <a (click)="forgetPassword()" role="button">{{
+            "AUTH.FORGOT_PASSWORD" | translate
+          }}</a>
         </div>
 
-        <button type="submit">Login</button>
+        <button type="submit">{{ "AUTH.LOGIN_BTN" | translate }}</button>
       </form>
     </div>
     <div class="register-link d-flex flex-column">
       <p class="mb-1">
-        Don't have an account?
-        <a routerLink="/auth/register" role="button"> Register Here</a>
+        {{ "AUTH.NO_ACCOUNT" | translate }}
+        <a routerLink="/auth/register" role="button">
+          {{ "AUTH.REGISTER_HERE" | translate }}</a
+        >
       </p>
       <p>
-        Don't verify your email?
-        <a role="button" (click)="verifyEmail()"> Verify Email</a>
+        {{ "AUTH.NO_VERIFY" | translate }}
+        <a role="button" (click)="verifyEmail()">
+          {{ "AUTH.VERIFY_EMAIL" | translate }}</a
+        >
       </p>
     </div>
   </div>

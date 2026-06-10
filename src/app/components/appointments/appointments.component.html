@@ -11,9 +11,11 @@
           class="fa-solid fa-calendar-days me-1 fs-3"
           style="color: #9810fa"
         ></i>
-        Appointments
+        {{ "APPOINTMENTS.TITLE" | translate }}
       </p>
-      <p class="text-muted m-0 p-0">Schedule and track appointments</p>
+      <p class="text-muted m-0 p-0">
+        {{ "APPOINTMENTS.SUBTITLE" | translate }}
+      </p>
     </div>
     <div class="left">
       <button
@@ -21,7 +23,8 @@
         data-bs-toggle="modal"
         (click)="changeToAdd()"
       >
-        <i class="fa-regular fa-square-plus me-1 fs-5"></i>Add Appointment
+        <i class="fa-regular fa-square-plus me-1 fs-5"></i
+        >{{ "APPOINTMENTS.ADD_APPOINTMENT" | translate }}
       </button>
     </div>
   </div>
@@ -73,14 +76,14 @@
           id="exampleModalToggleLabel"
           *ngIf="!onEdit"
         >
-          Add New Appointment
+          {{ "APPOINTMENTS.ADD_NEW" | translate }}
         </h1>
         <h1
           class="modal-title fs-5"
           id="exampleModalToggleLabel"
           *ngIf="onEdit"
         >
-          Edit Appointment
+          {{ "APPOINTMENTS.EDIT" | translate }}
         </h1>
         <button
           type="button"
@@ -92,62 +95,66 @@
       <div class="modal-body overflow-y-scroll" style="max-height: 400px">
         <form class="fw-bold" [formGroup]="appointmentData">
           <div class="form-group mb-2">
-            <label for="appointment-title" class="form-label"
-              >Appointment Title</label
-            >
+            <label for="appointment-title" class="form-label">{{
+              "APPOINTMENTS.APPOINTMENT_TITLE" | translate
+            }}</label>
             <input
               type="text"
               class="form-control"
               id="appointment-title"
               formControlName="title"
               required
-              placeholder="e.g.. Check Up"
+              [placeholder]="
+                'APPOINTMENTS.APPOINTMENT_TITLE_PLACEHOLDER' | translate
+              "
             />
           </div>
           <div class="form-group mb-2">
-            <label for="appointment-name" class="form-label"
-              >Appointment Name</label
-            >
+            <label for="appointment-name" class="form-label">{{
+              "APPOINTMENTS.APPOINTMENT_NAME" | translate
+            }}</label>
             <input
               type="text"
               class="form-control"
               id="appointment-name"
               formControlName="name"
               required
-              placeholder="e.g.. Check Mental Health"
+              [placeholder]="
+                'APPOINTMENTS.APPOINTMENT_NAME_PLACEHOLDER' | translate
+              "
             />
           </div>
           <div class="form-group mb-2">
-            <label for="appointment-specialty" class="form-label"
-              >Appointment Specialty</label
-            >
+            <label for="appointment-specialty" class="form-label">{{
+              "APPOINTMENTS.SPECIALTY" | translate
+            }}</label>
             <input
               type="text"
               class="form-control"
               id="appointment-specialty"
               formControlName="specialty"
               required
-              placeholder="e.g.. Mental Health"
+              [placeholder]="'APPOINTMENTS.SPECIALTY_PLACEHOLDER' | translate"
             />
           </div>
           <div class="form-group mb-2">
-            <label for="appointment-location" class="form-label"
-              >Appointment Location</label
-            >
+            <label for="appointment-location" class="form-label">{{
+              "APPOINTMENTS.LOCATION" | translate
+            }}</label>
             <input
               type="text"
               class="form-control"
               id="appointment-location"
               formControlName="location"
               required
-              placeholder="e.g.. Cairo Hospital"
+              [placeholder]="'APPOINTMENTS.LOCATION_PLACEHOLDER' | translate"
             />
           </div>
 
           <div class="form-group mb-2">
-            <label for="appointment-frequency" class="form-label"
-              >Appointment Frequency</label
-            >
+            <label for="appointment-frequency" class="form-label">{{
+              "APPOINTMENTS.FREQUENCY" | translate
+            }}</label>
             <select
               id="appointment-frequency"
               name="appointment-frequency"

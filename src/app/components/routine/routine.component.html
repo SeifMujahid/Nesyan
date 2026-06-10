@@ -8,9 +8,9 @@
     <div class="right">
       <p class="p-0 m-0 fw-bold fs-5">
         <i class="fa-solid fa-list-check me-1 fs-4" style="color: #00a63e"></i>
-        Daily Routine
+        {{ "ROUTINE.TITLE" | translate }}
       </p>
-      <p class="text-muted m-0 p-0">Manage patient's Daily Routine</p>
+      <p class="text-muted m-0 p-0">{{ "ROUTINE.SUBTITLE" | translate }}</p>
     </div>
     <div class="left">
       <button
@@ -18,7 +18,8 @@
         data-bs-toggle="modal"
         (click)="changeToAdd()"
       >
-        <i class="fa-regular fa-square-plus me-1 fs-5"></i>Add Task
+        <i class="fa-regular fa-square-plus me-1 fs-5"></i
+        >{{ "ROUTINE.ADD_ROUTINE" | translate }}
       </button>
     </div>
   </div>
@@ -60,14 +61,14 @@
           id="exampleModalToggleLabel"
           *ngIf="!onEdit"
         >
-          Add New Routine
+          {{ "ROUTINE.ADD_NEW" | translate }}
         </h1>
         <h1
           class="modal-title fs-5"
           id="exampleModalToggleLabel"
           *ngIf="onEdit"
         >
-          Edit Routine
+          {{ "ROUTINE.EDIT_ROUTINE" | translate }}
         </h1>
         <button
           type="button"
@@ -80,21 +81,23 @@
         <div class="form-container">
           <form class="fw-bold" [formGroup]="routineData">
             <div class="form-group mb-2">
-              <label for="routine-name" class="form-label">Routine Title</label>
+              <label for="routine-name" class="form-label">{{
+                "ROUTINE.ROUTINE_TITLE" | translate
+              }}</label>
               <input
                 type="text"
                 class="form-control"
                 id="routine-name"
                 formControlName="title"
                 required
-                placeholder="e.g.. Morning walk"
+                [placeholder]="'ROUTINE.ROUTINE_TITLE_PLACEHOLDER' | translate"
               />
             </div>
 
             <div class="form-group mb-2">
-              <label for="routine-frequency" class="form-label"
-                >Routine Frequency</label
-              >
+              <label for="routine-frequency" class="form-label">{{
+                "ROUTINE.ROUTINE_FREQUENCY" | translate
+              }}</label>
               <select
                 id="routine-frequency"
                 name="routine-frequency"

@@ -8,13 +8,14 @@
     <div class="right">
       <p class="p-0 m-0 fw-bold fs-5">
         <i class="fa-solid fa-alarm-clock me-1 fs-3" style="color: #155dfc"></i>
-        Reminders
+        {{ "REMINDERS.TITLE" | translate }}
       </p>
-      <p class="text-muted m-0 p-0">Manage patient's reminders</p>
+      <p class="text-muted m-0 p-0">{{ "REMINDERS.SUBTITLE" | translate }}</p>
     </div>
     <div class="left">
       <button data-bs-target="#exampleModalToggle" data-bs-toggle="modal">
-        <i class="fa-regular fa-square-plus me-1 fs-5"></i>Add Reminder
+        <i class="fa-regular fa-square-plus me-1 fs-5"></i
+        >{{ "REMINDERS.ADD_REMINDER" | translate }}
       </button>
     </div>
   </div>
@@ -64,7 +65,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
-          Add New Reminder
+          {{ "REMINDERS.ADD_NEW" | translate }}
         </h1>
         <button
           type="button"
@@ -74,10 +75,10 @@
         ></button>
       </div>
       <div class="modal-body overflow-y-scroll" style="max-height: 400px">
-        <p>Reminder Details</p>
+        <p>{{ "REMINDERS.REMINDER_DETAILS" | translate }}</p>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-primary">Save</button>
+        <button class="btn btn-primary">{{ "COMMON.SAVE" | translate }}</button>
       </div>
     </div>
   </div>

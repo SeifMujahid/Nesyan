@@ -10,11 +10,12 @@ import { MainNavComponent } from '../main-nav/main-nav.component';
 import { RelativeService } from 'src/app/core/services/relative.service';
 import { RouterLink } from '@angular/router';
 import { RelativePatientsList } from 'src/app/core/interfaces/patients';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-request-treatment',
   standalone: true,
-  imports: [CommonModule, MainNavComponent, RouterLink],
+  imports: [CommonModule, MainNavComponent, RouterLink, TranslateModule],
   templateUrl: './request-treatment.component.html',
   styleUrls: ['./request-treatment.component.scss'],
 })

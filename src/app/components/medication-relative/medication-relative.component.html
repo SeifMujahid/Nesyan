@@ -8,9 +8,11 @@
     <div class="right">
       <p class="p-0 m-0 fw-bold fs-5">
         <i class="fa-solid fa-pills me-1 fs-4" style="color: #00a63e"></i>
-        Medications
+        {{ "MEDICATIONS.TITLE" | translate }}
       </p>
-      <p class="text-muted m-0 p-0">Manage patient medications</p>
+      <p class="text-muted m-0 p-0">
+        {{ "MEDICATIONS.DESCRIPTION" | translate }}
+      </p>
     </div>
     <div class="left">
       <button
@@ -18,7 +20,8 @@
         data-bs-toggle="modal"
         (click)="changeToAdd()"
       >
-        <i class="fa-regular fa-square-plus me-1 fs-5"></i>Add Medication
+        <i class="fa-regular fa-square-plus me-1 fs-5"></i
+        >{{ "MEDICATIONS.ADD_MEDICATION" | translate }}
       </button>
     </div>
   </div>
@@ -60,14 +63,14 @@
           id="exampleModalToggleLabel"
           *ngIf="!onEdit"
         >
-          Add New Medication
+          {{ "MEDICATIONS.ADD_NEW_MEDICATION" | translate }}
         </h1>
         <h1
           class="modal-title fs-5"
           id="exampleModalToggleLabel"
           *ngIf="onEdit"
         >
-          Edit Medication
+          {{ "MEDICATIONS.EDIT_MEDICATION" | translate }}
         </h1>
         <button
           type="button"
@@ -80,46 +83,52 @@
         <div class="form-container">
           <form class="fw-bold" [formGroup]="medicationData">
             <div class="form-group mb-2">
-              <label for="medication-name" class="form-label"
-                >Medication Title</label
-              >
+              <label for="medication-name" class="form-label">{{
+                "MEDICATIONS.MEDICATION_TITLE" | translate
+              }}</label>
               <input
                 type="text"
                 class="form-control"
                 id="medication-name"
                 formControlName="title"
                 required
-                placeholder="e.g.. Take Morning Medication"
+                [placeholder]="
+                  'MEDICATIONS.MEDICATION_TITLE_PLACEHOLDER' | translate
+                "
               />
             </div>
             <div class="form-group mb-2">
-              <label for="medication-name" class="form-label"
-                >Medication Name</label
-              >
+              <label for="medication-name" class="form-label">{{
+                "MEDICATIONS.MEDICATION_NAME" | translate
+              }}</label>
               <input
                 type="text"
                 class="form-control"
                 id="medication-name"
                 formControlName="name"
                 required
-                placeholder="e.g.. Donepezil"
+                [placeholder]="
+                  'MEDICATIONS.MEDICATION_NAME_PLACEHOLDER' | translate
+                "
               />
             </div>
             <div class="form-group mb-2">
-              <label for="medication-dosage" class="form-label">Dosage</label>
+              <label for="medication-dosage" class="form-label">{{
+                "MEDICATIONS.DOSAGE" | translate
+              }}</label>
               <input
                 type="text"
                 class="form-control"
                 id="medication-dosage"
                 formControlName="dosage"
                 required
-                placeholder="e.g.. 10 mg tablet"
+                [placeholder]="'MEDICATIONS.DOSAGE_PLACEHOLDER' | translate"
               />
             </div>
             <div class="form-group mb-2">
-              <label for="medication-frequency" class="form-label"
-                >Frequency</label
-              >
+              <label for="medication-frequency" class="form-label">{{
+                "MEDICATIONS.FREQUENCY" | translate
+              }}</label>
 
               <select
                 id="medication-frequency"
@@ -129,13 +138,21 @@
                 required
               >
                 <option value="" disabled selected hidden>
-                  Select Medication frequency
+                  {{ "MEDICATIONS.SELECT_MEDICATION_FREQUENCY" | translate }}
                 </option>
-                <option value="1">OneTime</option>
-                <option value="2">Daily</option>
-                <option value="3">Weekly</option>
-                <option value="4">Monthly</option>
-                <option value="5">Custom</option>
+                <option value="1">
+                  {{ "MEDICATIONS.ONE_TIME" | translate }}
+                </option>
+                <option value="2">{{ "MEDICATIONS.DAILY" | translate }}</option>
+                <option value="3">
+                  {{ "MEDICATIONS.WEEKLY" | translate }}
+                </option>
+                <option value="4">
+                  {{ "MEDICATIONS.MONTHLY" | translate }}
+                </option>
+                <option value="5">
+                  {{ "MEDICATIONS.CUSTOM" | translate }}
+                </option>
               </select>
             </div>
             <!-- <div class="form-group mb-2">
@@ -256,9 +273,9 @@
               </div>
             </div> -->
             <div class="form-group mb-2">
-              <label for="medication-time" class="form-label"
-                >Medication Time</label
-              >
+              <label for="medication-time" class="form-label">{{
+                "MEDICATIONS.MEDICATION_TIME" | translate
+              }}</label>
               <input
                 type="time"
                 class="form-control"

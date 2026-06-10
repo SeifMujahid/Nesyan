@@ -24,3 +24,8 @@ nav {
     cursor: pointer;
   }
 }
+
+.lang-btn {
+  margin-inline-start: auto; // RTL-safe: pushes button to the end
+  cursor: pointer;
+}

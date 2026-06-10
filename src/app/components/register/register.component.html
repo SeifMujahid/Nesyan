@@ -1,11 +1,11 @@
 <section class="register-section">
   <div class="register-container">
     <div class="head">
-      <h1>Create Account</h1>
+      <h1>{{ "AUTH.CREATE_ACCOUNT" | translate }}</h1>
       <div class="image">
         <img src="./assets/images/Nesyan.png" alt="logo" />
       </div>
-      <p>Complete all steps to join Nesyan</p>
+      <p>{{ "AUTH.COMPLETE_STEPS" | translate }}</p>
       <div
         class="step-indicator d-flex justify-content-between align-items-center w-50 my-3"
       >
@@ -29,7 +29,7 @@
     <div class="steps">
       <div class="step1-container" [hidden]="currentStep !== 1">
         <div class="form-container w-100">
-          <h5>Personal Information</h5>
+          <h5>{{ "AUTH.PERSONAL_INFO" | translate }}</h5>
           <form
             [formGroup]="personalInformation"
             class="d-flex flex-column justify-content-center w-100"
@@ -38,23 +38,25 @@
               class="form-top d-flex justify-content-between align-items-center w-100"
             >
               <div class="form-group">
-                <label for="firstName">First Name</label>
+                <label for="firstName">{{
+                  "AUTH.FIRST_NAME" | translate
+                }}</label>
                 <input
                   type="text"
                   id="firstName"
                   name="firstName"
-                  placeholder="Enter your first name"
+                  [placeholder]="'AUTH.FIRST_NAME_PLACEHOLDER' | translate"
                   formControlName="fName"
                   required
                 />
               </div>
               <div class="form-group">
-                <label for="lastName">Last Name</label>
+                <label for="lastName">{{ "AUTH.LAST_NAME" | translate }}</label>
                 <input
                   type="text"
                   id="lastName"
                   name="lastName"
-                  placeholder="Enter your last name"
+                  [placeholder]="'AUTH.LAST_NAME_PLACEHOLDER' | translate"
                   formControlName="lName"
                   required
                 />
@@ -62,40 +64,42 @@
             </div>
             <div class="form-middel w-100">
               <div class="form-group">
-                <label for="userName">User Name</label>
+                <label for="userName">{{ "AUTH.USERNAME" | translate }}</label>
                 <input
                   type="text"
                   id="userName"
                   name="userName"
-                  placeholder="Enter your user name"
+                  [placeholder]="'AUTH.USERNAME_PLACEHOLDER' | translate"
                   formControlName="userName"
                   required
                 />
               </div>
               <div class="form-group">
-                <label for="nationalId">National ID</label>
+                <label for="nationalId">{{
+                  "AUTH.NATIONAL_ID" | translate
+                }}</label>
                 <input
                   type="text"
                   id="nationalId"
                   name="nationalId"
-                  placeholder="Enter your national ID"
+                  [placeholder]="'AUTH.NATIONAL_ID_PLACEHOLDER' | translate"
                   formControlName="nationalId"
                   required
                 />
               </div>
               <div class="form-group w-100">
-                <label for="age">Age</label>
+                <label for="age">{{ "AUTH.AGE" | translate }}</label>
                 <input
                   type="number"
                   name="age"
                   id="age"
-                  placeholder="Enter your age"
+                  [placeholder]="'AUTH.AGE_PLACEHOLDER' | translate"
                   required
                   formControlName="age"
                 />
               </div>
               <div class="form-group">
-                <label for="gender">Gender</label>
+                <label for="gender">{{ "AUTH.GENDER" | translate }}</label>
                 <select
                   id="gender"
                   name="gender"
@@ -103,14 +107,20 @@
                   required
                 >
                   <option value="" disabled selected hidden>
-                    Select your gender
+                    {{ "COMMON.SELECT" | translate }}
                   </option>
-                  <option value="0">Male</option>
-                  <option value="1">Female</option>
+                  <option value="0">
+                    {{ "AUTH.GENDER_MALE" | translate }}
+                  </option>
+                  <option value="1">
+                    {{ "AUTH.GENDER_FEMALE" | translate }}
+                  </option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="maritalstatus">MaritalStatus</label>
+                <label for="maritalstatus">{{
+                  "AUTH.MARITAL_STATUS" | translate
+                }}</label>
                 <select
                   id="maritalstatus"
                   name="maritalstatus"
@@ -118,13 +128,13 @@
                   required
                 >
                   <option value="" disabled selected hidden>
-                    Select your marital status
+                    {{ "COMMON.SELECT" | translate }}
                   </option>
-                  <option value="0">Single</option>
-                  <option value="1">Married</option>
-                  <option value="2">Divorced</option>
-                  <option value="3">Widowed</option>
-                  <option value="4">Separated</option>
+                  <option value="0">{{ "AUTH.SINGLE" | translate }}</option>
+                  <option value="1">{{ "AUTH.MARRIED" | translate }}</option>
+                  <option value="2">{{ "AUTH.DIVORCED" | translate }}</option>
+                  <option value="3">{{ "AUTH.WIDOWED" | translate }}</option>
+                  <option value="4">{{ "AUTH.SEPARATED" | translate }}</option>
                 </select>
               </div>
             </div>
@@ -132,7 +142,7 @@
               class="form-bottom d-flex justify-content-between align-items-center w-100"
             >
               <div class="form-group">
-                <label for="country">Country</label>
+                <label for="country">{{ "AUTH.COUNTRY" | translate }}</label>
                 <select
                   id="country"
                   name="country"
@@ -140,23 +150,29 @@
                   required
                 >
                   <option value="" disabled selected hidden>
-                    Select your country
+                    {{ "COMMON.SELECT" | translate }}
                   </option>
-                  <option value="egypt">Egypt</option>
-                  <option value="saudi-arabia">Saudi Arabia</option>
-                  <option value="kuwait">Kuwait</option>
-                  <option value="qatar">Qatar</option>
-                  <option value="uae">United Arab Emirates</option>
-                  <option value="algeria">Algeria</option>
+                  <option value="egypt">{{ "AUTH.EGYPT" | translate }}</option>
+                  <option value="saudi-arabia">
+                    {{ "AUTH.SAUDI_ARABIA" | translate }}
+                  </option>
+                  <option value="kuwait">
+                    {{ "AUTH.KUWAIT" | translate }}
+                  </option>
+                  <option value="qatar">{{ "AUTH.QATAR" | translate }}</option>
+                  <option value="uae">{{ "AUTH.UAE" | translate }}</option>
+                  <option value="algeria">
+                    {{ "AUTH.ALGERIA" | translate }}
+                  </option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="city">City</label>
+                <label for="city">{{ "AUTH.CITY" | translate }}</label>
                 <input
                   id="city"
                   type="text"
                   name="city"
-                  placeholder="Enter your city"
+                  [placeholder]="'AUTH.CITY_PLACEHOLDER' | translate"
                   formControlName="city"
                   required
                 />
@@ -167,44 +183,44 @@
       </div>
       <div class="step2-container" [hidden]="currentStep !== 2">
         <div class="form-container w-100">
-          <h5>Account Details</h5>
+          <h5>{{ "AUTH.ACCOUNT_DETAILS" | translate }}</h5>
           <div class="form-container w-100">
             <form [formGroup]="accountDetails">
               <div class="form-group w-100">
-                <label for="email">Email</label>
+                <label for="email">{{ "AUTH.EMAIL" | translate }}</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Enter your email"
+                  [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate"
                   required
                   formControlName="email"
                 />
               </div>
               <div class="form-group w-100">
-                <label for="phone">Phone Number</label>
+                <label for="phone">{{ "AUTH.PHONE" | translate }}</label>
                 <input
                   type="text"
                   name="phone"
                   id="phone"
-                  placeholder="Enter your phone number"
+                  [placeholder]="'AUTH.PHONE_PLACEHOLDER' | translate"
                   required
                   formControlName="phone"
                 />
               </div>
               <div class="form-group w-100">
-                <label for="password">Password</label>
+                <label for="password">{{ "AUTH.PASSWORD" | translate }}</label>
                 <input
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="Enter your password"
+                  [placeholder]="'AUTH.PASSWORD_PLACEHOLDER' | translate"
                   required
                   formControlName="password"
                 />
               </div>
               <!-- User Image -->
-              <p>Upload Your Profile Image (Not Required)</p>
+              <p>{{ "COMMON.UPLOAD_PROFILE_IMAGE" | translate }}</p>
               <div
                 class="upload-area d-flex flex-column justify-content-center align-items-center w-100 my-2"
                 (dragover)="onDragOver($event)"
@@ -215,11 +231,11 @@
                 <!-- No File Selected -->
                 <div *ngIf="!userImage" class="text-center">
                   <i class="fa-solid fa-cloud-arrow-up fs-1 mb-2"></i>
-                  <p>Click to upload or drag and drop</p>
+                  <p>{{ "COMMON.CLICK_TO_UPLOAD" | translate }}</p>
                   <p class="m-0">PDF, JPG, PNG (MAX. 5MB)</p>
                   <div class="form-group mt-4">
                     <label for="userImage" class="btn btn-primary text-white">
-                      Select File
+                      {{ "COMMON.SELECT_FILE" | translate }}
                     </label>
                     <input
                       type="file"

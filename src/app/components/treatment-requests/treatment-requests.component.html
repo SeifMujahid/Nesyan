@@ -9,14 +9,22 @@
     <div
       class="top d-flex justify-content-between align-items-center mb-4 border-b"
     >
-      <h2><i class="fa-solid fa-clipboard-user me-2"></i>Treatment Requests</h2>
-      <a routerLink="/doctor" class="btn btn-primary">Back to Home</a>
+      <h2>
+        <i class="fa-solid fa-clipboard-user me-2"></i
+        >{{ "TREATMENT.TITLE" | translate }}
+      </h2>
+      <a routerLink="/doctor" class="btn btn-primary">{{
+        "COMMON.BACK" | translate
+      }}</a>
     </div>
     <div
       class="filter d-flex justify-content-between align-items-center gap-3 mb-4 pb-4 border-b px-5"
     >
       <div class="d-flex justify-content-between align-items-center gap-4">
-        <h4 class="m-0 p-0">Filter<i class="fa-solid fa-sliders ms-1"></i></h4>
+        <h4 class="m-0 p-0">
+          {{ "COMMON.FILTER" | translate
+          }}<i class="fa-solid fa-sliders ms-1"></i>
+        </h4>
         <ul
           class="tabs-list d-flex justify-content-start align-items-center gap-4 list-unstyled m-0 p-0"
         >
@@ -25,33 +33,33 @@
             [class.active]="filter === 'pending'"
             (click)="getPendingRequests()"
           >
-            Pending
+            {{ "TREATMENT.PENDING" | translate }}
           </li>
           <li
             class="btn btn-outline-primary fw-bold"
             [class.active]="filter === 'accepted'"
             (click)="getAcceptedRequests()"
           >
-            Accepted
+            {{ "TREATMENT.APPROVED" | translate }}
           </li>
           <li
             class="btn btn-outline-primary fw-bold"
             [class.active]="filter === 'rejected'"
             (click)="getRejectedRequests()"
           >
-            Rejected
+            {{ "TREATMENT.REJECTED" | translate }}
           </li>
         </ul>
       </div>
       <div class="d-flex justify-content-center align-items-center">
         <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'pending'">
-          Pending Requests Are Waiting For Your Action
+          {{ "TREATMENT.PENDING_STATUS_DOCTOR" | translate }}
         </p>
         <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'accepted'">
-          Accepted Requests Are Waiting For Patient's Relative Action
+          {{ "TREATMENT.ACCEPTED_STATUS" | translate }}
         </p>
         <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'rejected'">
-          Rejected Requests Were Rejectd By You Or Patient's Relative
+          {{ "TREATMENT.REJECTED_STATUS" | translate }}
         </p>
       </div>
     </div>
@@ -73,16 +81,18 @@
             />
           </div> -->
           <div class="info">
-            <span class="m-0 p-0">Patient</span>
+            <span class="m-0 p-0">{{ "TREATMENT.PATIENT" | translate }}</span>
             <h3>{{ request.patientInfo?.patientSummary?.fullName }}</h3>
             <div
               class="sub-info d-flex justify-content-between align-items-center gap-3"
             >
               <p class="m-0 p-0 blue-t">
-                Age: {{ request.patientInfo?.patientSummary?.age }}
+                {{ "TREATMENT.AGE" | translate }}:
+                {{ request.patientInfo?.patientSummary?.age }}
               </p>
               <p class="m-0 p-0 blue-t">
-                Gender: {{ request.patientInfo?.patientSummary?.gender }}
+                {{ "TREATMENT.GENDER" | translate }}:
+                {{ request.patientInfo?.patientSummary?.gender }}
               </p>
             </div>
           </div>
@@ -91,7 +101,9 @@
           class="sender d-flex flex-column justify-content-center align-items-start text-center"
         >
           <div class="main-sub-info">
-            <span class="m-0 p-0">Requested by</span>
+            <span class="m-0 p-0">{{
+              "TREATMENT.REQUESTED_BY" | translate
+            }}</span>
             <h3>{{ request.relativeSummary?.fullName }}</h3>
           </div>
           <!-- <div
@@ -111,7 +123,8 @@
             [disabled]="filter !== 'pending'"
             (click)="viewDetails(i)"
           >
-            <i class="fa-solid fa-folder me-1"></i>View Details
+            <i class="fa-solid fa-folder me-1"></i
+            >{{ "TREATMENT.VIEW_DETAILS" | translate }}
           </button>
           <div class="d-flex justify-content-between align-items-center gap-2">
             <button
@@ -119,14 +132,16 @@
               [disabled]="filter !== 'pending'"
               (click)="acceptRequest(request.requestId)"
             >
-              <i class="fa-solid fa-square-check me-1"></i>Accept
+              <i class="fa-solid fa-square-check me-1"></i
+              >{{ "TREATMENT.ACCEPT" | translate }}
             </button>
             <button
               class="btn btn-outline-danger"
               [disabled]="filter !== 'pending'"
               (click)="rejectRequest(request.requestId)"
             >
-              <i class="fa-solid fa-rectangle-xmark me-1"></i>Reject
+              <i class="fa-solid fa-rectangle-xmark me-1"></i
+              >{{ "TREATMENT.REJECT" | translate }}
             </button>
           </div>
         </div>
@@ -151,7 +166,8 @@
           class="modal-title fs-4 text-primary fw-bold"
           id="exampleModalToggleLabel"
         >
-          <i class="fa-solid fa-folder-open me-1 fs-3"></i>Patient's Information
+          <i class="fa-solid fa-folder-open me-1 fs-3"></i
+          >{{ "TREATMENT.PATIENT_INFO" | translate }}
         </h1>
         <button
           type="button"
@@ -163,13 +179,16 @@
       <div class="modal-body overflow-y-scroll" style="max-height: 400px">
         <div class="info-group">
           <div class="top-1">
-            <h4><i class="fa-solid fa-user me-1"></i>Personal Information</h4>
+            <h4>
+              <i class="fa-solid fa-user me-1"></i
+              >{{ "COMMON.DETAILS" | translate }}
+            </h4>
           </div>
           <div class="table-container-1">
             <table class="table table-striped w-100 p-0 m-0">
               <tbody>
                 <tr>
-                  <td>Full Name:</td>
+                  <td>{{ "TREATMENT.FULL_NAME" | translate }}:</td>
                   <td>
                     {{ requestDetails.patientInfo?.patientSummary?.fullName }}
                   </td>
@@ -185,7 +204,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>Current Stage:</td>
+                  <td>{{ "TREATMENT.CURRENT_STAGE" | translate }}:</td>
                   <td>
                     Stage-
                     {{
@@ -200,7 +219,8 @@
         <div class="info-group">
           <div class="top-3">
             <h4>
-              <i class="fa-solid fa-user-group me-1"></i>Relative Information
+              <i class="fa-solid fa-user-group me-1"></i
+              >{{ "COMMON.DETAILS" | translate }}
             </h4>
           </div>
           <div class="table-container-3">
@@ -221,7 +241,8 @@
         <div class="info-group">
           <div class="top-2">
             <h4>
-              <i class="fa-solid fa-file-medical me-1"></i>Medical History
+              <i class="fa-solid fa-file-medical me-1"></i
+              >{{ "COMMON.DETAILS" | translate }}
             </h4>
           </div>
           <div class="table-container-2">
@@ -325,7 +346,7 @@
             <table class="table table-striped w-100 p-0 m-0">
               <tbody>
                 <tr>
-                  <td>Recognition Of Name:</td>
+                  <td>{{ "ASSESSMENT.RECOGNITION_OF_NAME" | translate }}:</td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment
@@ -335,7 +356,7 @@
                 </tr>
 
                 <tr>
-                  <td>Recognition Of Place:</td>
+                  <td>{{ "ASSESSMENT.RECOGNITION_OF_PLACE" | translate }}:</td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment
@@ -345,7 +366,7 @@
                 </tr>
 
                 <tr>
-                  <td>Recognition Of Time:</td>
+                  <td>{{ "ASSESSMENT.RECOGNITION_OF_TIME" | translate }}:</td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment
@@ -355,7 +376,9 @@
                 </tr>
 
                 <tr>
-                  <td>Ability To Concentrate:</td>
+                  <td>
+                    {{ "ASSESSMENT.ABILITY_TO_CONCENTRATE" | translate }}:
+                  </td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment
@@ -365,7 +388,9 @@
                 </tr>
 
                 <tr>
-                  <td>Recall Of Recent Events:</td>
+                  <td>
+                    {{ "ASSESSMENT.RECALL_OF_RECENT_EVENTS" | translate }}:
+                  </td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment
@@ -375,7 +400,7 @@
                 </tr>
 
                 <tr>
-                  <td>Anxiety Or Stress:</td>
+                  <td>{{ "ASSESSMENT.ANXIETY_OR_STRESS" | translate }}:</td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment
@@ -385,7 +410,7 @@
                 </tr>
 
                 <tr>
-                  <td>Depression Or Sadness:</td>
+                  <td>{{ "ASSESSMENT.DEPRESSION_OR_SADNESS" | translate }}:</td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment
@@ -395,7 +420,7 @@
                 </tr>
 
                 <tr>
-                  <td>Aggression:</td>
+                  <td>{{ "ASSESSMENT.AGGRESSION" | translate }}:</td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment?.aggression
@@ -404,7 +429,7 @@
                 </tr>
 
                 <tr>
-                  <td>Eating And Drinking:</td>
+                  <td>{{ "ASSESSMENT.EATING_AND_DRINKING" | translate }}:</td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment
@@ -414,21 +439,21 @@
                 </tr>
 
                 <tr>
-                  <td>Bathing:</td>
+                  <td>{{ "ASSESSMENT.BATHING" | translate }}:</td>
                   <td>
                     {{ requestDetails.patientInfo?.latestAssessment?.bathing }}
                   </td>
                 </tr>
 
                 <tr>
-                  <td>Dressing:</td>
+                  <td>{{ "ASSESSMENT.DRESSING" | translate }}:</td>
                   <td>
                     {{ requestDetails.patientInfo?.latestAssessment?.dressing }}
                   </td>
                 </tr>
 
                 <tr>
-                  <td>Using Bathroom:</td>
+                  <td>{{ "ASSESSMENT.USING_BATHROOM" | translate }}:</td>
                   <td>
                     {{
                       requestDetails.patientInfo?.latestAssessment
@@ -438,7 +463,7 @@
                 </tr>
 
                 <tr>
-                  <td>Mobility:</td>
+                  <td>{{ "ASSESSMENT.MOBILITY" | translate }}:</td>
                   <td>
                     {{ requestDetails.patientInfo?.latestAssessment?.mobility }}
                   </td>

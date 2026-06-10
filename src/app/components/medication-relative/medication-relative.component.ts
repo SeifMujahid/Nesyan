@@ -14,11 +14,12 @@ import { ToastrService } from 'ngx-toastr';
 import { MainService } from 'src/app/context/main.service';
 import { DoctorService } from 'src/app/core/services/doctor.service';
 import { RelativeService } from 'src/app/core/services/relative.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-medication-relative',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './medication-relative.component.html',
   styleUrls: ['./medication-relative.component.scss'],
 })

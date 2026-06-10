@@ -17,10 +17,15 @@ nav {
   }
 
   .logo-text {
-  text-decoration: none;
-  font-weight: bolder;
-  font-size: 24px;
-  color: #155dfc;
-  cursor: pointer;
+    text-decoration: none;
+    font-weight: bolder;
+    font-size: 24px;
+    color: #155dfc;
+    cursor: pointer;
+  }
 }
+
+.lang-btn {
+  margin-inline-start: auto; // RTL-safe: pushes button to the end
+  cursor: pointer;
 }

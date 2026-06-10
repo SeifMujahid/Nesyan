@@ -9,8 +9,13 @@
     <div
       class="top d-flex justify-content-between align-items-center mb-4 border-b"
     >
-      <h2><i class="fa-solid fa-user-doctor me-2"></i>My Profile</h2>
-      <a routerLink="/doctor" class="btn btn-primary">Back to Home</a>
+      <h2>
+        <i class="fa-solid fa-user-doctor me-2"></i
+        >{{ "DOCTOR.MY_PROFILE" | translate }}
+      </h2>
+      <a routerLink="/doctor" class="btn btn-primary">{{
+        "DOCTOR.BACK_HOME" | translate
+      }}</a>
     </div>
 
     <div
@@ -33,23 +38,23 @@
             class="form-top d-flex justify-content-between align-items-center w-100"
           >
             <div class="form-group">
-              <label for="fName">First Name</label>
+              <label for="fName">{{ "PROFILE.FIRST_NAME" | translate }}</label>
               <input
                 id="fName"
                 type="text"
                 [value]="doctorProfile.fName"
                 disabled
-                aria-label="First Name"
+                [attr.aria-label]="'PROFILE.FIRST_NAME' | translate"
               />
             </div>
             <div class="form-group">
-              <label for="lName">Last Name</label>
+              <label for="lName">{{ "PROFILE.LAST_NAME" | translate }}</label>
               <input
                 id="lName"
                 type="text"
                 [value]="doctorProfile.lName"
                 disabled
-                aria-label="Last Name"
+                [attr.aria-label]="'PROFILE.LAST_NAME' | translate"
               />
             </div>
           </div>
@@ -59,23 +64,25 @@
             class="form-top d-flex justify-content-between align-items-center w-100"
           >
             <div class="form-group">
-              <label for="userName">User Name</label>
+              <label for="userName">{{
+                "PROFILE.USER_NAME" | translate
+              }}</label>
               <input
                 id="userName"
                 type="text"
                 [value]="doctorProfile.userName"
                 disabled
-                aria-label="User Name"
+                [attr.aria-label]="'PROFILE.USER_NAME' | translate"
               />
             </div>
             <div class="form-group">
-              <label for="age">Age</label>
+              <label for="age">{{ "PROFILE.AGE" | translate }}</label>
               <input
                 id="age"
                 type="text"
                 [value]="doctorProfile.age"
                 disabled
-                aria-label="Age"
+                [attr.aria-label]="'PROFILE.AGE' | translate"
               />
             </div>
           </div>

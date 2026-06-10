@@ -8,11 +8,12 @@ import { MainService } from 'src/app/context/main.service';
 import { CaregiverProfile } from 'src/app/core/interfaces/caregiver';
 import { MainNavComponent } from '../main-nav/main-nav.component';
 import { RouterLink } from '@angular/router';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-caregiver-profile',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, MainNavComponent, RouterLink],
+  imports: [CommonModule, ReactiveFormsModule, MainNavComponent, RouterLink,TranslateModule],
   templateUrl: './caregiver-profile.component.html',
   styleUrls: ['./caregiver-profile.component.scss'],
 })

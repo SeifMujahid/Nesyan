@@ -9,34 +9,34 @@
   >
     <p class="p-0 m-0 fw-bold fs-5">
       <i class="fa-solid fa-pills me-1 fs-4" style="color: #155dfc"></i>
-      Stage Management
+      {{ "STAGE.TITLE" | translate }}
     </p>
-    <p class="text-muted m-0 p-0">Update patient's stage</p>
+    <p class="text-muted m-0 p-0">{{ "STAGE.DESCRIPTION" | translate }}</p>
   </div>
   <div class="w-100">
     <div class="current">
-      <p class="m-0 p-0 fw-bold">Current Stage</p>
+      <p class="m-0 p-0 fw-bold">{{ "STAGE.CURRENT_STAGE" | translate }}</p>
       <div
         class="stage-1 d-flex justify-content-start align-items-center mt-2"
         *ngIf="patientData.currentStage === 1"
       >
-        <span>Stage 1: Early/Mild</span>
+        <span>{{ "STAGE.STAGE_1" | translate }}</span>
       </div>
       <div
         class="stage-2 d-flex justify-content-start align-items-center mt-2"
         *ngIf="patientData.currentStage === 2"
       >
-        <span>Stage 2: Middle/Moderate </span>
+        <span>{{ "STAGE.STAGE_2" | translate }}</span>
       </div>
       <div
         class="stage-3 d-flex justify-content-start align-items-center mt-2"
         *ngIf="patientData.currentStage === 3"
       >
-        <span>Stage 3: Late/Severe </span>
+        <span>{{ "STAGE.STAGE_3" | translate }}</span>
       </div>
     </div>
     <div class="new-stage mt-2">
-      <p class="m-0 p-0 fw-bold">Update To Stage</p>
+      <p class="m-0 p-0 fw-bold">{{ "STAGE.UPDATE_TO_STAGE" | translate }}</p>
       <div class="dropdown-center w-100 mt-2">
         <button
           class="btn dropdown-toggle w-100 text-start fw-bold bg-primary-subtle text-dark border-1 justify-content-between"
@@ -44,7 +44,7 @@
           data-bs-toggle="dropdown"
           aria-expanded="false"
         >
-          Select New Stage
+          {{ "STAGE.SELECT_NEW_STAGE" | translate }}
         </button>
         <ul class="dropdown-menu w-100 bg-body-secondary px-2 rounded">
           <li>
@@ -52,7 +52,7 @@
               class="stage-1 d-flex justify-content-start align-items-center mt-2"
               (click)="updatePatientStage(1)"
             >
-              <span>Stage 1: Early/Mild</span>
+              <span>{{ "STAGE.STAGE_1" | translate }}</span>
             </div>
           </li>
           <li>
@@ -60,7 +60,7 @@
               class="stage-2 d-flex justify-content-start align-items-center mt-2"
               (click)="updatePatientStage(2)"
             >
-              <span>Stage 2: Middle/Moderate</span>
+              <span>{{ "STAGE.STAGE_2" | translate }}</span>
             </div>
           </li>
           <li>
@@ -68,7 +68,7 @@
               class="stage-3 d-flex justify-content-start align-items-center mt-2"
               (click)="updatePatientStage(3)"
             >
-              <span>Stage 3: Late/Severe</span>
+              <span>{{ "STAGE.STAGE_3" | translate }}</span>
             </div>
           </li>
         </ul>

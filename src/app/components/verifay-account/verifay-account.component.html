@@ -3,24 +3,24 @@
 <!-- ---------------------------------------------------------------------------- -->
 <section class="verifay-account-section">
   <div class="verifay-account-container">
-    <h3>Verify Your Account</h3>
+    <h3>{{ "VERIFY_ACCOUNT.TITLE" | translate }}</h3>
     <div class="image w-25 h-25">
       <img src="./assets/images/Nesyan.png" alt="logo" class="w-100" />
     </div>
-    <p>Check Your Registered Email</p>
+    <p>{{ "VERIFY_ACCOUNT.CHECK_EMAIL" | translate }}</p>
     <div class="verifay-account-form w-100">
       <form
         class="d-flex flex-column justify-content-center align-items-center gap-2 w-100"
         [formGroup]="verifay"
       >
         <div class="input-group d-flex flex-column w-100">
-          <label for="code">Code</label>
+          <label for="code">{{ "VERIFY_ACCOUNT.CODE" | translate }}</label>
           <input
             formControlName="code"
             type="text"
             id="code"
             name="code"
-            placeholder="Your code"
+            [placeholder]="'VERIFY_ACCOUNT.CODE_PLACEHOLDER' | translate"
             required
           />
         </div>
@@ -34,17 +34,25 @@
             [class.disabled]="resendDisabled"
             [attr.aria-disabled]="resendDisabled"
           >
-            <span *ngIf="!resendDisabled">Resend Code</span>
+            <span *ngIf="!resendDisabled">{{
+              "VERIFY_ACCOUNT.RESEND_CODE" | translate
+            }}</span>
             <span *ngIf="resendDisabled"
-              >Resend Code ({{ getCountdownText() }})</span
+              >{{ "VERIFY_ACCOUNT.RESEND_DISABLED" | translate }} ({{
+                getCountdownText()
+              }})</span
             >
           </p>
         </div>
         <div
           class="navigate buttons w-100 d-flex justify-content-start align-items-center"
         >
-          <button class="back" onclick="history.back()">Back</button>
-          <button class="login" (click)="verifayAccount()">Login</button>
+          <button class="back" onclick="history.back()">
+            {{ "COMMON.BACK" | translate }}
+          </button>
+          <button class="login" (click)="verifayAccount()">
+            {{ "VERIFY_ACCOUNT.LOGIN_BTN" | translate }}
+          </button>
         </div>
       </form>
     </div>

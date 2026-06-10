@@ -9,14 +9,19 @@
     <div
       class="top d-flex justify-content-between align-items-center mb-4 border-b"
     >
-      <h2><i class="fa-solid fa-plus me-1"></i>Create New Patient Account</h2>
-      <a routerLink="/relative" class="btn btn-primary">Back to Home</a>
+      <h2>
+        <i class="fa-solid fa-plus me-1"></i
+        >{{ "AUTH.CREATE_ACCOUNT" | translate }}
+      </h2>
+      <a routerLink="/relative" class="btn btn-primary">{{
+        "COMMON.BACK" | translate
+      }}</a>
     </div>
     <div
       class="register-container px-4 d-flex flex-column justify-content-center align-items-center gap-2 w-100"
     >
       <div class="head">
-        <p>Complete all steps to create new patient account</p>
+        <p>{{ "AUTH.COMPLETE_STEPS" | translate }}</p>
         <div
           class="step-indicator d-flex justify-content-between align-items-center w-50 my-3"
         >
@@ -40,7 +45,7 @@
       <div class="steps">
         <div class="step1-container" [hidden]="currentStep !== 1">
           <div class="form-container w-100">
-            <h5>Personal Information</h5>
+            <h5>{{ "AUTH.PERSONAL_INFO" | translate }}</h5>
             <form
               [formGroup]="personalInformation"
               class="d-flex flex-column justify-content-center w-100"
@@ -49,23 +54,27 @@
                 class="form-top d-flex justify-content-between align-items-center w-100"
               >
                 <div class="form-group">
-                  <label for="firstName">First Name</label>
+                  <label for="firstName">{{
+                    "AUTH.FIRST_NAME" | translate
+                  }}</label>
                   <input
                     type="text"
                     id="firstName"
                     name="firstName"
-                    placeholder="Enter your first name"
+                    [placeholder]="'AUTH.FIRST_NAME_PLACEHOLDER' | translate"
                     formControlName="fName"
                     required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="lastName">Last Name</label>
+                  <label for="lastName">{{
+                    "AUTH.LAST_NAME" | translate
+                  }}</label>
                   <input
                     type="text"
                     id="lastName"
                     name="lastName"
-                    placeholder="Enter your last name"
+                    [placeholder]="'AUTH.LAST_NAME_PLACEHOLDER' | translate"
                     formControlName="lName"
                     required
                   />
@@ -73,40 +82,44 @@
               </div>
               <div class="form-middel w-100">
                 <div class="form-group">
-                  <label for="userName">User Name</label>
+                  <label for="userName">{{
+                    "AUTH.USERNAME" | translate
+                  }}</label>
                   <input
                     type="text"
                     id="userName"
                     name="userName"
-                    placeholder="Enter your user name"
+                    [placeholder]="'AUTH.USERNAME_PLACEHOLDER' | translate"
                     formControlName="userName"
                     required
                   />
                 </div>
                 <div class="form-group">
-                  <label for="nationalId">National ID</label>
+                  <label for="nationalId">{{
+                    "AUTH.NATIONAL_ID" | translate
+                  }}</label>
                   <input
                     type="text"
                     id="nationalId"
                     name="nationalId"
-                    placeholder="Enter your national ID"
+                    [placeholder]="'AUTH.NATIONAL_ID_PLACEHOLDER' | translate"
                     formControlName="nationalId"
                     required
                   />
                 </div>
                 <div class="form-group w-100">
-                  <label for="age">Age</label>
+                  <label for="age">{{ "AUTH.AGE" | translate }}</label>
                   <input
                     type="number"
                     name="age"
                     id="age"
-                    placeholder="Enter your age"
+                    [placeholder]="'AUTH.AGE_PLACEHOLDER' | translate"
                     required
                     formControlName="age"
                   />
                 </div>
                 <div class="form-group">
-                  <label for="gender">Gender</label>
+                  <label for="gender">{{ "AUTH.GENDER" | translate }}</label>
                   <select
                     id="gender"
                     name="gender"
@@ -114,14 +127,20 @@
                     required
                   >
                     <option value="" disabled selected hidden>
-                      Select your gender
+                      {{ "COMMON.SELECT" | translate }}
                     </option>
-                    <option value="0">Male</option>
-                    <option value="1">Female</option>
+                    <option value="0">
+                      {{ "AUTH.GENDER_MALE" | translate }}
+                    </option>
+                    <option value="1">
+                      {{ "AUTH.GENDER_FEMALE" | translate }}
+                    </option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="maritalstatus">MaritalStatus</label>
+                  <label for="maritalstatus">{{
+                    "AUTH.MARITAL_STATUS" | translate
+                  }}</label>
                   <select
                     id="maritalstatus"
                     name="maritalstatus"
@@ -129,13 +148,15 @@
                     required
                   >
                     <option value="" disabled selected hidden>
-                      Select your marital status
+                      {{ "COMMON.SELECT" | translate }}
                     </option>
-                    <option value="0">Single</option>
-                    <option value="1">Married</option>
-                    <option value="2">Divorced</option>
-                    <option value="3">Widowed</option>
-                    <option value="4">Separated</option>
+                    <option value="0">{{ "AUTH.SINGLE" | translate }}</option>
+                    <option value="1">{{ "AUTH.MARRIED" | translate }}</option>
+                    <option value="2">{{ "AUTH.DIVORCED" | translate }}</option>
+                    <option value="3">{{ "AUTH.WIDOWED" | translate }}</option>
+                    <option value="4">
+                      {{ "AUTH.SEPARATED" | translate }}
+                    </option>
                   </select>
                 </div>
               </div>

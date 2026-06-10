@@ -8,12 +8,11 @@
   <div class="logo">
     <img src="./assets/images/Nesyan.png" alt="logo" />
   </div>
-  <h1 class="my-2">Nesyan - Alzheimer's Care Platform</h1>
+  <h1 class="my-2">{{ "LANDING.TITLE" | translate }}</h1>
   <p class="hero-text my-2 fs-5 fw-medium">
-    A comprehensive solution for Alzheimer's patients, their families, and
-    healthcare providers.
+    {{ "LANDING.SUBTITLE" | translate }}
     <br />
-    Monitor, support, and manage care across all stages of Alzheimer's disease.
+    {{ "LANDING.DESCRIPTION" | translate }}
   </p>
   <div
     class="stores d-flex justify-content-between align-items-center my-4 gap-4 fs-4"
@@ -21,73 +20,67 @@
     <div class="appel d-flex align-items-center">
       <a routerLink="#">
         <i class="fa-brands fa-apple me-1 fs-2"></i>
-        <span>Download on App Store</span>
+        <span>{{ "LANDING.APP_STORE" | translate }}</span>
       </a>
     </div>
     <div class="andorid d-flex align-items-center">
       <a routerLink="#">
         <i class="fa-brands fa-google-play me-1 fs-2"></i>
-        <span>Get it on Google Play</span>
+        <span>{{ "LANDING.GOOGLE_PLAY" | translate }}</span>
       </a>
     </div>
   </div>
-  <p class="fs-5 fw-medium">Healthcare providers and family members</p>
-  <a routerLink="/auth/register" class="btn btn-primary my-1"
-    >Register as Doctor or Relative or Caregiver or Patient</a
-  >
+  <p class="fs-5 fw-medium">{{ "LANDING.CTA_TEXT" | translate }}</p>
+  <a routerLink="/auth/register" class="btn btn-primary my-1">{{
+    "LANDING.REGISTER_BTN" | translate
+  }}</a>
 </section>
 <!-- --------------------------------------------------------------------------------------- -->
 <!-- features section -->
 <!-- --------------------------------------------------------------------------------------- -->
 <section class="featurs-section container-fluid">
-  <h3 class="feature-question">Why Choose Nesyan?</h3>
+  <h3 class="feature-question">{{ "LANDING.WHY_CHOOSE" | translate }}</h3>
   <div class="feature-cards">
     <div class="feature-card">
       <i class="fa-solid fa-shield-halved fs-2 text-primary mb-2"></i>
-      <h4>Stage-Based Care</h4>
+      <h4>{{ "LANDING.STAGE_BASED" | translate }}</h4>
       <p>
-        Tailored support for all three stages of Alzheimer's, with controlled
-        access for safety and appropriate care.
+        {{ "LANDING.STAGE_BASED_DESC" | translate }}
       </p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-bell fs-2 text-success mb-2"></i>
-      <h4>Smart Reminders</h4>
+      <h4>{{ "LANDING.SMART_REMINDERS" | translate }}</h4>
       <p>
-        Family members can set medication reminders, daily tasks, and important
-        notifications for patients.
+        {{ "LANDING.SMART_REMINDERS_DESC" | translate }}
       </p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-map-location-dot fs-2 text-primary mb-2"></i>
-      <h4>Patient Tracking</h4>
+      <h4>{{ "LANDING.PATIENT_TRACKING" | translate }}</h4>
       <p>
-        Real-time location tracking and activity monitoring to ensure patient
-        safety and wellbeing.
+        {{ "LANDING.PATIENT_TRACKING_DESC" | translate }}
       </p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-brain fs-2 text-success mb-2"></i>
-      <h4>Cognitive Games</h4>
+      <h4>{{ "LANDING.COGNITIVE_GAMES" | translate }}</h4>
       <p>
-        Mind-stimulating games and activities designed to support cognitive
-        health and memory retention.
+        {{ "LANDING.COGNITIVE_GAMES_DESC" | translate }}
       </p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-user-doctor fs-2 text-primary mb-2"></i>
-      <h4>Medical Management</h4>
+      <h4>{{ "LANDING.MEDICAL_MANAGEMENT" | translate }}</h4>
       <p>
-        Doctors can manage medications, update treatment stages, and monitor
-        patient progress remotely.
+        {{ "LANDING.MEDICAL_MANAGEMENT_DESC" | translate }}
       </p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-hand-holding-heart fs-2 text-success mb-2"></i>
-      <h4>Collaborative Care</h4>
+      <h4>{{ "LANDING.COLLABORATIVE_CARE" | translate }}</h4>
       <p>
-        Seamless coordination between patients, family members, and healthcare
-        providers in one platform.
+        {{ "LANDING.COLLABORATIVE_CARE_DESC" | translate }}
       </p>
     </div>
   </div>
@@ -96,7 +89,7 @@
 <!-- about section -->
 <!-- --------------------------------------------------------------------------------------- -->
 <section class="about-section container-fluid">
-  <h3 class="about-question">Understanding Alzheimer's Disease</h3>
+  <h3 class="about-question">{{ "LANDING.ABOUT_TITLE" | translate }}</h3>
   <div class="content container">
     <div class="info">
       <h4>What is Alzheimer's?</h4>
