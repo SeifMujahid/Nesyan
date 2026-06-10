@@ -1,0 +1,423 @@
+<app-main-nav></app-main-nav>
+<!-- --------------------------------------------------------------------------------------- -->
+<!-- main -->
+<!-- --------------------------------------------------------------------------------------- -->
+<section
+  class="main-section d-flex justify-content-between align-items-start gap-4"
+>
+  <div
+    class="patient-container w-25 d-flex flex-column justify-content-center align-items-center gap-3"
+  >
+    <div class="top-part d-flex flex-column justify-content-center gap-2">
+      <button
+        data-bs-target="#exampleModalToggle2"
+        data-bs-toggle="modal"
+        class="requests-btn btn btn-primary"
+      >
+        <i class="fa-solid fa-clipboard-list me-1"></i>
+        <span>Request Doctor</span>
+      </button>
+      <button
+        class="requests-btn btn btn-primary"
+        data-bs-target="#exampleModalToggle3"
+        data-bs-toggle="modal"
+      >
+        <i class="fa-solid fa-hand-holding-medical me-1"></i>
+        <span>Request Care Giver</span>
+      </button>
+      <!-- <a routerLink="#" class="new-account-btn btn btn-primary">
+        <i class="fa-solid fa-users-gear me-1"></i>
+        <span>Control Patient's List</span>
+      </a> -->
+      <a
+        routerLink="/relative/create-patient-account"
+        class="new-account-btn btn btn-primary"
+      >
+        <i class="fa-solid fa-plus me-1"></i>
+        <span>Create Patient Account</span>
+      </a>
+      <button
+        data-bs-target="#exampleModalToggleNew"
+        data-bs-toggle="modal"
+        class="new-account-btn btn btn-primary"
+      >
+        <i class="fa-solid fa-plus me-1"></i>
+        <span>Add New Patient</span>
+      </button>
+    </div>
+    <div
+      class="mid-part w-100 d-flex justify-content-between align-items-center fs-5 fw-medium text-primary border-bottom border-top border-primary py-2"
+    >
+      <div>
+        <i class="fa-solid fa-people-roof me-1"></i>
+        <span>My Patients</span>
+      </div>
+      <span>{{ relativePatientsList.length }}</span>
+    </div>
+    <div
+      class="patient-list w-100 d-flex flex-column justify-content-start align-items-center gap-2"
+      *ngFor="let patient of relativePatientsList; let i = index"
+    >
+      <div
+        class="patient"
+        [class.active]="activeIndex === i"
+        (click)="selectPatient(patient.patientId, i)"
+      >
+        <p>{{ patient.fullName }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <span>Age:{{ patient.age }}</span>
+          <span class="stage{{ patient.currentStage }}"
+            >Stage {{ patient.currentStage }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="patient-details w-75 d-flex flex-column justify-content-center align-items-center gap-3"
+  >
+    <div
+      class="patient-bar d-flex justify-content-between align-items-center w-100"
+    >
+      <div>
+        <p class="m-0">{{ patientDetails.fullName }}</p>
+        <div>
+          <span>Age:{{ patientDetails.age }}</span>
+          <span> - Gender: {{ patientDetails.gender }}</span>
+        </div>
+      </div>
+      <a
+        [routerLink]="['/relative/patient-profile']"
+        [queryParams]="{ patientId: patientDetails.patientId }"
+        class="requests-btn btn btn-primary"
+      >
+        <i class="fa-solid fa-address-card me-1"></i>
+        <span>View patient's Profile</span>
+      </a>
+      <span
+        class="stage-{{ patientDetails.currentStage }}"
+        *ngIf="patientDetails.currentStage === 1"
+        >Stage 1: Early/Mild</span
+      >
+      <span
+        class="stage-{{ patientDetails.currentStage }}"
+        *ngIf="patientDetails.currentStage === 2"
+        >Stage 2: Middle/Moderate</span
+      >
+      <span
+        class="stage-{{ patientDetails.currentStage }}"
+        *ngIf="patientDetails.currentStage === 3"
+        >Stage 3: Late/Severe</span
+      >
+    </div>
+    <div class="tabs-list w-100">
+      <ul
+        class="d-flex justify-content-between align-items-center m-0 p-0 list-unstyled"
+      >
+        <!-- <li>
+          <a routerLinkActive="active" routerLink="/relative/reminders"
+            >Reminders</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/relative/daily-tasks"
+            >Daily Tasks</a
+          >
+        </li> -->
+        <li>
+          <a routerLinkActive="active" routerLink="/relative/routine"
+            >Routine</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/relative/medication"
+            >Medication</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/relative/appointments"
+            >Appointments</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/relative/family">Family</a>
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/relative/location"
+            >Location</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/relative/statistics"
+            >Reports</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- routing here -->
+    <div class="w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>
+<!-- --------------------------------------------------------------------------------------- -->
+<!-- add-existing-patient -->
+<!-- --------------------------------------------------------------------------------------- -->
+<div
+  class="modal fade"
+  id="exampleModalToggleNew"
+  aria-hidden="true"
+  aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
+          Add New Patient
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body overflow-y-scroll" style="max-height: 400px">
+        <div class="form-container">
+          <form class="fw-bold" [formGroup]="patientData">
+            <div class="form-group mb-2">
+              <label for="patient-id" class="form-label"
+                >Patient National Id</label
+              >
+              <input
+                type="text"
+                class="form-control"
+                id="patient-id"
+                formControlName="patientId"
+                required
+                placeholder="Enter Valid Egyption ID"
+              />
+            </div>
+            <div class="form-group mb-2">
+              <label for="patient-email" class="form-label"
+                >Patient Email</label
+              >
+              <input
+                type="email"
+                class="form-control"
+                id="patient-email"
+                formControlName="email"
+                required
+                placeholder="e.g.. patient@gmail.com"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button
+          class="btn btn-primary"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+          (click)="addNewPatient()"
+        >
+          Add
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- --------------------------------------------------------------------------------------- -->
+<!-- request doctor -->
+<!-- --------------------------------------------------------------------------------------- -->
+<div
+  class="modal fade"
+  id="exampleModalToggle2"
+  aria-hidden="true"
+  aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <h1
+          class="modal-title fs-4 text-primary fw-bold"
+          id="exampleModalToggleLabel"
+        >
+          Send New Treatment Request
+        </h1>
+        <div class="d-flex justify-content-center align-items-center">
+          <button
+            class="btn btn-primary me-3 fw-bold px-3"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="sendNewRequest()"
+          >
+            Send
+          </button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+      <div class="modal-body overflow-y-scroll" style="max-height: 400px">
+        <p class="fw-bold m-0 py-2 text-center border-bottom border-primary">
+          Select Your Patient And Doctor
+        </p>
+        <div class="w-100 d-flex justify-content-between align-items-start p-2">
+          <div
+            class="w-50 p-2 d-flex flex-column justify-content-start align-items-center gap-2"
+          >
+            <p
+              class="fw-bold m-0 py-2 text-center border-bottom border-primary w-100"
+            >
+              Patients
+            </p>
+            <div
+              *ngFor="let patient of allPatients; let i = index"
+              class="w-100"
+            >
+              <div
+                class="patient2 w-100"
+                [class.activeBox]="activePatientIndex === i"
+                (click)="selectPatientRequest(patient.patientId, i)"
+              >
+                <p>{{ patient.fullName }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Age:{{ patient.age }}</span>
+                  <span class="stage{{ patient.currentStage }}"
+                    >Stage {{ patient.currentStage }}</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-50 p-2 d-flex flex-column justify-content-start align-items-center gap-2"
+          >
+            <p
+              class="fw-bold m-0 py-2 text-center border-bottom border-primary w-100"
+            >
+              Doctors
+            </p>
+            <div *ngFor="let doctor of allDoctors; let i = index" class="w-100">
+              <div
+                class="patient2 w-100"
+                [class.activeBox]="activeDoctorIndex === i"
+                (click)="selectDoctor(doctor.doctorId, i)"
+              >
+                <p>{{ doctor.fullName }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Age:{{ doctor.age }}</span>
+                  <span>Specialization: {{ doctor.specialization }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- --------------------------------------------------------------------------------------- -->
+<!-- request caregiver -->
+<!-- --------------------------------------------------------------------------------------- -->
+<div
+  class="modal fade"
+  id="exampleModalToggle3"
+  aria-hidden="true"
+  aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header justify-content-between">
+        <h1
+          class="modal-title fs-4 text-primary fw-bold"
+          id="exampleModalToggleLabel"
+        >
+          Request New Care Giver
+        </h1>
+        <div class="d-flex justify-content-center align-items-center">
+          <button
+            class="btn btn-primary me-3 fw-bold px-3"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+            (click)="sendNewRequestCaregiver()"
+          >
+            Send
+          </button>
+          <button
+            type="button"
+            class="btn-close"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+      </div>
+      <div class="modal-body overflow-y-scroll" style="max-height: 400px">
+        <p class="fw-bold m-0 py-2 text-center border-bottom border-primary">
+          Select Your Patient And CareGiver
+        </p>
+        <div class="w-100 d-flex justify-content-between align-items-start p-2">
+          <div
+            class="w-50 p-2 d-flex flex-column justify-content-start align-items-center gap-2"
+          >
+            <p
+              class="fw-bold m-0 py-2 text-center border-bottom border-primary w-100"
+            >
+              Patients
+            </p>
+            <div
+              *ngFor="let patient of allPatients; let i = index"
+              class="w-100"
+            >
+              <div
+                class="patient2 w-100"
+                [class.activeBox]="activePatientIndex === i"
+                (click)="selectPatientRequest(patient.patientId, i)"
+              >
+                <p>{{ patient.fullName }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Age:{{ patient.age }}</span>
+                  <span class="stage{{ patient.currentStage }}"
+                    >Stage {{ patient.currentStage }}</span
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <div
+            class="w-50 p-2 d-flex flex-column justify-content-start align-items-center gap-2"
+          >
+            <p
+              class="fw-bold m-0 py-2 text-center border-bottom border-primary w-100"
+            >
+              Care Giver
+            </p>
+            <div
+              *ngFor="let caregiver of allCaregivers; let i = index"
+              class="w-100"
+            >
+              <div
+                class="patient2 w-100"
+                [class.activeBox]="activecaregiverIndex === i"
+                (click)="selectCaregiver(caregiver.caregiverId, i)"
+              >
+                <p>{{ caregiver.fullName }}</p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <span>Age:{{ caregiver.age }}</span>
+                  <!-- <span>Specialization: {{ caregiver.specialization }}</span> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

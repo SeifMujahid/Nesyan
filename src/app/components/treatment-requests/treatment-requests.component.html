@@ -1,0 +1,460 @@
+<app-main-nav></app-main-nav>
+<!-- --------------------------------------------------------------------------------------- -->
+<!-- main -->
+<!-- --------------------------------------------------------------------------------------- -->
+<section
+  class="main-section d-flex justify-content-center align-items-start gap-4"
+>
+  <div class="container">
+    <div
+      class="top d-flex justify-content-between align-items-center mb-4 border-b"
+    >
+      <h2><i class="fa-solid fa-clipboard-user me-2"></i>Treatment Requests</h2>
+      <a routerLink="/doctor" class="btn btn-primary">Back to Home</a>
+    </div>
+    <div
+      class="filter d-flex justify-content-between align-items-center gap-3 mb-4 pb-4 border-b px-5"
+    >
+      <div class="d-flex justify-content-between align-items-center gap-4">
+        <h4 class="m-0 p-0">Filter<i class="fa-solid fa-sliders ms-1"></i></h4>
+        <ul
+          class="tabs-list d-flex justify-content-start align-items-center gap-4 list-unstyled m-0 p-0"
+        >
+          <li
+            class="btn btn-outline-primary fw-bold"
+            [class.active]="filter === 'pending'"
+            (click)="getPendingRequests()"
+          >
+            Pending
+          </li>
+          <li
+            class="btn btn-outline-primary fw-bold"
+            [class.active]="filter === 'accepted'"
+            (click)="getAcceptedRequests()"
+          >
+            Accepted
+          </li>
+          <li
+            class="btn btn-outline-primary fw-bold"
+            [class.active]="filter === 'rejected'"
+            (click)="getRejectedRequests()"
+          >
+            Rejected
+          </li>
+        </ul>
+      </div>
+      <div class="d-flex justify-content-center align-items-center">
+        <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'pending'">
+          Pending Requests Are Waiting For Your Action
+        </p>
+        <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'accepted'">
+          Accepted Requests Are Waiting For Patient's Relative Action
+        </p>
+        <p class="m-0 p-0 fw-bold fs-5" *ngIf="filter === 'rejected'">
+          Rejected Requests Were Rejectd By You Or Patient's Relative
+        </p>
+      </div>
+    </div>
+    <div
+      class="requests-list px-4 d-flex flex-column justify-content-center align-items-center gap-2 w-100"
+      *ngFor="let request of requests; let i = index"
+    >
+      <div
+        class="request d-flex justify-content-between align-items-center w-100 mb-3"
+      >
+        <div
+          class="patient d-flex justify-content-center align-items-center gap-3 text-center"
+        >
+          <!-- <div class="image rounded-circle">
+            <img
+              src="./assets/images/avatar_test.png"
+              alt="profile"
+              class="w-100 rounded-circle"
+            />
+          </div> -->
+          <div class="info">
+            <span class="m-0 p-0">Patient</span>
+            <h3>{{ request.patientInfo?.patientSummary?.fullName }}</h3>
+            <div
+              class="sub-info d-flex justify-content-between align-items-center gap-3"
+            >
+              <p class="m-0 p-0 blue-t">
+                Age: {{ request.patientInfo?.patientSummary?.age }}
+              </p>
+              <p class="m-0 p-0 blue-t">
+                Gender: {{ request.patientInfo?.patientSummary?.gender }}
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="sender d-flex flex-column justify-content-center align-items-start text-center"
+        >
+          <div class="main-sub-info">
+            <span class="m-0 p-0">Requested by</span>
+            <h3>{{ request.relativeSummary?.fullName }}</h3>
+          </div>
+          <!-- <div
+            class="sub-info d-flex justify-content-center align-items-center gap-3 w-100"
+          >
+            <p class="m-0 p-0 blue-t">Son</p>
+            <p class="m-0 p-0 blue-t">2026-02-23</p>
+          </div> -->
+        </div>
+        <div
+          class="actions d-flex flex-column justify-content-center align-items-between gap-2"
+        >
+          <button
+            class="btn btn-outline-primary"
+            data-bs-target="#exampleModalToggle"
+            data-bs-toggle="modal"
+            [disabled]="filter !== 'pending'"
+            (click)="viewDetails(i)"
+          >
+            <i class="fa-solid fa-folder me-1"></i>View Details
+          </button>
+          <div class="d-flex justify-content-between align-items-center gap-2">
+            <button
+              class="btn btn-outline-success"
+              [disabled]="filter !== 'pending'"
+              (click)="acceptRequest(request.requestId)"
+            >
+              <i class="fa-solid fa-square-check me-1"></i>Accept
+            </button>
+            <button
+              class="btn btn-outline-danger"
+              [disabled]="filter !== 'pending'"
+              (click)="rejectRequest(request.requestId)"
+            >
+              <i class="fa-solid fa-rectangle-xmark me-1"></i>Reject
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- --------------------------------------------------------------------------------------- -->
+<!-- view-details -->
+<!-- --------------------------------------------------------------------------------------- -->
+<div
+  class="modal fade"
+  id="exampleModalToggle"
+  aria-hidden="true"
+  aria-labelledby="exampleModalToggleLabel"
+  tabindex="-1"
+>
+  <div class="modal-dialog modal-fullscreen">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1
+          class="modal-title fs-4 text-primary fw-bold"
+          id="exampleModalToggleLabel"
+        >
+          <i class="fa-solid fa-folder-open me-1 fs-3"></i>Patient's Information
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body overflow-y-scroll" style="max-height: 400px">
+        <div class="info-group">
+          <div class="top-1">
+            <h4><i class="fa-solid fa-user me-1"></i>Personal Information</h4>
+          </div>
+          <div class="table-container-1">
+            <table class="table table-striped w-100 p-0 m-0">
+              <tbody>
+                <tr>
+                  <td>Full Name:</td>
+                  <td>
+                    {{ requestDetails.patientInfo?.patientSummary?.fullName }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Age:</td>
+                  <td>{{ requestDetails.patientInfo?.patientSummary?.age }}</td>
+                </tr>
+                <tr>
+                  <td>Gender:</td>
+                  <td>
+                    {{ requestDetails.patientInfo?.patientSummary?.gender }}
+                  </td>
+                </tr>
+                <tr>
+                  <td>Current Stage:</td>
+                  <td>
+                    Stage-
+                    {{
+                      requestDetails.patientInfo?.patientSummary?.currentStage
+                    }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="info-group">
+          <div class="top-3">
+            <h4>
+              <i class="fa-solid fa-user-group me-1"></i>Relative Information
+            </h4>
+          </div>
+          <div class="table-container-3">
+            <table class="table table-striped w-100 p-0 m-0">
+              <tbody>
+                <tr>
+                  <td>Name:</td>
+                  <td>{{ requestDetails.relativeSummary?.fullName }}</td>
+                </tr>
+                <tr>
+                  <td>Username:</td>
+                  <td>{{ requestDetails.relativeSummary?.userName }}</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+        <div class="info-group">
+          <div class="top-2">
+            <h4>
+              <i class="fa-solid fa-file-medical me-1"></i>Medical History
+            </h4>
+          </div>
+          <div class="table-container-2">
+            <table class="table table-striped w-100 p-0 m-0">
+              <tbody>
+                <tr>
+                  <td>Height:</td>
+                  <td>
+                    {{ requestDetails.patientInfo?.patientMedical?.height }}Cm
+                  </td>
+                </tr>
+                <tr>
+                  <td>Weight:</td>
+                  <td>
+                    {{ requestDetails.patientInfo?.patientMedical?.weight }}kg
+                  </td>
+                </tr>
+                <tr>
+                  <td>Blood Type:</td>
+                  <td
+                    *ngIf="
+                      requestDetails.patientInfo?.patientMedical?.bloodType == 0
+                    "
+                  >
+                    A-
+                  </td>
+                  <td
+                    *ngIf="
+                      requestDetails.patientInfo?.patientMedical?.bloodType == 1
+                    "
+                  >
+                    A+
+                  </td>
+                  <td
+                    *ngIf="
+                      requestDetails.patientInfo?.patientMedical?.bloodType == 2
+                    "
+                  >
+                    B+
+                  </td>
+                  <td
+                    *ngIf="
+                      requestDetails.patientInfo?.patientMedical?.bloodType == 3
+                    "
+                  >
+                    B-
+                  </td>
+                  <td
+                    *ngIf="
+                      requestDetails.patientInfo?.patientMedical?.bloodType == 4
+                    "
+                  >
+                    AB+
+                  </td>
+                  <td
+                    *ngIf="
+                      requestDetails.patientInfo?.patientMedical?.bloodType == 5
+                    "
+                  >
+                    AB-
+                  </td>
+                  <td
+                    *ngIf="
+                      requestDetails.patientInfo?.patientMedical?.bloodType == 6
+                    "
+                  >
+                    O+
+                  </td>
+                  <td
+                    *ngIf="
+                      requestDetails.patientInfo?.patientMedical?.bloodType == 7
+                    "
+                  >
+                    O-
+                  </td>
+                </tr>
+                <tr>
+                  <td>Chronic Diseases:</td>
+                  <td>
+                    <ul
+                      class="d-flex justify-content-center align-items-center flex-wrap m-0 p-0 list-unstyled"
+                      *ngFor="let disease of chronicDiseases"
+                    >
+                      <li>{{ disease }}</li>
+                    </ul>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="info-group">
+          <div class="top-4">
+            <h4>
+              <i class="fa-solid fa-brain me-1"></i>Alzheimer's Condition
+              Assessment
+            </h4>
+          </div>
+          <div class="table-container-4">
+            <table class="table table-striped w-100 p-0 m-0">
+              <tbody>
+                <tr>
+                  <td>Recognition Of Name:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment
+                        ?.recognitionOfName
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Recognition Of Place:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment
+                        ?.recognitionOfPlace
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Recognition Of Time:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment
+                        ?.recognitionOfTime
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Ability To Concentrate:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment
+                        ?.abilityToConcentrate
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Recall Of Recent Events:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment
+                        ?.recallOfRecentEvents
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Anxiety Or Stress:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment
+                        ?.anxietyOrStress
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Depression Or Sadness:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment
+                        ?.depressionOrSadness
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Aggression:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment?.aggression
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Eating And Drinking:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment
+                        ?.eatingAndDrinking
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Bathing:</td>
+                  <td>
+                    {{ requestDetails.patientInfo?.latestAssessment?.bathing }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Dressing:</td>
+                  <td>
+                    {{ requestDetails.patientInfo?.latestAssessment?.dressing }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Using Bathroom:</td>
+                  <td>
+                    {{
+                      requestDetails.patientInfo?.latestAssessment
+                        ?.usingBathroom
+                    }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Mobility:</td>
+                  <td>
+                    {{ requestDetails.patientInfo?.latestAssessment?.mobility }}
+                  </td>
+                </tr>
+
+                <tr>
+                  <td>Notes:</td>
+                  <td>
+                    {{ requestDetails.patientInfo?.latestAssessment?.notes }}
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

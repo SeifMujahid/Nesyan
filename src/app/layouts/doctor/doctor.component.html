@@ -1,0 +1,125 @@
+<app-main-nav></app-main-nav>
+<!-- --------------------------------------------------------------------------------------- -->
+<!-- main -->
+<!-- --------------------------------------------------------------------------------------- -->
+<section
+  class="main-section d-flex justify-content-between align-items-start gap-4"
+>
+  <div
+    class="patient-container w-25 d-flex flex-column justify-content-center align-items-center gap-3"
+  >
+    <div class="top-part d-flex flex-column justify-content-center gap-2">
+      <!-- <button
+        data-bs-target="#exampleModalToggle2"
+        data-bs-toggle="modal"
+        class="requests-btn btn btn-primary"
+      >
+        <i class="fa-solid fa-clipboard-list me-1"></i>
+        <span>Treatment Requests</span>
+      </button> -->
+      <a
+        routerLink="/doctor/manage-patients"
+        class="new-account-btn btn btn-primary"
+      >
+        <i class="fa-solid fa-users-gear me-1"></i>
+        <span>Manage Patients</span>
+      </a>
+    </div>
+    <div
+      class="mid-part w-100 d-flex justify-content-between align-items-center fs-5 fw-medium text-primary border-bottom border-top border-primary py-2"
+    >
+      <div>
+        <i class="fa-solid fa-people-roof me-1"></i>
+        <span>My Patients</span>
+      </div>
+      <span>{{ doctorPatientsList.length }}</span>
+    </div>
+    <div
+      class="patient-list w-100 d-flex flex-column justify-content-start align-items-center gap-2"
+      *ngFor="let patient of doctorPatientsList; let i = index"
+    >
+      <div
+        class="patient"
+        [class.active]="activeIndex === i"
+        (click)="selectPatient(patient.patientId, i)"
+      >
+        <p>{{ patient.fullName }}</p>
+        <div class="d-flex justify-content-between align-items-center">
+          <span>Age:{{ patient.age }}</span>
+          <span class="stage{{ patient.currentStage }}"
+            >Stage {{ patient.currentStage }}</span
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    class="patient-details w-75 d-flex flex-column justify-content-center align-items-center gap-3"
+  >
+    <div
+      class="patient-bar d-flex justify-content-between align-items-center w-100"
+    >
+      <div>
+        <p class="m-0">{{ patientDetails.fullName }}</p>
+        <div>
+          <span>Age:{{ patientDetails.age }}</span>
+          <span> - Gender: {{ patientDetails.gender }}</span>
+        </div>
+      </div>
+      <a
+        [routerLink]="['/doctor/patient-profile']"
+        [queryParams]="{ patientId: patientDetails.patientId }"
+        class="requests-btn btn btn-primary"
+      >
+        <i class="fa-solid fa-address-card me-1"></i>
+        <span>View patient's Profile</span>
+      </a>
+      <span
+        class="stage-{{ patientDetails.currentStage }}"
+        *ngIf="patientDetails.currentStage === 1"
+        >Stage 1: Early/Mild</span
+      >
+      <span
+        class="stage-{{ patientDetails.currentStage }}"
+        *ngIf="patientDetails.currentStage === 2"
+        >Stage 2: Middle/Moderate</span
+      >
+      <span
+        class="stage-{{ patientDetails.currentStage }}"
+        *ngIf="patientDetails.currentStage === 3"
+        >Stage 3: Late/Severe</span
+      >
+    </div>
+    <div class="tabs-list w-100">
+      <ul
+        class="d-flex justify-content-between align-items-center m-0 p-0 list-unstyled"
+      >
+        <li>
+          <a routerLinkActive="active" routerLink="/doctor/medication"
+            >Medications</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/doctor/stage-management"
+            >Stage Management</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/doctor/statistics"
+            >Reports</a
+          >
+        </li>
+        <li>
+          <a routerLinkActive="active" routerLink="/doctor/mind-games"
+            >Mind Games</a
+          >
+        </li>
+      </ul>
+    </div>
+    <!-- routing here -->
+    <div class="w-100">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</section>
+
