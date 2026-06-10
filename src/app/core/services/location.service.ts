@@ -78,4 +78,18 @@ export class LocationService {
       `${this.baseUrl}/api/v1/patients/${patientId}/location/violations`,
     );
   }
+
+  getLocationHistory(
+    from: string,
+    to: string,
+    limit: number,
+    patientId: number,
+  ): Observable<any> {
+    return this._httpClient.get(
+      `${this.baseUrl}/api/v1/patients/${patientId}/location/history`,
+      {
+        params: { from: from, to: to, limit: limit },
+      },
+    );
+  }
 }

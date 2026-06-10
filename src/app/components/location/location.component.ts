@@ -22,6 +22,7 @@ import {
   Center,
   CircleLocation,
   CurrentLocation,
+  Place,
   Point,
   PolygonLocation,
   SafeZone,
@@ -46,6 +47,7 @@ export class LocationComponent implements OnInit, AfterViewInit {
   polygonEditData: PolygonLocation = {} as PolygonLocation;
   patientCurrentLocation: CurrentLocation = {} as CurrentLocation;
   patientViolations: Violation[] = [];
+  patientPlaces: Place[] = [];
   pLat: any = 30.0444;
   pLag: any = 31.2357;
   center: google.maps.LatLngLiteral = { lat: this.pLat, lng: this.pLag };
@@ -58,6 +60,10 @@ export class LocationComponent implements OnInit, AfterViewInit {
   mapReady: boolean = false;
   isEditing: boolean = false;
   editingZoneId: number = 0;
+
+  from: any = '';
+  to: any = '';
+  limit: number = 1;
 
   patientSafeZones: SafeZone[] = [];
 
@@ -92,6 +98,41 @@ export class LocationComponent implements OnInit, AfterViewInit {
       Validators.pattern('^01[0125][0-9]{8}$'),
     ]),
   });
+
+  historyFrom: FormGroup = new FormGroup({
+    from: new FormControl('null', [Validators.required]),
+    to: new FormControl('null', [Validators.required]),
+    limit: new FormControl(1, [
+      Validators.required,
+      Validators.min(1),
+      Validators.max(100),
+    ]),
+  });
+
+  completeHitory(): void {
+    if (this.historyFrom.valid) {
+      this.from = this.historyFrom.value.from;
+      this.to = this.historyFrom.value.to;
+      this.limit = this.historyFrom.value.limit;
+      this.getHistor();
+    } else {
+      this.showError('Edit Required Fields To Get Hitory');
+    }
+  }
+
+  getHistor(): void {
+    this._locationService
+      .getLocationHistory(this.from, this.to, this.limit, this.patientId)
+      .subscribe({
+        next: (response) => {
+          this.patientPlaces = response;
+          console.log(this.patientPlaces);
+        },
+        error: (err) => {
+          console.log(err);
+        },
+      });
+  }
 
   getPatientCurrentLocation(): void {
     this._locationService.getCurrentLoaction(this.patientId).subscribe({
