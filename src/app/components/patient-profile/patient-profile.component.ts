@@ -7,11 +7,12 @@ import { PatientPeofile, Assessment } from 'src/app/core/interfaces/patients';
 import { PatientService } from 'src/app/core/services/patient.service';
 import { MainNavComponent } from '../main-nav/main-nav.component';
 import { Subject, switchMap, takeUntil } from 'rxjs';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-patient-profile',
   standalone: true,
-  imports: [CommonModule, MainNavComponent],
+  imports: [CommonModule, MainNavComponent,TranslateModule],
   templateUrl: './patient-profile.component.html',
   styleUrls: ['./patient-profile.component.scss'],
 })

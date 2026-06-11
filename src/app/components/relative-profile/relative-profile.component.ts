@@ -12,11 +12,12 @@ import { RelativeProfile } from 'src/app/core/interfaces/relative';
 import { MainService } from 'src/app/context/main.service';
 import { RelativeService } from 'src/app/core/services/relative.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-relative-profile',
   standalone: true,
-  imports: [CommonModule, MainNavComponent, RouterLink, ReactiveFormsModule],
+  imports: [CommonModule, MainNavComponent, RouterLink, ReactiveFormsModule,TranslateModule],
   templateUrl: './relative-profile.component.html',
   styleUrls: ['./relative-profile.component.scss'],
 })

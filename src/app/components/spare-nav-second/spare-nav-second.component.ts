@@ -5,13 +5,13 @@ import { TranslateModule } from '@ngx-translate/core';
 import { LanguageService } from 'src/app/context/language.service';
 
 @Component({
-  selector: 'app-spare-nav',
+  selector: 'app-spare-nav-second',
   standalone: true,
   imports: [CommonModule, RouterLink, TranslateModule],
-  templateUrl: './spare-nav.component.html',
-  styleUrls: ['./spare-nav.component.scss'],
+  templateUrl: './spare-nav-second.component.html',
+  styleUrls: ['./spare-nav-second.component.scss'],
 })
-export class SpareNavComponent {
+export class SpareNavSecondComponent {
   constructor(public languageService: LanguageService) {}
 
   toggleLang(): void {

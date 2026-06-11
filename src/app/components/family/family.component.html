@@ -11,10 +11,10 @@
           class="fa-solid fa-people-group me-1 fs-3"
           style="color: #f54900"
         ></i>
-        Family Members
+        {{ "FAMILY.FAMILY_MEMBERS" | translate }}
       </p>
       <p class="text-muted m-0 p-0">
-        Manage Patient's family members with photos and audio notes.
+        {{ "FAMILY.SUBTITLE" | translate }}
       </p>
     </div>
     <div class="left">
@@ -23,7 +23,8 @@
         data-bs-toggle="modal"
         (click)="changeToAdd()"
       >
-        <i class="fa-regular fa-square-plus me-1 fs-5"></i>Add Family Member
+        <i class="fa-regular fa-square-plus me-1 fs-5"></i
+        >{{ "FAMILY.ADD_MEMBER" | translate }}
       </button>
     </div>
   </div>
@@ -80,14 +81,15 @@
           id="exampleModalToggleLabel"
           *ngIf="!onEdit"
         >
-          Add New Family Member
+          {{ "FAMILY.ADD_NEW_FAMILY_MEMBER_TITLE" | translate }}
         </h1>
+
         <h1
           class="modal-title fs-5"
           id="exampleModalToggleLabel"
           *ngIf="onEdit"
         >
-          Edit Family Member
+          {{ "FAMILY.EDIT_FAMILY_MEMBER_TITLE" | translate }}
         </h1>
         <button
           type="button"
@@ -99,41 +101,48 @@
       <div class="modal-body overflow-y-scroll" style="max-height: 400px">
         <form class="fw-bold" [formGroup]="memberForm">
           <div class="form-group mb-2">
-            <label for="member-name" class="form-label">Member Name</label>
+            <label for="member-name" class="form-label">
+              {{ "FAMILY.MEMBER_NAME" | translate }}
+            </label>
+
             <input
               type="text"
               class="form-control"
               id="member-name"
               formControlName="name"
               required
-              placeholder="e.g.. Ahmed Mohammed"
+              [placeholder]="'FAMILY.MEMBER_NAME_PLACEHOLDER' | translate"
             />
           </div>
           <div class="form-group mb-2">
-            <label for="member-relation" class="form-label"
-              >Member Relation</label
-            >
+            <label for="member-relation" class="form-label">
+              {{ "FAMILY.MEMBER_RELATION" | translate }}
+            </label>
+
             <input
               type="text"
               class="form-control"
               id="member-relation"
               formControlName="relation"
               required
-              placeholder="e.g.. Son"
+              [placeholder]="'FAMILY.MEMBER_RELATION_PLACEHOLDER' | translate"
             />
           </div>
           <div class="form-group mb-2">
-            <label for="member-number" class="form-label">Phone Number</label>
+            <label for="member-number" class="form-label">
+              {{ "FAMILY.PHONE" | translate }}
+            </label>
+
             <input
               type="text"
               class="form-control"
               id="member-number"
               formControlName="phoneNumber"
               required
-              placeholder="Egyption Phone Number"
+              [placeholder]="'FAMILY.PHONE_PLACEHOLDER' | translate"
             />
           </div>
-          <p>Upload Member Image</p>
+          <p>{{ "FAMILY.UPLOAD_MEMBER_IMAGE" | translate }}</p>
           <div
             class="upload-area d-flex flex-column justify-content-center align-items-center w-100 my-2"
             (dragover)="onDragOver($event)"
@@ -144,12 +153,20 @@
             <!-- No File Selected -->
             <div *ngIf="!memberImage" class="text-center">
               <i class="fa-solid fa-cloud-arrow-up fs-1 mb-2"></i>
-              <p>Click to upload or drag and drop</p>
-              <p class="m-0">JPG, PNG (MAX. 5MB)</p>
+
+              <p>
+                {{ "FAMILY.CLICK_TO_UPLOAD_OR_DRAG_DROP" | translate }}
+              </p>
+
+              <p class="m-0">
+                {{ "FAMILY.JPG_PNG_MAX" | translate }}
+              </p>
+
               <div class="form-group mt-4">
                 <label for="userImage" class="btn btn-primary text-white">
-                  Select File
+                  {{ "FAMILY.SELECT_FILE" | translate }}
                 </label>
+
                 <input
                   type="file"
                   id="userImage"
@@ -174,11 +191,11 @@
                 class="btn btn-danger"
                 (click)="removeFile('image', $event)"
               >
-                Remove
+                {{ "FAMILY.REMOVE" | translate }}
               </button>
             </div>
           </div>
-          <p>Upload Member Audio</p>
+          <p>{{ "FAMILY.UPLOAD_MEMBER_AUDIO" | translate }}</p>
           <div
             class="upload-area d-flex flex-column justify-content-center align-items-center w-100 my-2"
             (dragover)="onDragOver($event)"
@@ -189,12 +206,20 @@
             <!-- No File Selected -->
             <div *ngIf="!memberaudio" class="text-center">
               <i class="fa-solid fa-cloud-arrow-up fs-1 mb-2"></i>
-              <p>Click to upload or drag and drop</p>
-              <p class="m-0">MP3 (MAX. 5MB)</p>
+
+              <p>
+                {{ "FAMILY.CLICK_TO_UPLOAD_OR_DRAG_DROP" | translate }}
+              </p>
+
+              <p class="m-0">
+                {{ "FAMILY.MP3_MAX" | translate }}
+              </p>
+
               <div class="form-group mt-4">
                 <label for="useraudio" class="btn btn-primary text-white">
-                  Select File
+                  {{ "FAMILY.SELECT_FILE" | translate }}
                 </label>
+
                 <input
                   type="file"
                   id="useraudio"
@@ -219,7 +244,7 @@
                 class="btn btn-danger"
                 (click)="removeFile('audio', $event)"
               >
-                Remove
+                {{ "FAMILY.REMOVE" | translate }}
               </button>
             </div>
           </div>
@@ -233,15 +258,16 @@
           *ngIf="!onEdit"
           (click)="completeAddMember()"
         >
-          Add
+          {{ "FAMILY.ADD" | translate }}
         </button>
+
         <button
           class="btn btn-primary"
           data-bs-dismiss="modal"
           aria-label="Close"
           *ngIf="onEdit"
         >
-          Edit
+          {{ "FAMILY.EDIT" | translate }}
         </button>
       </div>
     </div>

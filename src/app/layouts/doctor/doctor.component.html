@@ -22,7 +22,7 @@
         class="new-account-btn btn btn-primary"
       >
         <i class="fa-solid fa-users-gear me-1"></i>
-        <span>Manage Patients</span>
+        <span>{{ "DOCTOR.MANAGE_PATIENTS" | translate }}</span>
       </a>
     </div>
     <div
@@ -30,7 +30,7 @@
     >
       <div>
         <i class="fa-solid fa-people-roof me-1"></i>
-        <span>My Patients</span>
+        <span>{{ "DOCTOR.MY_PATIENTS" | translate }}</span>
       </div>
       <span>{{ doctorPatientsList.length }}</span>
     </div>
@@ -45,9 +45,9 @@
       >
         <p>{{ patient.fullName }}</p>
         <div class="d-flex justify-content-between align-items-center">
-          <span>Age:{{ patient.age }}</span>
+          <span>{{ "DOCTOR.AGE" | translate }}:{{ patient.age }}</span>
           <span class="stage{{ patient.currentStage }}"
-            >Stage {{ patient.currentStage }}</span
+            >{{ "DOCTOR.STAGE" | translate }} {{ patient.currentStage }}</span
           >
         </div>
       </div>
@@ -62,8 +62,11 @@
       <div>
         <p class="m-0">{{ patientDetails.fullName }}</p>
         <div>
-          <span>Age:{{ patientDetails.age }}</span>
-          <span> - Gender: {{ patientDetails.gender }}</span>
+          <span>{{ "DOCTOR.AGE" | translate }}:{{ patientDetails.age }}</span>
+          <span>
+            - {{ "DOCTOR.GENDER" | translate }}:
+            {{ patientDetails.gender }}</span
+          >
         </div>
       </div>
       <a
@@ -72,22 +75,22 @@
         class="requests-btn btn btn-primary"
       >
         <i class="fa-solid fa-address-card me-1"></i>
-        <span>View patient's Profile</span>
+        <span>{{ "DOCTOR.VIEW_PROFILE" | translate }}</span>
       </a>
       <span
         class="stage-{{ patientDetails.currentStage }}"
         *ngIf="patientDetails.currentStage === 1"
-        >Stage 1: Early/Mild</span
+        >{{ "DOCTOR.STAGE_1" | translate }}</span
       >
       <span
         class="stage-{{ patientDetails.currentStage }}"
         *ngIf="patientDetails.currentStage === 2"
-        >Stage 2: Middle/Moderate</span
+        >{{ "DOCTOR.STAGE_2" | translate }}</span
       >
       <span
         class="stage-{{ patientDetails.currentStage }}"
         *ngIf="patientDetails.currentStage === 3"
-        >Stage 3: Late/Severe</span
+        >{{ "DOCTOR.STAGE_3" | translate }}</span
       >
     </div>
     <div class="tabs-list w-100">
@@ -95,24 +98,24 @@
         class="d-flex justify-content-between align-items-center m-0 p-0 list-unstyled"
       >
         <li>
-          <a routerLinkActive="active" routerLink="/doctor/medication"
-            >Medications</a
-          >
+          <a routerLinkActive="active" routerLink="/doctor/medication">{{
+            "DOCTOR.MEDICATIONS" | translate
+          }}</a>
         </li>
         <li>
-          <a routerLinkActive="active" routerLink="/doctor/stage-management"
-            >Stage Management</a
-          >
+          <a routerLinkActive="active" routerLink="/doctor/stage-management">{{
+            "DOCTOR.STAGE_MANAGEMENT" | translate
+          }}</a>
         </li>
         <li>
-          <a routerLinkActive="active" routerLink="/doctor/statistics"
-            >Reports</a
-          >
+          <a routerLinkActive="active" routerLink="/doctor/statistics">{{
+            "DOCTOR.REPORTS" | translate
+          }}</a>
         </li>
         <li>
-          <a routerLinkActive="active" routerLink="/doctor/mind-games"
-            >Mind Games</a
-          >
+          <a routerLinkActive="active" routerLink="/doctor/mind-games">{{
+            "DOCTOR.MIND_GAMES" | translate
+          }}</a>
         </li>
       </ul>
     </div>
@@ -122,4 +125,3 @@
     </div>
   </div>
 </section>
-

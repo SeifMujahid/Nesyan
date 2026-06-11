@@ -11,11 +11,18 @@ import {
 } from '@angular/forms';
 import { VerifayAccountInterface } from 'src/app/core/interfaces/verifay-account-interface';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core';
+import { SpareNavSecondComponent } from '../spare-nav-second/spare-nav-second.component';
 
 @Component({
   selector: 'app-verifay-account',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    SpareNavSecondComponent,
+  ],
   templateUrl: './verifay-account.component.html',
   styleUrls: ['./verifay-account.component.scss'],
 })

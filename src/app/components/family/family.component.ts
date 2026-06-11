@@ -10,11 +10,12 @@ import {
 import { ToastrService } from 'ngx-toastr';
 import { MainService } from 'src/app/context/main.service';
 import { RelativeService } from 'src/app/core/services/relative.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-family',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,TranslateModule],
   templateUrl: './family.component.html',
   styleUrls: ['./family.component.scss'],
 })

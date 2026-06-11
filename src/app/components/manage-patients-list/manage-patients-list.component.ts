@@ -6,11 +6,12 @@ import { TreatmentRequests } from 'src/app/core/interfaces/treatment-requests';
 import { MainService } from 'src/app/context/main.service';
 import { DoctorService } from 'src/app/core/services/doctor.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-manage-patients-list',
   standalone: true,
-  imports: [CommonModule, MainNavComponent, RouterLink],
+  imports: [CommonModule, MainNavComponent, RouterLink,TranslateModule],
   templateUrl: './manage-patients-list.component.html',
   styleUrls: ['./manage-patients-list.component.scss'],
 })

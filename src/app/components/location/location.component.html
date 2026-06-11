@@ -11,17 +11,18 @@
           class="fa-solid fa-map-location-dot me-1 fs-3"
           style="color: #f54900"
         ></i>
-        Location Tracking
+        {{ "LOCATION.TITLE" | translate }}
       </p>
       <p class="text-muted m-0 p-0">
-        Manage Patient's Location and Safe Zones.
+        {{ "LOCATION.SUBTITLE" | translate }}
       </p>
     </div>
     <div class="w-100 d-flex justify-content-end">
       <p class="p-0 m-0 fw-bold fs-5">
-        Parient Is<span style="color: #f54900">
+        {{ "LOCATION.PATIENT_STATUS" | translate
+        }}<span style="color: #f54900">
           {{ patientCurrentLocation.geofenceStatus }} </span
-        >Safe Zone
+        >{{ "LOCATION.IN_SAFE_ZONE" | translate }}
       </p>
     </div>
   </div>
@@ -31,8 +32,8 @@
     <google-map height="400px" [width]="'100%'" [center]="center" [zoom]="zoom">
     </google-map>
   </div>
-  <div class="w-100 p-1 text-start">
-    <h5 class="fw-bold fs-5">New Safe Zone</h5>
+  <div class="w-100 p-1">
+    <h5 class="fw-bold fs-5">{{ "LOCATION.NEW_SAFE_ZONE" | translate }}</h5>
   </div>
   <div
     class="w-100 p-2 border-b d-flex justify-content-between align-items-center gap-3"
@@ -40,27 +41,27 @@
     <div class="form-container p-2 w-100">
       <form class="w-100 d-flex flex-column gap-2" [formGroup]="zoneForm">
         <div class="form-group">
-          <label for="zoneName" class="form-label fw-bold"
-            >Safe Zone Name</label
-          >
+          <label for="zoneName" class="form-label fw-bold">{{
+            "LOCATION.ZONE_NAME" | translate
+          }}</label>
           <input
             class="form-control"
             id="zoneName"
             type="text"
             formControlName="name"
-            placeholder="Enter Safe Zone Name"
+            [placeholder]="'LOCATION.ZONE_NAME_PLACEHOLDER' | translate"
           />
         </div>
         <div class="form-group">
-          <label for="phoneNumber" class="form-label fw-bold"
-            >Phone Number</label
-          >
+          <label for="phoneNumber" class="form-label fw-bold">{{
+            "LOCATION.PHONE_NUMBER" | translate
+          }}</label>
           <input
             class="form-control"
             id="phoneNumber"
             type="text"
             formControlName="phone"
-            placeholder="Enter Phone Number"
+            [placeholder]="'LOCATION.PHONE_PLACEHOLDER' | translate"
           />
         </div>
       </form>
@@ -77,7 +78,8 @@
           [disabled]="isDrawing"
           type="button"
         >
-          <i class="fa-regular fa-circle me-2"></i>Circle
+          <i class="fa-regular fa-circle me-2"></i
+          >{{ "LOCATION.CIRCLE" | translate }}
         </button>
         <button
           class="btn btn-outline-secondary w-100 fw-bold"
@@ -85,7 +87,8 @@
           [disabled]="isDrawing"
           type="button"
         >
-          <i class="fa-solid fa-draw-polygon me-2"></i>Polygon
+          <i class="fa-solid fa-draw-polygon me-2"></i
+          >{{ "LOCATION.POLYGON" | translate }}
         </button>
       </div>
       <div class="d-flex justify-content-center align-items-center gap-2 w-100">
@@ -95,21 +98,27 @@
           [disabled]="!isDrawing"
           type="button"
         >
-          <span *ngIf="isEditing == false">Add</span>
-          <span *ngIf="isEditing == true">Edit</span>
+          <span *ngIf="isEditing == false">{{
+            "LOCATION.ADD" | translate
+          }}</span>
+          <span *ngIf="isEditing == true">{{
+            "LOCATION.EDIT" | translate
+          }}</span>
         </button>
         <button
           class="cancel-btn px-5 btn w-50"
           (click)="cancleZone()"
           type="button"
         >
-          Cancel
+          {{ "LOCATION.CANCEL" | translate }}
         </button>
       </div>
     </div>
   </div>
-  <div class="w-100 p-1 text-start">
-    <h5 class="fw-bold fs-5">Patient Safe Zones</h5>
+  <div class="w-100 p-1">
+    <h5 class="fw-bold fs-5">
+      {{ "LOCATION.PATIENT_SAFE_ZONES" | translate }}
+    </h5>
   </div>
   <div
     class="w-100 p-2 border-b d-flex flex-column justify-content-center align-items-center gap-3"
@@ -123,14 +132,27 @@
         (click)="editPatientZone(safeZone.safeZoneId, i)"
       >
         <div class="pe-5">
-          <p class="m-0 p-0">Name:{{ safeZone.name }}</p>
-          <p class="m-0 p-0">Phone:{{ safeZone.phone }}</p>
+          <p class="m-0 p-0">
+            {{ "LOCATION.NAME" | translate }}:
+            {{ safeZone.name }}
+          </p>
+
+          <p class="m-0 p-0">
+            {{ "LOCATION.PHONE" | translate }}:
+            {{ safeZone.phone }}
+          </p>
         </div>
+
         <p *ngIf="safeZone.type == 1" class="m-0 p-0">
-          Type :Circle<i class="fa-regular fa-circle ms-2"></i>
+          {{ "LOCATION.TYPE" | translate }} :
+          {{ "LOCATION.CIRCLE" | translate }}
+          <i class="fa-regular fa-circle ms-2"></i>
         </p>
+
         <p *ngIf="safeZone.type == 0" class="m-0 p-0">
-          Type :Polygon<i class="fa-solid fa-draw-polygon ms-2"></i>
+          {{ "LOCATION.TYPE" | translate }} :
+          {{ "LOCATION.POLYGON" | translate }}
+          <i class="fa-solid fa-draw-polygon ms-2"></i>
         </p>
       </div>
       <div
@@ -141,8 +163,10 @@
       </div>
     </div>
   </div>
-  <div class="w-100 p-1 text-start">
-    <h5 class="fw-bold fs-5">Patient Violations</h5>
+  <div class="w-100 p-1">
+    <h5 class="fw-bold fs-5">
+      {{ "LOCATION.PATIENT_VIOLATIONS" | translate }}
+    </h5>
   </div>
   <div
     class="w-100 p-2 border-b d-flex flex-column justify-content-center align-items-center gap-3"
@@ -152,22 +176,42 @@
       *ngFor="let violation of patientViolations; let i = index"
     >
       <div class="pe-5 col-4">
-        <p class="m-0 p-0">Zone Name:{{ violation.zoneName }}</p>
-        <p class="m-0 p-0">Status:{{ violation.status }}</p>
-      </div>
-      <div class="pe-5 col-4">
-        <p class="m-0 p-0">Exited At:{{ violation.exitedAt | cleanDate: 2 }}</p>
         <p class="m-0 p-0">
-          Entered At:{{ violation.enteredAt | cleanDate: 2 }}
+          {{ "LOCATION.ZONE_NAME_LABEL" | translate }}
+          {{ violation.zoneName }}
+        </p>
+
+        <p class="m-0 p-0">
+          {{ "LOCATION.STATUS" | translate }}:
+          {{ violation.status }}
         </p>
       </div>
+
+      <div class="pe-5 col-4">
+        <p class="m-0 p-0">
+          {{ "LOCATION.EXITED_AT" | translate }}:
+          {{ violation.exitedAt | cleanDate: 2 }}
+        </p>
+
+        <p class="m-0 p-0">
+          {{ "LOCATION.ENTERED_AT" | translate }}:
+          {{ violation.enteredAt | cleanDate: 2 }}
+        </p>
+      </div>
+
       <div class="pe-5 col-3">
-        <p class="m-0 p-0">Duration:{{ violation.durationMinutes }} min</p>
+        <p class="m-0 p-0">
+          {{ "LOCATION.DURATION" | translate }}:
+          {{ violation.durationMinutes }}
+          {{ "LOCATION.MIN" | translate }}
+        </p>
       </div>
     </div>
   </div>
-  <div class="w-100 p-1 text-start">
-    <h5 class="fw-bold fs-5">Patient Visits Hitory</h5>
+  <div class="w-100 p-1">
+    <h5 class="fw-bold fs-5">
+      {{ "LOCATION.PATIENT_VISITS_HISTORY" | translate }}
+    </h5>
   </div>
   <div
     class="w-100 p-2 d-flex flex-column justify-content-center align-items-center gap-3"
@@ -180,7 +224,9 @@
         [formGroup]="historyFrom"
       >
         <div class="form-group w-100 p-2">
-          <label for="from" class="form-label">From</label>
+          <label for="from" class="form-label">
+            {{ "LOCATION.FROM" | translate }}
+          </label>
           <input
             type="date"
             id="from"
@@ -190,7 +236,9 @@
           />
         </div>
         <div class="form-group w-100 p-2">
-          <label for="to" class="form-label">To</label>
+          <label for="to" class="form-label">
+            {{ "LOCATION.TO" | translate }}
+          </label>
           <input
             type="date"
             id="to"
@@ -200,21 +248,23 @@
           />
         </div>
         <div class="form-group w-100 p-2">
-          <label for="limit" class="form-label">Limit</label>
+          <label for="limit" class="form-label">
+            {{ "LOCATION.LIMIT" | translate }}
+          </label>
           <input
             type="number"
             id="limit"
             name="limit"
             class="form-control"
-            placeholder="Maximum Value Is 100"
+            [placeholder]="'LOCATION.MAXIMUM_VALUE' | translate"
             max="100"
             min="1"
             formControlName="limit"
           />
         </div>
-        <Button class="btn main-btn w-25 mx-3" (click)="completeHitory()"
-          >Get History</Button
-        >
+        <Button class="btn main-btn w-25 mx-3" (click)="completeHitory()">
+          {{ "LOCATION.GET_HISTORY" | translate }}
+        </Button>
       </form>
     </div>
     <div
@@ -222,8 +272,15 @@
       *ngFor="let place of patientPlaces; let i = index"
     >
       <div>
-        <p class="m-0 p-0">Zone Name: {{ place.placeName }}</p>
-        <p class="m-0 p-0">Visted At: {{ place.recordedAt | cleanDate: 2 }}</p>
+        <p class="m-0 p-0">
+          {{ "LOCATION.ZONE_NAME_LABEL" | translate }}
+          {{ place.placeName }}
+        </p>
+
+        <p class="m-0 p-0">
+          {{ "LOCATION.VISITED_AT" | translate }}
+          {{ place.recordedAt | cleanDate: 2 }}
+        </p>
       </div>
     </div>
   </div>

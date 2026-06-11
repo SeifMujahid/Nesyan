@@ -6,11 +6,12 @@ import { TreatmentRequests } from 'src/app/core/interfaces/treatment-requests';
 import { MainService } from 'src/app/context/main.service';
 import { DoctorService } from 'src/app/core/services/doctor.service';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-treatment-requests',
   standalone: true,
-  imports: [CommonModule, MainNavComponent, RouterLink],
+  imports: [CommonModule, MainNavComponent, RouterLink, TranslateModule],
   templateUrl: './treatment-requests.component.html',
   styleUrls: ['./treatment-requests.component.scss'],
 })
@@ -20,7 +21,7 @@ export class TreatmentRequestsComponent implements OnInit {
     patientInfo: {
       patientSummary: {} as any,
       patientMedical: {} as any,
-      latestAssessment:{}as any
+      latestAssessment: {} as any,
     },
     relativeSummary: {} as any,
   } as TreatmentRequests;

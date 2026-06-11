@@ -18,6 +18,7 @@ import { ToastrService } from 'ngx-toastr';
 import { MainService } from 'src/app/context/main.service';
 import { LocationService } from 'src/app/core/services/location.service';
 import { RelativeService } from 'src/app/core/services/relative.service';
+import { TranslateModule } from '@ngx-translate/core';
 import {
   Center,
   CircleLocation,
@@ -33,7 +34,7 @@ import { CleanDatePipe } from 'src/app/core/pipelines/clean-date.pipe';
 @Component({
   selector: 'app-location',
   standalone: true,
-  imports: [CommonModule, GoogleMapsModule, ReactiveFormsModule, CleanDatePipe],
+  imports: [CommonModule, GoogleMapsModule, ReactiveFormsModule, CleanDatePipe,TranslateModule],
   templateUrl: './location.component.html',
   styleUrls: ['./location.component.scss'],
 })

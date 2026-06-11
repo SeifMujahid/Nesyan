@@ -15,7 +15,7 @@
         class="requests-btn btn btn-primary"
       >
         <i class="fa-solid fa-clipboard-list me-1"></i>
-        <span>Request Doctor</span>
+        <span>{{ "RELATIVE.REQUEST_DOCTOR" | translate }}</span>
       </button>
       <button
         class="requests-btn btn btn-primary"
@@ -23,7 +23,7 @@
         data-bs-toggle="modal"
       >
         <i class="fa-solid fa-hand-holding-medical me-1"></i>
-        <span>Request Care Giver</span>
+        <span>{{ "RELATIVE.REQUEST_CAREGIVER" | translate }}</span>
       </button>
       <!-- <a routerLink="#" class="new-account-btn btn btn-primary">
         <i class="fa-solid fa-users-gear me-1"></i>
@@ -34,7 +34,7 @@
         class="new-account-btn btn btn-primary"
       >
         <i class="fa-solid fa-plus me-1"></i>
-        <span>Create Patient Account</span>
+        <span>{{ "RELATIVE.CREATE_PATIENT" | translate }}</span>
       </a>
       <button
         data-bs-target="#exampleModalToggleNew"
@@ -42,7 +42,7 @@
         class="new-account-btn btn btn-primary"
       >
         <i class="fa-solid fa-plus me-1"></i>
-        <span>Add New Patient</span>
+        <span>{{ "RELATIVE.ADD_NEW_PATIENT" | translate }}</span>
       </button>
     </div>
     <div
@@ -50,7 +50,7 @@
     >
       <div>
         <i class="fa-solid fa-people-roof me-1"></i>
-        <span>My Patients</span>
+        <span>{{ "RELATIVE.MY_PATIENTS" | translate }}</span>
       </div>
       <span>{{ relativePatientsList.length }}</span>
     </div>
@@ -65,9 +65,9 @@
       >
         <p>{{ patient.fullName }}</p>
         <div class="d-flex justify-content-between align-items-center">
-          <span>Age:{{ patient.age }}</span>
+          <span>{{ "DOCTOR.AGE" | translate }}:{{ patient.age }}</span>
           <span class="stage{{ patient.currentStage }}"
-            >Stage {{ patient.currentStage }}</span
+            >{{ "DOCTOR.STAGE" | translate }} {{ patient.currentStage }}</span
           >
         </div>
       </div>
@@ -82,8 +82,11 @@
       <div>
         <p class="m-0">{{ patientDetails.fullName }}</p>
         <div>
-          <span>Age:{{ patientDetails.age }}</span>
-          <span> - Gender: {{ patientDetails.gender }}</span>
+          <span>{{ "DOCTOR.AGE" | translate }}:{{ patientDetails.age }}</span>
+          <span>
+            - {{ "DOCTOR.GENDER" | translate }}:
+            {{ patientDetails.gender }}</span
+          >
         </div>
       </div>
       <a
@@ -92,22 +95,22 @@
         class="requests-btn btn btn-primary"
       >
         <i class="fa-solid fa-address-card me-1"></i>
-        <span>View patient's Profile</span>
+        <span>{{ "DOCTOR.VIEW_PROFILE" | translate }}</span>
       </a>
       <span
         class="stage-{{ patientDetails.currentStage }}"
         *ngIf="patientDetails.currentStage === 1"
-        >Stage 1: Early/Mild</span
+        >{{ "DOCTOR.STAGE_1" | translate }}</span
       >
       <span
         class="stage-{{ patientDetails.currentStage }}"
         *ngIf="patientDetails.currentStage === 2"
-        >Stage 2: Middle/Moderate</span
+        >{{ "DOCTOR.STAGE_2" | translate }}</span
       >
       <span
         class="stage-{{ patientDetails.currentStage }}"
         *ngIf="patientDetails.currentStage === 3"
-        >Stage 3: Late/Severe</span
+        >{{ "DOCTOR.STAGE_3" | translate }}</span
       >
     </div>
     <div class="tabs-list w-100">
@@ -125,32 +128,34 @@
           >
         </li> -->
         <li>
-          <a routerLinkActive="active" routerLink="/relative/routine"
-            >Routine</a
-          >
+          <a routerLinkActive="active" routerLink="/relative/routine">{{
+            "ROUTINE.TITLE" | translate
+          }}</a>
         </li>
         <li>
-          <a routerLinkActive="active" routerLink="/relative/medication"
-            >Medication</a
-          >
+          <a routerLinkActive="active" routerLink="/relative/medication">{{
+            "MEDICATIONS.TITLE" | translate
+          }}</a>
         </li>
         <li>
-          <a routerLinkActive="active" routerLink="/relative/appointments"
-            >Appointments</a
-          >
+          <a routerLinkActive="active" routerLink="/relative/appointments">{{
+            "APPOINTMENTS.TITLE" | translate
+          }}</a>
         </li>
         <li>
-          <a routerLinkActive="active" routerLink="/relative/family">Family</a>
+          <a routerLinkActive="active" routerLink="/relative/family">{{
+            "FAMILY.FAMILY_MEMBERS" | translate
+          }}</a>
         </li>
         <li>
-          <a routerLinkActive="active" routerLink="/relative/location"
-            >Location</a
-          >
+          <a routerLinkActive="active" routerLink="/relative/location">{{
+            "LOCATION.TITLE" | translate
+          }}</a>
         </li>
         <li>
-          <a routerLinkActive="active" routerLink="/relative/statistics"
-            >Reports</a
-          >
+          <a routerLinkActive="active" routerLink="/relative/statistics">{{
+            "DOCTOR.REPORTS" | translate
+          }}</a>
         </li>
       </ul>
     </div>
@@ -174,7 +179,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalToggleLabel">
-          Add New Patient
+          {{ "ADD_Existing.ADD_NEW_PATIENT_TITLE" | translate }}
         </h1>
         <button
           type="button"
@@ -183,38 +188,45 @@
           aria-label="Close"
         ></button>
       </div>
+
       <div class="modal-body overflow-y-scroll" style="max-height: 400px">
         <div class="form-container">
           <form class="fw-bold" [formGroup]="patientData">
             <div class="form-group mb-2">
-              <label for="patient-id" class="form-label"
-                >Patient National Id</label
-              >
+              <label for="patient-id" class="form-label">
+                {{ "ADD_Existing.PATIENT_NATIONAL_ID" | translate }}
+              </label>
               <input
                 type="text"
                 class="form-control"
                 id="patient-id"
                 formControlName="patientId"
                 required
-                placeholder="Enter Valid Egyption ID"
+                [placeholder]="
+                  'ADD_Existing.PATIENT_NATIONAL_ID_PLACEHOLDER' | translate
+                "
               />
             </div>
+
             <div class="form-group mb-2">
-              <label for="patient-email" class="form-label"
-                >Patient Email</label
-              >
+              <label for="patient-email" class="form-label">
+                {{ "ADD_Existing.PATIENT_EMAIL" | translate }}
+              </label>
               <input
                 type="email"
                 class="form-control"
                 id="patient-email"
                 formControlName="email"
                 required
-                placeholder="e.g.. patient@gmail.com"
+                [placeholder]="
+                  'ADD_Existing.PATIENT_EMAIL_PLACEHOLDER' | translate
+                "
               />
             </div>
           </form>
         </div>
       </div>
+
       <div class="modal-footer">
         <button
           class="btn btn-primary"
@@ -222,7 +234,7 @@
           aria-label="Close"
           (click)="addNewPatient()"
         >
-          Add
+          {{ "ADD_Existing.ADD" | translate }}
         </button>
       </div>
     </div>
@@ -245,7 +257,7 @@
           class="modal-title fs-4 text-primary fw-bold"
           id="exampleModalToggleLabel"
         >
-          Send New Treatment Request
+          {{ "REQUEST_TREATMENT.SEND_NEW_TREATMENT_REQUEST" | translate }}
         </h1>
         <div class="d-flex justify-content-center align-items-center">
           <button
@@ -254,7 +266,7 @@
             aria-label="Close"
             (click)="sendNewRequest()"
           >
-            Send
+            {{ "REQUEST_TREATMENT.SEND" | translate }}
           </button>
           <button
             type="button"
@@ -266,7 +278,7 @@
       </div>
       <div class="modal-body overflow-y-scroll" style="max-height: 400px">
         <p class="fw-bold m-0 py-2 text-center border-bottom border-primary">
-          Select Your Patient And Doctor
+          {{ "REQUEST_TREATMENT.SELECT_PATIENT_DOCTOR" | translate }}
         </p>
         <div class="w-100 d-flex justify-content-between align-items-start p-2">
           <div
@@ -275,7 +287,7 @@
             <p
               class="fw-bold m-0 py-2 text-center border-bottom border-primary w-100"
             >
-              Patients
+              {{ "REQUEST_TREATMENT.PATIENTS" | translate }}
             </p>
             <div
               *ngFor="let patient of allPatients; let i = index"
@@ -287,11 +299,17 @@
                 (click)="selectPatientRequest(patient.patientId, i)"
               >
                 <p>{{ patient.fullName }}</p>
+
                 <div class="d-flex justify-content-between align-items-center">
-                  <span>Age:{{ patient.age }}</span>
-                  <span class="stage{{ patient.currentStage }}"
-                    >Stage {{ patient.currentStage }}</span
-                  >
+                  <span>
+                    {{ "REQUEST_TREATMENT.AGE" | translate }}:
+                    {{ patient.age }}
+                  </span>
+
+                  <span class="stage{{ patient.currentStage }}">
+                    {{ "REQUEST_TREATMENT.STAGE" | translate }}
+                    {{ patient.currentStage }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -302,7 +320,7 @@
             <p
               class="fw-bold m-0 py-2 text-center border-bottom border-primary w-100"
             >
-              Doctors
+              {{ "REQUEST_TREATMENT.DOCTORS" | translate }}
             </p>
             <div *ngFor="let doctor of allDoctors; let i = index" class="w-100">
               <div
@@ -311,9 +329,17 @@
                 (click)="selectDoctor(doctor.doctorId, i)"
               >
                 <p>{{ doctor.fullName }}</p>
+
                 <div class="d-flex justify-content-between align-items-center">
-                  <span>Age:{{ doctor.age }}</span>
-                  <span>Specialization: {{ doctor.specialization }}</span>
+                  <span>
+                    {{ "REQUEST_TREATMENT.AGE" | translate }}:
+                    {{ doctor.age }}
+                  </span>
+
+                  <span>
+                    {{ "REQUEST_TREATMENT.SPECIALIZATION" | translate }}:
+                    {{ doctor.specialization }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -340,7 +366,7 @@
           class="modal-title fs-4 text-primary fw-bold"
           id="exampleModalToggleLabel"
         >
-          Request New Care Giver
+          {{ "REQUEST_CAREGIVER.REQUEST_NEW_CAREGIVER" | translate }}
         </h1>
         <div class="d-flex justify-content-center align-items-center">
           <button
@@ -349,7 +375,7 @@
             aria-label="Close"
             (click)="sendNewRequestCaregiver()"
           >
-            Send
+            {{ "REQUEST_CAREGIVER.SEND" | translate }}
           </button>
           <button
             type="button"
@@ -361,7 +387,7 @@
       </div>
       <div class="modal-body overflow-y-scroll" style="max-height: 400px">
         <p class="fw-bold m-0 py-2 text-center border-bottom border-primary">
-          Select Your Patient And CareGiver
+          {{ "REQUEST_CAREGIVER.SELECT_PATIENT_CAREGIVER" | translate }}
         </p>
         <div class="w-100 d-flex justify-content-between align-items-start p-2">
           <div
@@ -370,7 +396,7 @@
             <p
               class="fw-bold m-0 py-2 text-center border-bottom border-primary w-100"
             >
-              Patients
+              {{ "REQUEST_CAREGIVER.PATIENTS" | translate }}
             </p>
             <div
               *ngFor="let patient of allPatients; let i = index"
@@ -382,11 +408,17 @@
                 (click)="selectPatientRequest(patient.patientId, i)"
               >
                 <p>{{ patient.fullName }}</p>
+
                 <div class="d-flex justify-content-between align-items-center">
-                  <span>Age:{{ patient.age }}</span>
-                  <span class="stage{{ patient.currentStage }}"
-                    >Stage {{ patient.currentStage }}</span
-                  >
+                  <span>
+                    {{ "REQUEST_CAREGIVER.AGE" | translate }}:
+                    {{ patient.age }}
+                  </span>
+
+                  <span class="stage{{ patient.currentStage }}">
+                    {{ "REQUEST_CAREGIVER.STAGE" | translate }}
+                    {{ patient.currentStage }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -397,7 +429,7 @@
             <p
               class="fw-bold m-0 py-2 text-center border-bottom border-primary w-100"
             >
-              Care Giver
+              {{ "REQUEST_CAREGIVER.CAREGIVERS" | translate }}
             </p>
             <div
               *ngFor="let caregiver of allCaregivers; let i = index"
@@ -409,9 +441,12 @@
                 (click)="selectCaregiver(caregiver.caregiverId, i)"
               >
                 <p>{{ caregiver.fullName }}</p>
+
                 <div class="d-flex justify-content-between align-items-center">
-                  <span>Age:{{ caregiver.age }}</span>
-                  <!-- <span>Specialization: {{ caregiver.specialization }}</span> -->
+                  <span>
+                    {{ "REQUEST_CAREGIVER.AGE" | translate }}:
+                    {{ caregiver.age }}
+                  </span>
                 </div>
               </div>
             </div>

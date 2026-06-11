@@ -17,6 +17,7 @@ import {
   SendRequest2,
   SendRequest3,
 } from 'src/app/core/interfaces/treatment-requests';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-relative',
@@ -28,6 +29,7 @@ import {
     RouterLinkActive,
     MainNavComponent,
     ReactiveFormsModule,
+    TranslateModule,
   ],
   templateUrl: './relative.component.html',
   styleUrls: ['./relative.component.scss'],

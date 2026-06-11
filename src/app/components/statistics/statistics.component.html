@@ -12,7 +12,7 @@
       (click)="downloadPDF()"
     >
       <i class="fa-solid fa-file-pdf"></i>
-      Download Report PDF
+      {{ "STATISTICS.DOWNLOAD_REPORT" | translate }}
     </button>
   </div>
   <div
@@ -28,11 +28,13 @@
             class="fa-solid fa-wand-magic-sparkles fs-4 me-1"
             style="color: #155dfc"
           ></i>
-          <span class="fw-bold fs-5">Cognitive Prediction - AI</span>
+          <span class="fw-bold fs-5">{{
+            "STATISTICS.COGNITIVE_PREDICTION" | translate
+          }}</span>
         </div>
         <div>
           <p class="m-0 p-0 fs-5 fw-bold">
-            <span>Predicted At </span
+            <span>{{ "STATISTICS.PREDICTED_AT" | translate }} </span
             ><span class="value">{{
               cognitivePrediction.predicted_at | cleanDate: 1
             }}</span>
@@ -44,7 +46,7 @@
           <p
             class="m-0 p-0 fw-bold fs-5 d-flex justify-content-between align-items-center gap-1"
           >
-            <span> Situation </span>
+            <span> {{ "STATISTICS.SITUATION" | translate }} </span>
             <span class="ms-3 value"> {{ cognitivePrediction.alert }}</span>
           </p>
         </div>
@@ -54,19 +56,19 @@
           <p
             class="m-0 p-0 d-flex justify-content-between align-items-center w-100"
           >
-            <span> Prediction </span>
+            <span> {{ "STATISTICS.PREDICTION" | translate }} </span>
             <span class="value ms-3">{{ cognitivePrediction.prediction }}</span>
           </p>
           <p
             class="m-0 p-0 d-flex justify-content-between align-items-center w-100"
           >
-            <span> Confidence </span>
+            <span> {{ "STATISTICS.CONFIDENCE" | translate }} </span>
             <span class="value ms-3">{{ cognitivePrediction.confidence }}</span>
           </p>
           <p
             class="m-0 p-0 d-flex justify-content-between align-items-center w-100"
           >
-            <span> Risk Score </span>
+            <span> {{ "STATISTICS.RISK_SCORE" | translate }} </span>
             <span class="value ms-3">{{ cognitivePrediction.risk_score }}</span>
           </p>
         </div>
@@ -74,19 +76,19 @@
           class="p-2 fw-bold fs-5 d-flex justify-content-between align-items-center gap-5 w-100"
         >
           <div class="d-flex justify-content-between align-items-center w-100">
-            <span>Declining</span>
+            <span>{{ "STATISTICS.DECLINING" | translate }}</span>
             <span class="ms-3 text-danger">{{
               cognitivePrediction.probabilities?.declining
             }}</span>
           </div>
           <div class="d-flex justify-content-between align-items-center w-100">
-            <span>Improving</span>
+            <span>{{ "STATISTICS.IMPROVING" | translate }}</span>
             <span class="ms-3 text-success">{{
               cognitivePrediction.probabilities?.improving
             }}</span>
           </div>
           <div class="d-flex justify-content-between align-items-center w-100">
-            <span>Stable</span>
+            <span>{{ "STATISTICS.STABLE" | translate }}</span>
             <span class="ms-3 value">{{
               cognitivePrediction.probabilities?.stable
             }}</span>
@@ -99,7 +101,9 @@
         class="top d-flex justify-content-start align-items-center gap-2 border-bottom border-3 border-primary"
       >
         <i class="fa-solid fa-arrow-trend-up fs-4" style="color: #155dfc"></i>
-        <span class="fw-bold fs-5">Activity Overview</span>
+        <span class="fw-bold fs-5">{{
+          "STATISTICS.ACTIVITY_OVERVIEW" | translate
+        }}</span>
       </div>
       <div
         class="bar-graphs d-flex flex-column justify-content-center align-items-center border-bottom border-3 border-primary gap-2 w-100"
@@ -108,7 +112,7 @@
           class="bar-graph d-flex flex-column justify-content-center align-items-center gap-1 w-100"
         >
           <div class="data d-flex justify-content-between w-100 fw-bold">
-            <span>Daily Routine</span>
+            <span>{{ "STATISTICS.DAILY_ROUTINE" | translate }}</span>
             <span
               >{{ routinesStatistics.completed_routines }}/{{
                 routinesStatistics.total_routines
@@ -133,7 +137,7 @@
           class="bar-graph d-flex flex-column justify-content-center align-items-center gap-1 w-100"
         >
           <div class="data d-flex justify-content-between w-100 fw-bold">
-            <span>Medication Taken</span>
+            <span>{{ "STATISTICS.MEDICATION_TAKEN" | translate }}</span>
             <span
               >{{ medicationsStatistics.completed_medications }}/{{
                 medicationsStatistics.total_medications
@@ -161,7 +165,7 @@
         <div
           class="d-flex justify-content-between w-100 border-bottom border-primary p-2"
         >
-          <span>Assigned Games</span>
+          <span>{{ "STATISTICS.ASSIGNED_GAMES" | translate }}</span>
           <span class="value">{{
             mindGamesStatistics.total_assigned_games
           }}</span>
@@ -169,7 +173,7 @@
         <div
           class="d-flex justify-content-between w-100 border-bottom border-primary p-2"
         >
-          <span>Sessions Completed</span>
+          <span>{{ "STATISTICS.SESSIONS_COMPLETED" | translate }}</span>
           <span class="value">{{
             mindGamesStatistics.total_sessions_completed
           }}</span>
@@ -177,11 +181,11 @@
         <div
           class="d-flex justify-content-between w-100 border-bottom border-primary p-2"
         >
-          <span>Average Score</span>
+          <span>{{ "STATISTICS.AVERAGE_SCORE" | translate }}</span>
           <span class="value">{{ mindGamesStatistics.average_score }}</span>
         </div>
         <div class="d-flex justify-content-between w-100 p-2">
-          <span>Highest Score</span>
+          <span>{{ "STATISTICS.HIGHEST_SCORE" | translate }}</span>
           <span class="value">{{ mindGamesStatistics.highest_score }}</span>
         </div>
       </div>
@@ -192,11 +196,13 @@
       >
         <div>
           <i class="fa-solid fa-heart-pulse fs-4" style="color: #155dfc"></i>
-          <span class="fw-bold fs-5">Vital Signs</span>
+          <span class="fw-bold fs-5">{{
+            "STATISTICS.VITAL_SIGNS" | translate
+          }}</span>
         </div>
         <div>
           <p class="m-0 p-0 fs-5 fw-bold">
-            <span>Updated At </span
+            <span>{{ "STATISTICS.UPDATED_AT" | translate }} </span
             ><span class="value">{{
               telemetryStatistics.latest_telemetry_time | cleanDate: 2
             }}</span>
@@ -207,31 +213,31 @@
         class="info d-flex flex-column justify-content-center align-items-start gap-2 w-100 fs-5 fw-bold"
       >
         <div class="info-item d-flex justify-content-between w-100 border-b">
-          <span>Average Heart Rate</span>
+          <span>{{ "STATISTICS.AVERAGE_HEART_RATE" | translate }}</span>
           <span class="normal"
             >{{ telemetryStatistics.average_heart_rate }}bpm
           </span>
         </div>
         <div class="info-item d-flex justify-content-between w-100 border-b">
-          <span>Latest Heart Rate</span>
+          <span>{{ "STATISTICS.LATEST_HEART_RATE" | translate }}</span>
           <span class="normal"
             >{{ telemetryStatistics.latest_heart_rate }}bpm</span
           >
         </div>
         <div class="info-item d-flex justify-content-between w-100 border-b">
-          <span>Average Oxygen Level</span>
+          <span>{{ "STATISTICS.AVERAGE_OXYGEN_LEVEL" | translate }}</span>
           <span class="normal"
             >{{ telemetryStatistics.average_oxygen_level }}%</span
           >
         </div>
         <div class="info-item d-flex justify-content-between w-100 border-b">
-          <span>Latest Oxygen Level</span>
+          <span>{{ "STATISTICS.LATEST_OXYGEN_LEVEL" | translate }}</span>
           <span class="normal"
             >{{ telemetryStatistics.latest_oxygen_level }}%</span
           >
         </div>
         <div class="info-item d-flex justify-content-between w-100">
-          <span>Total Steps Tracked</span>
+          <span>{{ "STATISTICS.TOTAL_STEPS_TRACKED" | translate }}</span>
           <span class="normal">{{
             telemetryStatistics.total_steps_tracked
           }}</span>

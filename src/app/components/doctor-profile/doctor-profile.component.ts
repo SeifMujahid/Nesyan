@@ -5,11 +5,12 @@ import { MainNavComponent } from '../main-nav/main-nav.component';
 import { DoctorProfile } from 'src/app/core/interfaces/doctor';
 import { DoctorService } from 'src/app/core/services/doctor.service';
 import { MainService } from 'src/app/context/main.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-doctor-profile',
   standalone: true,
-  imports: [CommonModule, MainNavComponent, RouterLink],
+  imports: [CommonModule, MainNavComponent, RouterLink,TranslateModule],
   templateUrl: './doctor-profile.component.html',
   styleUrls: ['./doctor-profile.component.scss'],
 })

@@ -13,11 +13,12 @@ import {
   Validators,
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-medication',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule,TranslateModule],
   templateUrl: './medication.component.html',
   styleUrls: ['./medication.component.scss'],
 })

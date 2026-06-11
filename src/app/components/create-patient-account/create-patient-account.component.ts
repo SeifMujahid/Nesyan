@@ -15,11 +15,18 @@ import { PatientRegisterInterface } from 'src/app/core/interfaces/patient-regist
 import { RelativeRegisterInterface } from 'src/app/core/interfaces/relative-register-interface';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { RelativeService } from 'src/app/core/services/relative.service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-create-patient-account',
   standalone: true,
-  imports: [CommonModule, MainNavComponent, ReactiveFormsModule, RouterLink],
+  imports: [
+    CommonModule,
+    MainNavComponent,
+    ReactiveFormsModule,
+    RouterLink,
+    TranslateModule,
+  ],
   templateUrl: './create-patient-account.component.html',
   styleUrls: ['./create-patient-account.component.scss'],
 })

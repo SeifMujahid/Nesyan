@@ -1,11 +1,12 @@
+<app-spare-nav-second></app-spare-nav-second>
 <section class="register-section">
   <div class="register-container">
     <div class="head">
-      <h1>Create Account</h1>
+      <h1>{{ "AUTH.CREATE_ACCOUNT" | translate }}</h1>
       <div class="image">
         <img src="./assets/images/Nesyan.png" alt="logo" />
       </div>
-      <p>Complete all steps to join Nesyan</p>
+      <p>{{ "AUTH.COMPLETE_STEPS" | translate }}</p>
       <div
         class="step-indicator d-flex justify-content-between align-items-center w-50 my-3"
       >
@@ -29,7 +30,7 @@
     <div class="steps">
       <div class="step1-container" [hidden]="currentStep !== 1">
         <div class="form-container w-100">
-          <h5>Personal Information</h5>
+          <h5>{{ "AUTH.PERSONAL_INFO" | translate }}</h5>
           <form
             [formGroup]="personalInformation"
             class="d-flex flex-column justify-content-center w-100"
@@ -38,23 +39,25 @@
               class="form-top d-flex justify-content-between align-items-center w-100"
             >
               <div class="form-group">
-                <label for="firstName">First Name</label>
+                <label for="firstName">{{
+                  "AUTH.FIRST_NAME" | translate
+                }}</label>
                 <input
                   type="text"
                   id="firstName"
                   name="firstName"
-                  placeholder="Enter your first name"
+                  [placeholder]="'AUTH.FIRST_NAME_PLACEHOLDER' | translate"
                   formControlName="fName"
                   required
                 />
               </div>
               <div class="form-group">
-                <label for="lastName">Last Name</label>
+                <label for="lastName">{{ "AUTH.LAST_NAME" | translate }}</label>
                 <input
                   type="text"
                   id="lastName"
                   name="lastName"
-                  placeholder="Enter your last name"
+                  [placeholder]="'AUTH.LAST_NAME_PLACEHOLDER' | translate"
                   formControlName="lName"
                   required
                 />
@@ -62,40 +65,42 @@
             </div>
             <div class="form-middel w-100">
               <div class="form-group">
-                <label for="userName">User Name</label>
+                <label for="userName">{{ "AUTH.USERNAME" | translate }}</label>
                 <input
                   type="text"
                   id="userName"
                   name="userName"
-                  placeholder="Enter your user name"
+                  [placeholder]="'AUTH.USERNAME_PLACEHOLDER' | translate"
                   formControlName="userName"
                   required
                 />
               </div>
               <div class="form-group">
-                <label for="nationalId">National ID</label>
+                <label for="nationalId">{{
+                  "AUTH.NATIONAL_ID" | translate
+                }}</label>
                 <input
                   type="text"
                   id="nationalId"
                   name="nationalId"
-                  placeholder="Enter your national ID"
+                  [placeholder]="'AUTH.NATIONAL_ID_PLACEHOLDER' | translate"
                   formControlName="nationalId"
                   required
                 />
               </div>
               <div class="form-group w-100">
-                <label for="age">Age</label>
+                <label for="age">{{ "AUTH.AGE" | translate }}</label>
                 <input
                   type="number"
                   name="age"
                   id="age"
-                  placeholder="Enter your age"
+                  [placeholder]="'AUTH.AGE_PLACEHOLDER' | translate"
                   required
                   formControlName="age"
                 />
               </div>
               <div class="form-group">
-                <label for="gender">Gender</label>
+                <label for="gender">{{ "AUTH.GENDER" | translate }}</label>
                 <select
                   id="gender"
                   name="gender"
@@ -103,14 +108,20 @@
                   required
                 >
                   <option value="" disabled selected hidden>
-                    Select your gender
+                    {{ "COMMON.SELECT" | translate }}
                   </option>
-                  <option value="0">Male</option>
-                  <option value="1">Female</option>
+                  <option value="0">
+                    {{ "AUTH.GENDER_MALE" | translate }}
+                  </option>
+                  <option value="1">
+                    {{ "AUTH.GENDER_FEMALE" | translate }}
+                  </option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="maritalstatus">MaritalStatus</label>
+                <label for="maritalstatus">{{
+                  "AUTH.MARITAL_STATUS" | translate
+                }}</label>
                 <select
                   id="maritalstatus"
                   name="maritalstatus"
@@ -118,13 +129,13 @@
                   required
                 >
                   <option value="" disabled selected hidden>
-                    Select your marital status
+                    {{ "COMMON.SELECT" | translate }}
                   </option>
-                  <option value="0">Single</option>
-                  <option value="1">Married</option>
-                  <option value="2">Divorced</option>
-                  <option value="3">Widowed</option>
-                  <option value="4">Separated</option>
+                  <option value="0">{{ "AUTH.SINGLE" | translate }}</option>
+                  <option value="1">{{ "AUTH.MARRIED" | translate }}</option>
+                  <option value="2">{{ "AUTH.DIVORCED" | translate }}</option>
+                  <option value="3">{{ "AUTH.WIDOWED" | translate }}</option>
+                  <option value="4">{{ "AUTH.SEPARATED" | translate }}</option>
                 </select>
               </div>
             </div>
@@ -132,7 +143,7 @@
               class="form-bottom d-flex justify-content-between align-items-center w-100"
             >
               <div class="form-group">
-                <label for="country">Country</label>
+                <label for="country">{{ "AUTH.COUNTRY" | translate }}</label>
                 <select
                   id="country"
                   name="country"
@@ -140,23 +151,29 @@
                   required
                 >
                   <option value="" disabled selected hidden>
-                    Select your country
+                    {{ "COMMON.SELECT" | translate }}
                   </option>
-                  <option value="egypt">Egypt</option>
-                  <option value="saudi-arabia">Saudi Arabia</option>
-                  <option value="kuwait">Kuwait</option>
-                  <option value="qatar">Qatar</option>
-                  <option value="uae">United Arab Emirates</option>
-                  <option value="algeria">Algeria</option>
+                  <option value="egypt">{{ "AUTH.EGYPT" | translate }}</option>
+                  <option value="saudi-arabia">
+                    {{ "AUTH.SAUDI_ARABIA" | translate }}
+                  </option>
+                  <option value="kuwait">
+                    {{ "AUTH.KUWAIT" | translate }}
+                  </option>
+                  <option value="qatar">{{ "AUTH.QATAR" | translate }}</option>
+                  <option value="uae">{{ "AUTH.UAE" | translate }}</option>
+                  <option value="algeria">
+                    {{ "AUTH.ALGERIA" | translate }}
+                  </option>
                 </select>
               </div>
               <div class="form-group">
-                <label for="city">City</label>
+                <label for="city">{{ "AUTH.CITY" | translate }}</label>
                 <input
                   id="city"
                   type="text"
                   name="city"
-                  placeholder="Enter your city"
+                  [placeholder]="'AUTH.CITY_PLACEHOLDER' | translate"
                   formControlName="city"
                   required
                 />
@@ -167,44 +184,44 @@
       </div>
       <div class="step2-container" [hidden]="currentStep !== 2">
         <div class="form-container w-100">
-          <h5>Account Details</h5>
+          <h5>{{ "AUTH.ACCOUNT_DETAILS" | translate }}</h5>
           <div class="form-container w-100">
             <form [formGroup]="accountDetails">
               <div class="form-group w-100">
-                <label for="email">Email</label>
+                <label for="email">{{ "AUTH.EMAIL" | translate }}</label>
                 <input
                   type="email"
                   name="email"
                   id="email"
-                  placeholder="Enter your email"
+                  [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate"
                   required
                   formControlName="email"
                 />
               </div>
               <div class="form-group w-100">
-                <label for="phone">Phone Number</label>
+                <label for="phone">{{ "AUTH.PHONE" | translate }}</label>
                 <input
                   type="text"
                   name="phone"
                   id="phone"
-                  placeholder="Enter your phone number"
+                  [placeholder]="'AUTH.PHONE_PLACEHOLDER' | translate"
                   required
                   formControlName="phone"
                 />
               </div>
               <div class="form-group w-100">
-                <label for="password">Password</label>
+                <label for="password">{{ "AUTH.PASSWORD" | translate }}</label>
                 <input
                   type="password"
                   name="password"
                   id="password"
-                  placeholder="Enter your password"
+                  [placeholder]="'AUTH.PASSWORD_PLACEHOLDER' | translate"
                   required
                   formControlName="password"
                 />
               </div>
               <!-- User Image -->
-              <p>Upload Your Profile Image (Not Required)</p>
+              <p>{{ "COMMON.UPLOAD_PROFILE_IMAGE" | translate }}</p>
               <div
                 class="upload-area d-flex flex-column justify-content-center align-items-center w-100 my-2"
                 (dragover)="onDragOver($event)"
@@ -215,11 +232,11 @@
                 <!-- No File Selected -->
                 <div *ngIf="!userImage" class="text-center">
                   <i class="fa-solid fa-cloud-arrow-up fs-1 mb-2"></i>
-                  <p>Click to upload or drag and drop</p>
+                  <p>{{ "COMMON.CLICK_TO_UPLOAD" | translate }}</p>
                   <p class="m-0">PDF, JPG, PNG (MAX. 5MB)</p>
                   <div class="form-group mt-4">
                     <label for="userImage" class="btn btn-primary text-white">
-                      Select File
+                      {{ "COMMON.SELECT_FILE" | translate }}
                     </label>
                     <input
                       type="file"
@@ -245,12 +262,12 @@
                     class="btn btn-danger"
                     (click)="removeFile('image', $event)"
                   >
-                    Remove
+                    {{ "COMMON.REMOVE" | translate }}
                   </button>
                 </div>
               </div>
               <div class="form-group w-100">
-                <p>Register as</p>
+                <p>{{ "AUTH.REGISTER_AS" | translate }}</p>
                 <ul
                   class="w-100 m-0 p-0 d-flex justify-content-evenly align-items-center"
                 >
@@ -262,7 +279,9 @@
                       value="patient"
                       (change)="onRoleSelect('patient')"
                     />
-                    <label for="patient">Patient</label>
+                    <label for="patient">{{
+                      "AUTH.ROLE_PATIENT" | translate
+                    }}</label>
                   </li>
                   <li [class.selected]="selectedRole === 'doctor'">
                     <input
@@ -272,7 +291,9 @@
                       value="doctor"
                       (change)="onRoleSelect('doctor')"
                     />
-                    <label for="doctor">Doctor</label>
+                    <label for="doctor">{{
+                      "AUTH.ROLE_DOCTOR" | translate
+                    }}</label>
                   </li>
                   <li [class.selected]="selectedRole === 'relative'">
                     <input
@@ -282,7 +303,9 @@
                       value="relative"
                       (change)="onRoleSelect('relative')"
                     />
-                    <label for="relative">Relative</label>
+                    <label for="relative">{{
+                      "AUTH.ROLE_RELATIVE" | translate
+                    }}</label>
                   </li>
                   <li [class.selected]="selectedRole === 'caregiver'">
                     <input
@@ -292,7 +315,9 @@
                       value="caregiver"
                       (change)="onRoleSelect('caregiver')"
                     />
-                    <label for="caregiver">Caregiver</label>
+                    <label for="caregiver">{{
+                      "AUTH.ROLE_CAREGIVER" | translate
+                    }}</label>
                   </li>
                 </ul>
               </div>
@@ -303,9 +328,9 @@
       <div class="step3-conatiner" [hidden]="currentStep !== 3">
         <div class="caregiver" [hidden]="selectedRole !== 'caregiver'">
           <div class="form-container w-100">
-            <h5>Professional Information</h5>
+            <h5>{{ "AUTH.PROFESSIONAL_INFO" | translate }}</h5>
             <div class="form-container w-100">
-              <p>Upload Certification</p>
+              <p>{{ "AUTH.UPLOAD_CERTIFICATION" | translate }}</p>
               <form class="d-flex flex-column align-items-center w-100">
                 <div
                   class="upload-area d-flex flex-column justify-content-center align-items-center w-100 my-2"
@@ -317,11 +342,11 @@
                   <!-- No File Selected -->
                   <div *ngIf="!degreeFileCaregiver" class="text-center">
                     <i class="fa-solid fa-cloud-arrow-up fs-1 mb-2"></i>
-                    <p>Click to upload or drag and drop</p>
+                    <p>{{ "COMMON.CLICK_TO_UPLOAD" | translate }}</p>
                     <p class="m-0">PDF, JPG, PNG (MAX. 5MB)</p>
                     <div class="form-group mt-4">
                       <label for="degree1" class="btn btn-primary text-white">
-                        Select File
+                        {{ "COMMON.SELECT_FILE" | translate }}
                       </label>
                       <input
                         type="file"
@@ -347,7 +372,7 @@
                       class="btn btn-danger"
                       (click)="removeFile('degree', $event)"
                     >
-                      Remove
+                      {{ "COMMON.REMOVE" | translate }}
                     </button>
                   </div>
                 </div>
@@ -355,8 +380,7 @@
                   class="note w-100 my-2 bg-primary-subtle py-2 px-1 rounded"
                 >
                   <p class="text-primary fw-bold fs-5 text-center">
-                    Your certificat will be verified by our team before you can
-                    access the full platform.
+                    {{ "AUTH.CERT_VERIFY_NOTE" | translate }}
                   </p>
                 </div>
               </form>
@@ -365,25 +389,29 @@
         </div>
         <div class="doctor" [hidden]="selectedRole !== 'doctor'">
           <div class="form-container w-100">
-            <h5>Professional Information</h5>
+            <h5>{{ "AUTH.PROFESSIONAL_INFO" | translate }}</h5>
             <div class="form-container w-100">
               <form
                 class="d-flex flex-column align-items-center w-100"
                 [formGroup]="doctorSpecialization"
               >
                 <div class="form-group mb-2">
-                  <label for="specialization">Specialization</label>
+                  <label for="specialization">{{
+                    "AUTH.SPECIALIZATION" | translate
+                  }}</label>
                   <input
                     id="specialization"
                     type="text"
                     name="specialization"
-                    placeholder="Enter your specialization"
+                    [placeholder]="
+                      'AUTH.SPECIALIZATION_PLACEHOLDER' | translate
+                    "
                     formControlName="specialization"
                     required
                   />
                 </div>
                 <!-- Graduation Degree -->
-                <p>Upload Graduation Degree</p>
+                <p>{{ "AUTH.UPLOAD_GRADUATION_DEGREE" | translate }}</p>
                 <div
                   class="upload-area d-flex flex-column justify-content-center align-items-center w-100 my-2"
                   (dragover)="onDragOver($event)"
@@ -394,11 +422,11 @@
                   <!-- No File Selected -->
                   <div *ngIf="!degreeFileDoctor" class="text-center">
                     <i class="fa-solid fa-cloud-arrow-up fs-1 mb-2"></i>
-                    <p>Click to upload or drag and drop</p>
+                    <p>{{ "COMMON.CLICK_TO_UPLOAD" | translate }}</p>
                     <p class="m-0">PDF, JPG, PNG (MAX. 5MB)</p>
                     <div class="form-group mt-4">
                       <label for="degree1" class="btn btn-primary text-white">
-                        Select File
+                        {{ "COMMON.SELECT_FILE" | translate }}
                       </label>
                       <input
                         type="file"
@@ -424,12 +452,12 @@
                       class="btn btn-danger"
                       (click)="removeFile('degree', $event)"
                     >
-                      Remove
+                      {{ "COMMON.REMOVE" | translate }}
                     </button>
                   </div>
                 </div>
                 <!-- Medical Association Card -->
-                <p>Upload Medical Association Card</p>
+                <p>{{ "AUTH.UPLOAD_MEDICAL_CARD" | translate }}</p>
                 <div
                   class="upload-area d-flex flex-column justify-content-center align-items-center w-100 my-2"
                   (dragover)="onDragOver($event)"
@@ -440,11 +468,11 @@
                   <!-- No File Selected -->
                   <div *ngIf="!cardFileDoctor" class="text-center">
                     <i class="fa-solid fa-cloud-arrow-up fs-1 mb-2"></i>
-                    <p>Click to upload or drag and drop</p>
+                    <p>{{ "COMMON.CLICK_TO_UPLOAD" | translate }}</p>
                     <p class="m-0">PDF, JPG, PNG (MAX. 5MB)</p>
                     <div class="form-group mt-4">
                       <label for="degree2" class="btn btn-primary text-white">
-                        Select File
+                        {{ "COMMON.SELECT_FILE" | translate }}
                       </label>
                       <input
                         type="file"
@@ -470,7 +498,7 @@
                       class="btn btn-danger"
                       (click)="removeFile('card', $event)"
                     >
-                      Remove
+                      {{ "COMMON.REMOVE" | translate }}
                     </button>
                   </div>
                 </div>
@@ -480,7 +508,7 @@
         </div>
         <div class="patient" [hidden]="selectedRole !== 'patient'">
           <div class="form-container w-100">
-            <h5>Medical History</h5>
+            <h5>{{ "AUTH.MEDICAL_HISTORY" | translate }}</h5>
             <div class="form-container w-100">
               <form [formGroup]="patientMedicalHistory">
                 <div class="form-top">
@@ -488,29 +516,35 @@
                     class="w-100 d-flex justify-content-between align-content-center gap-2"
                   >
                     <div class="form-group">
-                      <label for="height">Height(cm)</label>
+                      <label for="height">{{
+                        "AUTH.HEIGHT" | translate
+                      }}</label>
                       <input
                         type="number"
                         name="height"
                         id="height"
-                        placeholder="e.g. 170"
+                        [placeholder]="'AUTH.HEIGHT_PLACEHOLDER' | translate"
                         required
                         formControlName="height"
                       />
                     </div>
                     <div class="form-group">
-                      <label for="weight">Weight(kg)</label>
+                      <label for="weight">{{
+                        "AUTH.WEIGHT" | translate
+                      }}</label>
                       <input
                         type="number"
                         name="weight"
                         id="weight"
-                        placeholder="e.g. 70"
+                        [placeholder]="'AUTH.WEIGHT_PLACEHOLDER' | translate"
                         required
                         formControlName="weight"
                       />
                     </div>
                     <div class="form-group">
-                      <label for="bloodType">Blood Type</label>
+                      <label for="bloodType">{{
+                        "AUTH.BLOOD_TYPE" | translate
+                      }}</label>
                       <select
                         name="bloodtype"
                         id="bloodType"
@@ -532,7 +566,7 @@
                     </div>
                   </div>
                   <div>
-                    <p>Chronic Diseases</p>
+                    <p>{{ "AUTH.CHRONIC_DISEASES" | translate }}</p>
                     <div
                       class="d-flex flex-wrap justify-content-between align-content-center checkboxes-group"
                     >
@@ -546,7 +580,9 @@
                             onChronicDiseaseSelect($event, 'bloodpressure')
                           "
                         />
-                        <label for="bloodpressure">Blood pressure</label>
+                        <label for="bloodpressure">{{
+                          "AUTH.DISEASE_BLOOD_PRESSURE" | translate
+                        }}</label>
                       </div>
                       <div class="check-group">
                         <input
@@ -556,7 +592,9 @@
                           value="diabetes"
                           (change)="onChronicDiseaseSelect($event, 'diabetes')"
                         />
-                        <label for="diabetes">Diabetes</label>
+                        <label for="diabetes">{{
+                          "AUTH.DISEASE_DIABETES" | translate
+                        }}</label>
                       </div>
                       <div class="check-group">
                         <input
@@ -566,7 +604,9 @@
                           value="asthma"
                           (change)="onChronicDiseaseSelect($event, 'asthma')"
                         />
-                        <label for="asthma">Asthma</label>
+                        <label for="asthma">{{
+                          "AUTH.DISEASE_ASTHMA" | translate
+                        }}</label>
                       </div>
                       <div class="check-group">
                         <input
@@ -578,7 +618,9 @@
                             onChronicDiseaseSelect($event, 'heartdisease')
                           "
                         />
-                        <label for="heartdisease">Heart disease</label>
+                        <label for="heartdisease">{{
+                          "AUTH.DISEASE_HEART" | translate
+                        }}</label>
                       </div>
                       <div class="check-group">
                         <input
@@ -590,7 +632,9 @@
                             onChronicDiseaseSelect($event, 'chestallergies')
                           "
                         />
-                        <label for="chestallergies">Chest allergies</label>
+                        <label for="chestallergies">{{
+                          "AUTH.DISEASE_CHEST_ALLERGIES" | translate
+                        }}</label>
                       </div>
                       <div class="check-group">
                         <input
@@ -602,7 +646,9 @@
                             onChronicDiseaseSelect($event, 'kidneydiseases')
                           "
                         />
-                        <label for="kidneydiseases">Kidney diseases</label>
+                        <label for="kidneydiseases">{{
+                          "AUTH.DISEASE_KIDNEY" | translate
+                        }}</label>
                       </div>
                       <div class="check-group">
                         <input
@@ -614,7 +660,9 @@
                             onChronicDiseaseSelect($event, 'liverdiseases')
                           "
                         />
-                        <label for="liverdiseases">Liver diseases</label>
+                        <label for="liverdiseases">{{
+                          "AUTH.DISEASE_LIVER" | translate
+                        }}</label>
                       </div>
                       <div class="check-group">
                         <input
@@ -626,7 +674,9 @@
                             onChronicDiseaseSelect($event, 'immunediseases')
                           "
                         />
-                        <label for="immunediseases">Immune diseases</label>
+                        <label for="immunediseases">{{
+                          "AUTH.DISEASE_IMMUNE" | translate
+                        }}</label>
                       </div>
                       <div class="check-group">
                         <input
@@ -638,7 +688,9 @@
                             onChronicDiseaseSelect($event, 'otherdiseases')
                           "
                         />
-                        <label for="otherdiseases">Other</label>
+                        <label for="otherdiseases">{{
+                          "AUTH.DISEASE_OTHER" | translate
+                        }}</label>
                       </div>
                       <!-- <div class="check-group">
                         <input
@@ -654,7 +706,7 @@
                   </div>
                 </div>
                 <div class="form-middel">
-                  <p class="mb-2">Alzheimer's Stage (Managed by Doctor)</p>
+                  <p class="mb-2">{{ "AUTH.ALZHEIMER_STAGE" | translate }}</p>
                   <div>
                     <ul>
                       <li class="selected">
@@ -665,9 +717,9 @@
                           disabled
                           checked
                         />
-                        <label for="stage1"
-                          >Stage 1 - Early/Mild (Default)</label
-                        >
+                        <label for="stage1">{{
+                          "AUTH.STAGE_1" | translate
+                        }}</label>
                       </li>
                       <li>
                         <input
@@ -676,9 +728,9 @@
                           id="stage2"
                           disabled
                         />
-                        <label for="stage2"
-                          >Stage 2 - Middle/Moderate (Doctor Only)</label
-                        >
+                        <label for="stage2">{{
+                          "AUTH.STAGE_2" | translate
+                        }}</label>
                       </li>
                       <li>
                         <input
@@ -687,9 +739,9 @@
                           id="stage3"
                           disabled
                         />
-                        <label for="stage3"
-                          >Stage 3 - Late/Severe (Doctor Only)</label
-                        >
+                        <label for="stage3">{{
+                          "AUTH.STAGE_3" | translate
+                        }}</label>
                       </li>
                     </ul>
                   </div>
@@ -794,7 +846,7 @@
         </div>
         <div class="relative" [hidden]="selectedRole !== 'relative'">
           <div class="form-container w-100">
-            <h5>Link to Patient Account</h5>
+            <h5>{{ "AUTH.LINK_PATIENT" | translate }}</h5>
             <div class="form-container w-100">
               <form
                 class="d-flex flex-column align-items-start w-100 justify-content-center"
@@ -803,46 +855,58 @@
                   class="note w-100 px-2 py-1 my-3 bg-warning-subtle border-1 border-danger rounded"
                 >
                   <p class="fw-bold text-warning">
-                    To link with a patient, you need to provide.
+                    {{ "AUTH.LINK_NOTE_INFO" | translate }}
                   </p>
                 </div>
                 <div class="form-group w-100">
-                  <label for="patient-username">Patient Username</label>
+                  <label for="patient-username">{{
+                    "AUTH.PATIENT_USERNAME" | translate
+                  }}</label>
                   <input
                     type="text"
                     id="patient-username"
                     name="patient-username"
-                    placeholder="Enter patient's username"
+                    [placeholder]="
+                      'AUTH.PATIENT_USERNAME_PLACEHOLDER' | translate
+                    "
                     required
                   />
                 </div>
                 <div class="form-group w-100">
-                  <label for="patient-id">Patient ID</label>
+                  <label for="patient-id">{{
+                    "AUTH.PATIENT_ID" | translate
+                  }}</label>
                   <input
                     type="text"
                     id="patient-id"
                     name="patient-id"
-                    placeholder="Patient's Id"
+                    [placeholder]="'AUTH.PATIENT_ID_PLACEHOLDER' | translate"
                     required
                   />
                 </div>
                 <div class="form-group w-100">
-                  <label for="patient-email">Patient Email</label>
+                  <label for="patient-email">{{
+                    "AUTH.PATIENT_EMAIL" | translate
+                  }}</label>
                   <input
                     type="email"
                     id="patient-email"
                     name="patient-email"
-                    placeholder="Patient's email"
+                    [placeholder]="'AUTH.PATIENT_EMAIL_PLACEHOLDER' | translate"
                     required
                   />
                 </div>
                 <div class="form-group w-100">
-                  <label for="patient-password">Patient Password</label>
+                  <label for="patient-password">{{
+                    "AUTH.PATIENT_PASSWORD" | translate
+                  }}</label>
                   <input
                     type="password"
                     id="patient-password"
                     name="patient-password"
-                    placeholder="Patient's password"
+                    [placeholder]="
+                      'AUTH.PATIENT_PASSWORD_PLACEHOLDER' | translate
+                    "
                     required
                   />
                 </div>
@@ -850,7 +914,7 @@
                   class="note w-100 px-2 py-1 my-3 bg-danger-subtle border-1 border-danger rounded"
                 >
                   <p class="fw-bold text-danger">
-                    Patient will be notified and must approve this connection.
+                    {{ "AUTH.LINK_NOTE_APPROVAL" | translate }}
                   </p>
                 </div>
               </form>
@@ -862,7 +926,9 @@
     <div
       class="navigate buttons w-100 d-flex justify-content-start align-items-center"
     >
-      <button class="back" (click)="prevStep()">Back</button>
+      <button class="back" (click)="prevStep()">
+        {{ "COMMON.BACK" | translate }}
+      </button>
       <button
         class="next"
         (click)="chooseMethod()"
@@ -872,7 +938,7 @@
             (selectedRole === 'relative' || selectedRole === 'caregiver'))
         "
       >
-        Next
+        {{ "COMMON.NEXT" | translate }}
       </button>
       <button
         class="complete"
@@ -885,7 +951,7 @@
           )
         "
       >
-        Complete
+        {{ "COMMON.COMPLETE" | translate }}
       </button>
     </div>
   </div>

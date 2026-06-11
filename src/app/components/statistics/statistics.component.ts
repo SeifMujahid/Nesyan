@@ -12,11 +12,12 @@ import { DoctorService } from 'src/app/core/services/doctor.service';
 import { CleanDatePipe } from 'src/app/core/pipelines/clean-date.pipe';
 import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-statistics',
   standalone: true,
-  imports: [CommonModule, CleanDatePipe],
+  imports: [CommonModule, CleanDatePipe, TranslateModule],
   templateUrl: './statistics.component.html',
   styleUrls: ['./statistics.component.scss'],
 })
