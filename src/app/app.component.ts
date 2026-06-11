@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { inject } from '@vercel/analytics';
+import { injectSpeedInsights } from '@vercel/speed-insights';
 import { LanguageService } from './context/language.service';
 
 @Component({
@@ -17,3 +18,4 @@ export class AppComponent implements OnInit {
 }
 
 inject();
+injectSpeedInsights();

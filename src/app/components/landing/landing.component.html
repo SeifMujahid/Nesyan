@@ -1,7 +1,5 @@
 <app-spare-nav></app-spare-nav>
-<!-- --------------------------------------------------------------------------------------- -->
-<!-- hero section -->
-<!-- --------------------------------------------------------------------------------------- -->
+<!-- ── Hero ── -->
 <section
   class="hero-section container-fluid d-flex flex-column justify-content-center align-items-center text-center"
 >
@@ -31,118 +29,85 @@
     </div>
   </div>
   <p class="fs-5 fw-medium">{{ "LANDING.CTA_TEXT" | translate }}</p>
-  <a routerLink="/auth/register" class="btn btn-primary my-1">{{
-    "LANDING.REGISTER_BTN" | translate
-  }}</a>
+  <a routerLink="/auth/register" class="btn btn-primary my-1">
+    {{ "LANDING.REGISTER_BTN" | translate }}
+  </a>
 </section>
-<!-- --------------------------------------------------------------------------------------- -->
-<!-- features section -->
-<!-- --------------------------------------------------------------------------------------- -->
+
+<!-- ── Features ── -->
 <section class="featurs-section container-fluid">
   <h3 class="feature-question">{{ "LANDING.WHY_CHOOSE" | translate }}</h3>
   <div class="feature-cards">
     <div class="feature-card">
       <i class="fa-solid fa-shield-halved fs-2 text-primary mb-2"></i>
       <h4>{{ "LANDING.STAGE_BASED" | translate }}</h4>
-      <p>
-        {{ "LANDING.STAGE_BASED_DESC" | translate }}
-      </p>
+      <p>{{ "LANDING.STAGE_BASED_DESC" | translate }}</p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-bell fs-2 text-success mb-2"></i>
       <h4>{{ "LANDING.SMART_REMINDERS" | translate }}</h4>
-      <p>
-        {{ "LANDING.SMART_REMINDERS_DESC" | translate }}
-      </p>
+      <p>{{ "LANDING.SMART_REMINDERS_DESC" | translate }}</p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-map-location-dot fs-2 text-primary mb-2"></i>
       <h4>{{ "LANDING.PATIENT_TRACKING" | translate }}</h4>
-      <p>
-        {{ "LANDING.PATIENT_TRACKING_DESC" | translate }}
-      </p>
+      <p>{{ "LANDING.PATIENT_TRACKING_DESC" | translate }}</p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-brain fs-2 text-success mb-2"></i>
       <h4>{{ "LANDING.COGNITIVE_GAMES" | translate }}</h4>
-      <p>
-        {{ "LANDING.COGNITIVE_GAMES_DESC" | translate }}
-      </p>
+      <p>{{ "LANDING.COGNITIVE_GAMES_DESC" | translate }}</p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-user-doctor fs-2 text-primary mb-2"></i>
       <h4>{{ "LANDING.MEDICAL_MANAGEMENT" | translate }}</h4>
-      <p>
-        {{ "LANDING.MEDICAL_MANAGEMENT_DESC" | translate }}
-      </p>
+      <p>{{ "LANDING.MEDICAL_MANAGEMENT_DESC" | translate }}</p>
     </div>
     <div class="feature-card">
       <i class="fa-solid fa-hand-holding-heart fs-2 text-success mb-2"></i>
       <h4>{{ "LANDING.COLLABORATIVE_CARE" | translate }}</h4>
-      <p>
-        {{ "LANDING.COLLABORATIVE_CARE_DESC" | translate }}
-      </p>
+      <p>{{ "LANDING.COLLABORATIVE_CARE_DESC" | translate }}</p>
     </div>
   </div>
 </section>
-<!-- --------------------------------------------------------------------------------------- -->
-<!-- about section -->
-<!-- --------------------------------------------------------------------------------------- -->
+
+<!-- ── About ── -->
 <section class="about-section container-fluid">
   <h3 class="about-question">{{ "LANDING.ABOUT_TITLE" | translate }}</h3>
   <div class="content container">
     <div class="info">
-      <h4>What is Alzheimer's?</h4>
-      <p>
-        Alzheimer's disease is a progressive neurological disorder that causes
-        brain cells to degenerate and die. It's the most common cause of
-        dementia a continuous decline in thinking, behavioral, and social skills
-        that affects a person's ability to function independently.
-      </p>
+      <h4>{{ "LANDING.ALZHEIMERS_TITLE" | translate }}</h4>
+      <p>{{ "LANDING.ALZHEIMERS_DESC" | translate }}</p>
     </div>
     <div class="stages">
-      <h4>The Three Stages</h4>
+      <h4>{{ "LANDING.THREE_STAGES" | translate }}</h4>
       <div class="stage">
-        <h5 class="stage-1">Stage 1: Early/Mild</h5>
-        <p>
-          Individuals may function independently but experience memory lapses
-          and mild cognitive difficulties. All patients start at this stage.
-        </p>
+        <h5 class="stage-1">{{ "LANDING.STAGE1_TITLE" | translate }}</h5>
+        <p>{{ "LANDING.STAGE1_DESC" | translate }}</p>
       </div>
       <div class="stage">
-        <h5 class="stage-2">Stage 2: Middle/Moderate</h5>
-        <p>
-          The longest stage where individuals need more care. Symptoms become
-          more pronounced and assistance is required for daily activities.
-        </p>
+        <h5 class="stage-2">{{ "LANDING.STAGE2_TITLE" | translate }}</h5>
+        <p>{{ "LANDING.STAGE2_DESC" | translate }}</p>
       </div>
       <div class="stage">
-        <h5 class="stage-3">Stage 3: Late/Severe</h5>
-        <p>
-          Individuals require full-time assistance as they lose the ability to
-          respond to their environment and communicate.
-        </p>
+        <h5 class="stage-3">{{ "LANDING.STAGE3_TITLE" | translate }}</h5>
+        <p>{{ "LANDING.STAGE3_DESC" | translate }}</p>
       </div>
     </div>
   </div>
 </section>
-<!-- --------------------------------------------------------------------------------------- -->
-<!-- hint section -->
-<!-- --------------------------------------------------------------------------------------- -->
+
+<!-- ── Hint ── -->
 <section class="hint-section container-fluid">
   <div
     class="data d-flex flex-column justify-content-center align-items-center container"
   >
-    <p class="mb-3">Supporting Families Through Every Stage</p>
-    <p>
-      Nesyan provides the tools and support needed to navigate each stage of
-      Alzheimer's with confidence, keeping families connected and patients safe.
-    </p>
+    <p class="mb-3">{{ "LANDING.HINT_HEADING" | translate }}</p>
+    <p>{{ "LANDING.HINT_BODY" | translate }}</p>
   </div>
 </section>
-<!-- --------------------------------------------------------------------------------------- -->
-<!-- footer-->
-<!-- --------------------------------------------------------------------------------------- -->
+
+<!-- ── Footer ── -->
 <footer>
-  <p><span>&copy;</span> 2026 Nesyan. BFCAI Graduation Project</p>
+  <p><span>&copy;</span> {{ "LANDING.FOOTER" | translate }}</p>
 </footer>

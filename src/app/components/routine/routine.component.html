@@ -106,13 +106,13 @@
                 required
               >
                 <option value="" disabled selected hidden>
-                  Select routine frequency
+                  {{ "ROUTINE.SELECT_FREQUENCY" | translate }}
                 </option>
-                <option value="1">OneTime</option>
-                <option value="2">Daily</option>
-                <option value="3">Weekly</option>
-                <option value="4">Monthly</option>
-                <option value="5">Custom</option>
+                <option value="1">{{ "ROUTINE.ONE_TIME" | translate }}</option>
+                <option value="2">{{ "ROUTINE.DAILY" | translate }}</option>
+                <option value="3">{{ "ROUTINE.WEEKLY" | translate }}</option>
+                <option value="4">{{ "ROUTINE.MONTHLY" | translate }}</option>
+                <option value="5">{{ "ROUTINE.CUSTOM" | translate }}</option>
               </select>
             </div>
             <!-- <div class="form-group mb-2">
@@ -233,7 +233,9 @@
               </div>
             </div> -->
             <div class="form-group mb-2">
-              <label for="routine-time" class="form-label">Routine Time</label>
+              <label for="routine-time" class="form-label">
+                {{ "ROUTINE.ROUTINE_TIME" | translate }}
+              </label>
               <input
                 type="time"
                 class="form-control"
@@ -348,7 +350,9 @@
               </div>
             </div> -->
             <div class="form-group mb2">
-              <label for="routine-date" class="form-label">Routine Date</label>
+              <label for="routine-date" class="form-label">
+                {{ "ROUTINE.ROUTINE_DATE" | translate }}
+              </label>
               <input
                 type="date"
                 name="routine-date"
@@ -359,7 +363,9 @@
               />
             </div>
             <div class="form-group mb2">
-              <label for="routine-notes" class="form-label">Notes</label>
+              <label for="routine-notes" class="form-label">
+                {{ "ROUTINE.NOTES" | translate }}
+              </label>
               <textarea
                 style="resize: none"
                 class="form-control"
@@ -367,7 +373,7 @@
                 name="routine-notes"
                 formControlName="notes"
                 rows="2"
-                placeholder="Additional instructions or information about the task"
+                [placeholder]="'ROUTINE.NOTES_PLACEHOLDER' | translate"
               ></textarea>
             </div>
           </form>
@@ -381,8 +387,9 @@
           *ngIf="!onEdit"
           (click)="completeAddRoutine()"
         >
-          Add
+          {{ "ROUTINE.ADD" | translate }}
         </button>
+
         <button
           class="btn btn-primary"
           data-bs-dismiss="modal"
@@ -390,7 +397,7 @@
           *ngIf="onEdit"
           (click)="completeEditRoutine()"
         >
-          Edit
+          {{ "ROUTINE.EDIT" | translate }}
         </button>
       </div>
     </div>

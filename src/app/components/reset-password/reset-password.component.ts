@@ -12,11 +12,18 @@ import {
 } from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
+import { SpareNavSecondComponent } from '../spare-nav-second/spare-nav-second.component';
 
 @Component({
   selector: 'app-reset-password',
   standalone: true,
-  imports: [CommonModule, RouterLink, ReactiveFormsModule, TranslateModule],
+  imports: [
+    CommonModule,
+    RouterLink,
+    ReactiveFormsModule,
+    TranslateModule,
+    SpareNavSecondComponent,
+  ],
   templateUrl: './reset-password.component.html',
   styleUrls: ['./reset-password.component.scss'],
 })

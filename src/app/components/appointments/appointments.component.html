@@ -155,6 +155,7 @@
             <label for="appointment-frequency" class="form-label">{{
               "APPOINTMENTS.FREQUENCY" | translate
             }}</label>
+
             <select
               id="appointment-frequency"
               name="appointment-frequency"
@@ -163,13 +164,23 @@
               required
             >
               <option value="" disabled selected hidden>
-                Select routine frequency
+                {{ "APPOINTMENTS.SELECT_FREQUENCY" | translate }}
               </option>
-              <option value="1">OneTime</option>
-              <option value="2">Daily</option>
-              <option value="3">Weekly</option>
-              <option value="4">Monthly</option>
-              <option value="5">Custom</option>
+              <option value="1">
+                {{ "APPOINTMENTS.ONE_TIME" | translate }}
+              </option>
+              <option value="2">
+                {{ "APPOINTMENTS.DAILY" | translate }}
+              </option>
+              <option value="3">
+                {{ "APPOINTMENTS.WEEKLY" | translate }}
+              </option>
+              <option value="4">
+                {{ "APPOINTMENTS.MONTHLY" | translate }}
+              </option>
+              <option value="5">
+                {{ "APPOINTMENTS.CUSTOM" | translate }}
+              </option>
             </select>
           </div>
           <!-- <div class="form-group mb-2">
@@ -290,9 +301,10 @@
               </div>
             </div> -->
           <div class="form-group mb-2">
-            <label for="appointment-time" class="form-label"
-              >Appointment Time</label
-            >
+            <label for="appointment-time" class="form-label">
+              {{ "APPOINTMENTS.TIME" | translate }}
+            </label>
+
             <input
               type="time"
               class="form-control"
@@ -407,9 +419,10 @@
               </div>
             </div> -->
           <div class="form-group mb2">
-            <label for="appointment-date" class="form-label"
-              >Appointment Date</label
-            >
+            <label for="appointment-date" class="form-label">
+              {{ "APPOINTMENTS.DATE" | translate }}
+            </label>
+
             <input
               type="date"
               name="appointment-date"
@@ -420,7 +433,10 @@
             />
           </div>
           <div class="form-group mb2">
-            <label for="appointment-notes" class="form-label">Notes</label>
+            <label for="appointment-notes" class="form-label">
+              {{ "APPOINTMENTS.NOTES" | translate }}
+            </label>
+
             <textarea
               style="resize: none"
               class="form-control"
@@ -428,7 +444,7 @@
               name="appointment-notes"
               formControlName="notes"
               rows="2"
-              placeholder="Additional instructions or information about the task"
+              [placeholder]="'APPOINTMENTS.NOTES_PLACEHOLDER' | translate"
             ></textarea>
           </div>
         </form>
@@ -441,8 +457,9 @@
           *ngIf="!onEdit"
           (click)="completeAddAppointment()"
         >
-          Add
+          {{ "APPOINTMENTS.ADD_BTN" | translate }}
         </button>
+
         <button
           class="btn btn-primary"
           data-bs-dismiss="modal"
@@ -450,7 +467,7 @@
           *ngIf="onEdit"
           (click)="completeEditAppointment()"
         >
-          Edit
+          {{ "APPOINTMENTS.EDIT_BTN" | translate }}
         </button>
       </div>
     </div>

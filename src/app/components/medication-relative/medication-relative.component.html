@@ -390,9 +390,9 @@
               </div>
             </div> -->
             <div class="form-group mb2">
-              <label for="medication-date" class="form-label"
-                >Medication Date</label
-              >
+              <label for="medication-date" class="form-label">
+                {{ "MEDICATIONS.MEDICATION_DATE" | translate }}
+              </label>
               <input
                 type="date"
                 name="medication-date"
@@ -403,7 +403,9 @@
               />
             </div>
             <div class="form-group mb2">
-              <label for="medication-notes" class="form-label">Notes</label>
+              <label for="medication-notes" class="form-label">
+                {{ "MEDICATIONS.MEDICATION_NOTES" | translate }}
+              </label>
               <textarea
                 style="resize: none"
                 class="form-control"
@@ -411,7 +413,9 @@
                 name="medication-notes"
                 formControlName="notes"
                 rows="2"
-                placeholder="Additional instructions or information about the medication"
+                [placeholder]="
+                  'MEDICATIONS.ADDITIONAL_INSTRUCTIONS' | translate
+                "
               ></textarea>
             </div>
           </form>
@@ -425,7 +429,7 @@
           *ngIf="!onEdit"
           (click)="completeAddMedication()"
         >
-          Add
+          {{ "MEDICATIONS.ADD_BTN" | translate }}
         </button>
         <button
           class="btn btn-primary"
@@ -434,7 +438,7 @@
           *ngIf="onEdit"
           (click)="completeEditMedication()"
         >
-          Edit
+          {{ "MEDICATIONS.EDIT_BTN" | translate }}
         </button>
       </div>
     </div>

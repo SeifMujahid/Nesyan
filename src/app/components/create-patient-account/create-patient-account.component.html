@@ -164,7 +164,7 @@
                 class="form-bottom d-flex justify-content-between align-items-center w-100"
               >
                 <div class="form-group">
-                  <label for="country">Country</label>
+                  <label for="country">{{ "AUTH.COUNTRY" | translate }}</label>
                   <select
                     id="country"
                     name="country"
@@ -172,23 +172,34 @@
                     required
                   >
                     <option value="" disabled selected hidden>
-                      Select your country
+                      {{ "AUTH.SELECT_COUNTRY" | translate }}
                     </option>
-                    <option value="egypt">Egypt</option>
-                    <option value="saudi-arabia">Saudi Arabia</option>
-                    <option value="kuwait">Kuwait</option>
-                    <option value="qatar">Qatar</option>
-                    <option value="uae">United Arab Emirates</option>
-                    <option value="algeria">Algeria</option>
+                    <option value="egypt">
+                      {{ "AUTH.EGYPT" | translate }}
+                    </option>
+                    <option value="saudi-arabia">
+                      {{ "AUTH.SAUDI_ARABIA" | translate }}
+                    </option>
+                    <option value="kuwait">
+                      {{ "AUTH.KUWAIT" | translate }}
+                    </option>
+                    <option value="qatar">
+                      {{ "AUTH.QATAR" | translate }}
+                    </option>
+                    <option value="uae">{{ "AUTH.UAE" | translate }}</option>
+                    <option value="algeria">
+                      {{ "AUTH.ALGERIA" | translate }}
+                    </option>
                   </select>
                 </div>
                 <div class="form-group">
-                  <label for="city">City</label>
+                  <label for="city">{{ "AUTH.CITY" | translate }}</label>
+
                   <input
                     id="city"
                     type="text"
                     name="city"
-                    placeholder="Enter your city"
+                    [placeholder]="'AUTH.CITY_PLACEHOLDER' | translate"
                     formControlName="city"
                     required
                   />
@@ -199,44 +210,46 @@
         </div>
         <div class="step2-container" [hidden]="currentStep !== 2">
           <div class="form-container w-100">
-            <h5>Account Details</h5>
+            <h5>{{ "AUTH.ACCOUNT_DETAILS" | translate }}</h5>
             <div class="form-container w-100">
               <form [formGroup]="accountDetails">
                 <div class="form-group w-100">
-                  <label for="email">Email</label>
+                  <label for="email">{{ "AUTH.EMAIL" | translate }}</label>
                   <input
                     type="email"
                     name="email"
                     id="email"
-                    placeholder="Enter your email"
+                    [placeholder]="'AUTH.EMAIL_PLACEHOLDER' | translate"
                     required
                     formControlName="email"
                   />
                 </div>
                 <div class="form-group w-100">
-                  <label for="phone">Phone Number</label>
+                  <label for="phone">{{ "AUTH.PHONE" | translate }}</label>
                   <input
                     type="text"
                     name="phone"
                     id="phone"
-                    placeholder="Enter your phone number"
+                    [placeholder]="'AUTH.PHONE_PLACEHOLDER' | translate"
                     required
                     formControlName="phone"
                   />
                 </div>
                 <div class="form-group w-100">
-                  <label for="password">Password</label>
+                  <label for="password">{{
+                    "AUTH.PASSWORD" | translate
+                  }}</label>
                   <input
                     type="password"
                     name="password"
                     id="password"
-                    placeholder="Enter your password"
+                    [placeholder]="'AUTH.PASSWORD_PLACEHOLDER' | translate"
                     required
                     formControlName="password"
                   />
                 </div>
                 <!-- User Image -->
-                <p>Upload Your Profile Image (Not Required)</p>
+                <p>{{ "AUTH.UPLOAD_PROFILE_IMAGE" | translate }}</p>
                 <div
                   class="upload-area d-flex flex-column justify-content-center align-items-center w-100 my-2"
                   (dragover)="onDragOver($event)"
@@ -247,11 +260,13 @@
                   <!-- No File Selected -->
                   <div *ngIf="!userImage" class="text-center">
                     <i class="fa-solid fa-cloud-arrow-up fs-1 mb-2"></i>
-                    <p>Click to upload or drag and drop</p>
-                    <p class="m-0">PDF, JPG, PNG (MAX. 5MB)</p>
+                    <p>{{ "AUTH.CLICK_UPLOAD_DRAG_DROP" | translate }}</p>
+                    <p class="m-0">
+                      {{ "AUTH.FILE_TYPES_NOTE" | translate }}
+                    </p>
                     <div class="form-group mt-4">
                       <label for="userImage" class="btn btn-primary text-white">
-                        Select File
+                        {{ "AUTH.SELECT_FILE" | translate }}
                       </label>
                       <input
                         type="file"
@@ -277,7 +292,7 @@
                       class="btn btn-danger"
                       (click)="removeFile('image', $event)"
                     >
-                      Remove
+                      {{ "AUTH.REMOVE" | translate }}
                     </button>
                   </div>
                 </div>
@@ -288,7 +303,7 @@
         <div class="step3-conatiner" [hidden]="currentStep !== 3">
           <div class="patient" [hidden]="selectedRole !== 'patient'">
             <div class="form-container w-100">
-              <h5>Medical History</h5>
+              <h5>{{ "AUTH.MEDICAL_HISTORY" | translate }}</h5>
               <div class="form-container w-100">
                 <form [formGroup]="patientMedicalHistory">
                   <div class="form-top">
@@ -296,29 +311,35 @@
                       class="w-100 d-flex justify-content-between align-content-center gap-2"
                     >
                       <div class="form-group">
-                        <label for="height">Height(cm)</label>
+                        <label for="height">{{
+                          "AUTH.HEIGHT" | translate
+                        }}</label>
                         <input
                           type="number"
                           name="height"
                           id="height"
-                          placeholder="e.g. 170"
+                          [placeholder]="'AUTH.HEIGHT_EXAMPLE' | translate"
                           required
                           formControlName="height"
                         />
                       </div>
                       <div class="form-group">
-                        <label for="weight">Weight(kg)</label>
+                        <label for="weight">{{
+                          "AUTH.WEIGHT" | translate
+                        }}</label>
                         <input
                           type="number"
                           name="weight"
                           id="weight"
-                          placeholder="e.g. 70"
+                          [placeholder]="'AUTH.WEIGHT_EXAMPLE' | translate"
                           required
                           formControlName="weight"
                         />
                       </div>
                       <div class="form-group">
-                        <label for="bloodType">Blood Type</label>
+                        <label for="bloodType">{{
+                          "AUTH.BLOOD_TYPE" | translate
+                        }}</label>
                         <select
                           name="bloodtype"
                           id="bloodType"
@@ -326,7 +347,7 @@
                           formControlName="bloodType"
                         >
                           <option value="" disabled selected hidden>
-                            eg. A+
+                            {{ "AUTH.BLOOD_TYPE_PLACEHOLDER" | translate }}
                           </option>
                           <option value="0">A-</option>
                           <option value="1">A+</option>
@@ -340,7 +361,7 @@
                       </div>
                     </div>
                     <div>
-                      <p>Chronic Diseases</p>
+                      <p>{{ "AUTH.CHRONIC_DISEASES" | translate }}</p>
                       <div
                         class="d-flex flex-wrap justify-content-between align-content-center checkboxes-group"
                       >
@@ -354,7 +375,9 @@
                               onChronicDiseaseSelect($event, 'bloodpressure')
                             "
                           />
-                          <label for="bloodpressure">Blood pressure</label>
+                          <label for="bloodpressure">
+                            {{ "AUTH.DISEASE_BLOOD_PRESSURE" | translate }}
+                          </label>
                         </div>
                         <div class="check-group">
                           <input
@@ -366,7 +389,9 @@
                               onChronicDiseaseSelect($event, 'diabetes')
                             "
                           />
-                          <label for="diabetes">Diabetes</label>
+                          <label for="diabetes">
+                            {{ "AUTH.DISEASE_DIABETES" | translate }}
+                          </label>
                         </div>
                         <div class="check-group">
                           <input
@@ -376,7 +401,9 @@
                             value="asthma"
                             (change)="onChronicDiseaseSelect($event, 'asthma')"
                           />
-                          <label for="asthma">Asthma</label>
+                          <label for="asthma">
+                            {{ "AUTH.DISEASE_ASTHMA" | translate }}
+                          </label>
                         </div>
                         <div class="check-group">
                           <input
@@ -388,7 +415,9 @@
                               onChronicDiseaseSelect($event, 'heartdisease')
                             "
                           />
-                          <label for="heartdisease">Heart disease</label>
+                          <label for="heartdisease">
+                            {{ "AUTH.DISEASE_HEART" | translate }}
+                          </label>
                         </div>
                         <div class="check-group">
                           <input
@@ -400,7 +429,9 @@
                               onChronicDiseaseSelect($event, 'chestallergies')
                             "
                           />
-                          <label for="chestallergies">Chest allergies</label>
+                          <label for="chestallergies">
+                            {{ "AUTH.DISEASE_CHEST_ALLERGIES" | translate }}
+                          </label>
                         </div>
                         <div class="check-group">
                           <input
@@ -412,7 +443,9 @@
                               onChronicDiseaseSelect($event, 'kidneydiseases')
                             "
                           />
-                          <label for="kidneydiseases">Kidney diseases</label>
+                          <label for="kidneydiseases">
+                            {{ "AUTH.DISEASE_KIDNEY" | translate }}
+                          </label>
                         </div>
                         <div class="check-group">
                           <input
@@ -424,7 +457,9 @@
                               onChronicDiseaseSelect($event, 'liverdiseases')
                             "
                           />
-                          <label for="liverdiseases">Liver diseases</label>
+                          <label for="liverdiseases">
+                            {{ "AUTH.DISEASE_LIVER" | translate }}
+                          </label>
                         </div>
                         <div class="check-group">
                           <input
@@ -436,7 +471,9 @@
                               onChronicDiseaseSelect($event, 'immunediseases')
                             "
                           />
-                          <label for="immunediseases">Immune diseases</label>
+                          <label for="immunediseases">
+                            {{ "AUTH.DISEASE_IMMUNE" | translate }}
+                          </label>
                         </div>
                         <div class="check-group">
                           <input
@@ -448,13 +485,17 @@
                               onChronicDiseaseSelect($event, 'otherdiseases')
                             "
                           />
-                          <label for="otherdiseases">Other</label>
+                          <label for="otherdiseases">
+                            {{ "AUTH.DISEASE_OTHER" | translate }}
+                          </label>
                         </div>
                       </div>
                     </div>
                   </div>
                   <div class="form-middel">
-                    <p class="mb-2">Alzheimer's Stage (Managed by Doctor)</p>
+                    <p class="mb-2">
+                      {{ "AUTH.ALZHEIMER_STAGE" | translate }}
+                    </p>
                     <div>
                       <ul>
                         <li class="selected">
@@ -465,9 +506,10 @@
                             disabled
                             checked
                           />
-                          <label for="stage1"
-                            >Stage 1 - Early/Mild (Default)</label
-                          >
+
+                          <label for="stage1">
+                            {{ "AUTH.STAGE_1" | translate }}
+                          </label>
                         </li>
                         <li>
                           <input
@@ -476,9 +518,9 @@
                             id="stage2"
                             disabled
                           />
-                          <label for="stage2"
-                            >Stage 2 - Middle/Moderate (Doctor Only)</label
-                          >
+                          <label for="stage2">
+                            {{ "AUTH.STAGE_2" | translate }}
+                          </label>
                         </li>
                         <li>
                           <input
@@ -487,9 +529,9 @@
                             id="stage3"
                             disabled
                           />
-                          <label for="stage3"
-                            >Stage 3 - Late/Severe (Doctor Only)</label
-                          >
+                          <label for="stage3">
+                            {{ "AUTH.STAGE_3" | translate }}
+                          </label>
                         </li>
                       </ul>
                     </div>
@@ -504,7 +546,7 @@
         class="navigate buttons w-100 d-flex justify-content-end align-items-center"
       >
         <button class="back" (click)="prevStep()" [hidden]="currentStep === 1">
-          Back
+          {{ "AUTH.BACK" | translate }}
         </button>
         <button
           class="next"
@@ -515,7 +557,7 @@
               (selectedRole === 'relative' || selectedRole === 'caregiver'))
           "
         >
-          Next
+          {{ "AUTH.NEXT" | translate }}
         </button>
         <button
           class="complete"
@@ -528,7 +570,7 @@
             )
           "
         >
-          Complete
+          {{ "AUTH.COMPLETE" | translate }}
         </button>
       </div>
     </div>

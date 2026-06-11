@@ -105,9 +105,9 @@
             <div class="form-group">
               <label
                 >{{ "PROFILE.EMAIL" | translate }}
-                <span class="readonly-badge">{{
-                  "AUTH.READONLY" | translate
-                }}</span></label
+                <span class="readonly-badge">
+                  {{ "PROFILE.READONLY_BADGE" | translate }}
+                </span></label
               >
               <p class="profile-value">
                 {{ patientProfile.email || "PROFILE.NO_DATA" | translate }}
@@ -128,9 +128,9 @@
             <div *ngIf="currentRole === 'patient'" class="form-group">
               <label
                 >{{ "PROFILE.NATIONAL_ID" | translate }}
-                <span class="readonly-badge">{{
-                  "AUTH.READONLY" | translate
-                }}</span></label
+                <span class="readonly-badge">
+                  {{ "PROFILE.READONLY_BADGE" | translate }}
+                </span></label
               >
               <p class="profile-value">
                 {{ patientProfile.nationalId || "PROFILE.NO_DATA" | translate }}
@@ -193,45 +193,61 @@
         <div class="assessment-section" *ngIf="lastAssessment">
           <div class="assessment-header">
             <i class="fa-solid fa-clipboard-list"></i>
-            <h5>Last Assessment</h5>
+            <h5>{{ "PROFILE.LAST_ASSESSMENT" | translate }}</h5>
           </div>
 
           <div class="assessment-grid">
             <!-- Cognitive -->
             <div class="assessment-card">
               <div class="assessment-card-header cognitive">
-                <i class="fa-solid fa-brain me-2"></i>Cognitive
+                <i class="fa-solid fa-brain me-2"></i>
+                {{ "PROFILE.COGNITIVE" | translate }}
               </div>
+
               <div class="assessment-card-body">
                 <div class="assessment-row">
-                  <span class="a-label">Recognition of Name</span>
-                  <span class="a-badge">{{
-                    lastAssessment.recognitionOfName
-                  }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.RECOGNITION_OF_NAME" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.recognitionOfName }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Recognition of Place</span>
-                  <span class="a-badge">{{
-                    lastAssessment.recognitionOfPlace
-                  }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.RECOGNITION_OF_PLACE" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.recognitionOfPlace }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Recognition of Time</span>
-                  <span class="a-badge">{{
-                    lastAssessment.recognitionOfTime
-                  }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.RECOGNITION_OF_TIME" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.recognitionOfTime }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Ability to Concentrate</span>
-                  <span class="a-badge">{{
-                    lastAssessment.abilityToConcentrate
-                  }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.ABILITY_TO_CONCENTRATE" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.abilityToConcentrate }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Recall of Recent Events</span>
-                  <span class="a-badge">{{
-                    lastAssessment.recallOfRecentEvents
-                  }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.RECALL_OF_RECENT_EVENTS" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.recallOfRecentEvents }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -239,24 +255,36 @@
             <!-- Emotional -->
             <div class="assessment-card">
               <div class="assessment-card-header emotional">
-                <i class="fa-solid fa-heart-pulse me-2"></i>Emotional
+                <i class="fa-solid fa-heart-pulse me-2"></i>
+                {{ "PROFILE.EMOTIONAL" | translate }}
               </div>
+
               <div class="assessment-card-body">
                 <div class="assessment-row">
-                  <span class="a-label">Anxiety or Stress</span>
-                  <span class="a-badge">{{
-                    lastAssessment.anxietyOrStress
-                  }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.ANXIETY_OR_STRESS" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.anxietyOrStress }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Depression or Sadness</span>
-                  <span class="a-badge">{{
-                    lastAssessment.depressionOrSadness
-                  }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.DEPRESSION_OR_SADNESS" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.depressionOrSadness }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Aggression</span>
-                  <span class="a-badge">{{ lastAssessment.aggression }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.AGGRESSION" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.aggression }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -264,32 +292,54 @@
             <!-- Daily Activities -->
             <div class="assessment-card">
               <div class="assessment-card-header daily">
-                <i class="fa-solid fa-list-check me-2"></i>Daily Activities
+                <i class="fa-solid fa-list-check me-2"></i>
+                {{ "PROFILE.DAILY_ACTIVITIES" | translate }}
               </div>
+
               <div class="assessment-card-body">
                 <div class="assessment-row">
-                  <span class="a-label">Eating &amp; Drinking</span>
-                  <span class="a-badge">{{
-                    lastAssessment.eatingAndDrinking
-                  }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.EATING_AND_DRINKING" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.eatingAndDrinking }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Bathing</span>
-                  <span class="a-badge">{{ lastAssessment.bathing }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.BATHING" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.bathing }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Dressing</span>
-                  <span class="a-badge">{{ lastAssessment.dressing }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.DRESSING" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.dressing }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Using Bathroom</span>
-                  <span class="a-badge">{{
-                    lastAssessment.usingBathroom
-                  }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.USING_BATHROOM" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.usingBathroom }}
+                  </span>
                 </div>
+
                 <div class="assessment-row">
-                  <span class="a-label">Mobility</span>
-                  <span class="a-badge">{{ lastAssessment.mobility }}</span>
+                  <span class="a-label">
+                    {{ "PROFILE.MOBILITY" | translate }}
+                  </span>
+                  <span class="a-badge">
+                    {{ lastAssessment.mobility }}
+                  </span>
                 </div>
               </div>
             </div>
@@ -298,14 +348,15 @@
           <!-- Notes -->
           <div class="assessment-notes" *ngIf="lastAssessment.notes">
             <i class="fa-solid fa-note-sticky me-2"></i>
-            <strong>Notes: </strong>{{ lastAssessment.notes }}
+            <strong>{{ "PROFILE.NOTES" | translate }}:</strong>
+            {{ lastAssessment.notes }}
           </div>
         </div>
 
         <!-- No assessment fallback -->
         <div class="assessment-empty" *ngIf="!lastAssessment">
           <i class="fa-solid fa-clipboard fa-2x mb-2"></i>
-          <p>No assessment available yet.</p>
+          <p>{{ "PROFILE.NO_ASSESSMENT" | translate }}</p>
         </div>
       </div>
     </div>

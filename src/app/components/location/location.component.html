@@ -32,7 +32,7 @@
     <google-map height="400px" [width]="'100%'" [center]="center" [zoom]="zoom">
     </google-map>
   </div>
-  <div class="w-100 p-1 text-start">
+  <div class="w-100 p-1">
     <h5 class="fw-bold fs-5">{{ "LOCATION.NEW_SAFE_ZONE" | translate }}</h5>
   </div>
   <div
@@ -110,13 +110,15 @@
           (click)="cancleZone()"
           type="button"
         >
-          Cancel
+          {{ "LOCATION.CANCEL" | translate }}
         </button>
       </div>
     </div>
   </div>
-  <div class="w-100 p-1 text-start">
-    <h5 class="fw-bold fs-5">Patient Safe Zones</h5>
+  <div class="w-100 p-1">
+    <h5 class="fw-bold fs-5">
+      {{ "LOCATION.PATIENT_SAFE_ZONES" | translate }}
+    </h5>
   </div>
   <div
     class="w-100 p-2 border-b d-flex flex-column justify-content-center align-items-center gap-3"
@@ -130,14 +132,27 @@
         (click)="editPatientZone(safeZone.safeZoneId, i)"
       >
         <div class="pe-5">
-          <p class="m-0 p-0">Name:{{ safeZone.name }}</p>
-          <p class="m-0 p-0">Phone:{{ safeZone.phone }}</p>
+          <p class="m-0 p-0">
+            {{ "LOCATION.NAME" | translate }}:
+            {{ safeZone.name }}
+          </p>
+
+          <p class="m-0 p-0">
+            {{ "LOCATION.PHONE" | translate }}:
+            {{ safeZone.phone }}
+          </p>
         </div>
+
         <p *ngIf="safeZone.type == 1" class="m-0 p-0">
-          Type :Circle<i class="fa-regular fa-circle ms-2"></i>
+          {{ "LOCATION.TYPE" | translate }} :
+          {{ "LOCATION.CIRCLE" | translate }}
+          <i class="fa-regular fa-circle ms-2"></i>
         </p>
+
         <p *ngIf="safeZone.type == 0" class="m-0 p-0">
-          Type :Polygon<i class="fa-solid fa-draw-polygon ms-2"></i>
+          {{ "LOCATION.TYPE" | translate }} :
+          {{ "LOCATION.POLYGON" | translate }}
+          <i class="fa-solid fa-draw-polygon ms-2"></i>
         </p>
       </div>
       <div
@@ -148,8 +163,10 @@
       </div>
     </div>
   </div>
-  <div class="w-100 p-1 text-start">
-    <h5 class="fw-bold fs-5">Patient Violations</h5>
+  <div class="w-100 p-1">
+    <h5 class="fw-bold fs-5">
+      {{ "LOCATION.PATIENT_VIOLATIONS" | translate }}
+    </h5>
   </div>
   <div
     class="w-100 p-2 border-b d-flex flex-column justify-content-center align-items-center gap-3"
@@ -159,22 +176,42 @@
       *ngFor="let violation of patientViolations; let i = index"
     >
       <div class="pe-5 col-4">
-        <p class="m-0 p-0">Zone Name:{{ violation.zoneName }}</p>
-        <p class="m-0 p-0">Status:{{ violation.status }}</p>
-      </div>
-      <div class="pe-5 col-4">
-        <p class="m-0 p-0">Exited At:{{ violation.exitedAt | cleanDate: 2 }}</p>
         <p class="m-0 p-0">
-          Entered At:{{ violation.enteredAt | cleanDate: 2 }}
+          {{ "LOCATION.ZONE_NAME_LABEL" | translate }}
+          {{ violation.zoneName }}
+        </p>
+
+        <p class="m-0 p-0">
+          {{ "LOCATION.STATUS" | translate }}:
+          {{ violation.status }}
         </p>
       </div>
+
+      <div class="pe-5 col-4">
+        <p class="m-0 p-0">
+          {{ "LOCATION.EXITED_AT" | translate }}:
+          {{ violation.exitedAt | cleanDate: 2 }}
+        </p>
+
+        <p class="m-0 p-0">
+          {{ "LOCATION.ENTERED_AT" | translate }}:
+          {{ violation.enteredAt | cleanDate: 2 }}
+        </p>
+      </div>
+
       <div class="pe-5 col-3">
-        <p class="m-0 p-0">Duration:{{ violation.durationMinutes }} min</p>
+        <p class="m-0 p-0">
+          {{ "LOCATION.DURATION" | translate }}:
+          {{ violation.durationMinutes }}
+          {{ "LOCATION.MIN" | translate }}
+        </p>
       </div>
     </div>
   </div>
-  <div class="w-100 p-1 text-start">
-    <h5 class="fw-bold fs-5">Patient Visits Hitory</h5>
+  <div class="w-100 p-1">
+    <h5 class="fw-bold fs-5">
+      {{ "LOCATION.PATIENT_VISITS_HISTORY" | translate }}
+    </h5>
   </div>
   <div
     class="w-100 p-2 d-flex flex-column justify-content-center align-items-center gap-3"
@@ -187,7 +224,9 @@
         [formGroup]="historyFrom"
       >
         <div class="form-group w-100 p-2">
-          <label for="from" class="form-label">From</label>
+          <label for="from" class="form-label">
+            {{ "LOCATION.FROM" | translate }}
+          </label>
           <input
             type="date"
             id="from"
@@ -197,7 +236,9 @@
           />
         </div>
         <div class="form-group w-100 p-2">
-          <label for="to" class="form-label">To</label>
+          <label for="to" class="form-label">
+            {{ "LOCATION.TO" | translate }}
+          </label>
           <input
             type="date"
             id="to"
@@ -207,21 +248,23 @@
           />
         </div>
         <div class="form-group w-100 p-2">
-          <label for="limit" class="form-label">Limit</label>
+          <label for="limit" class="form-label">
+            {{ "LOCATION.LIMIT" | translate }}
+          </label>
           <input
             type="number"
             id="limit"
             name="limit"
             class="form-control"
-            placeholder="Maximum Value Is 100"
+            [placeholder]="'LOCATION.MAXIMUM_VALUE' | translate"
             max="100"
             min="1"
             formControlName="limit"
           />
         </div>
-        <Button class="btn main-btn w-25 mx-3" (click)="completeHitory()"
-          >Get History</Button
-        >
+        <Button class="btn main-btn w-25 mx-3" (click)="completeHitory()">
+          {{ "LOCATION.GET_HISTORY" | translate }}
+        </Button>
       </form>
     </div>
     <div
@@ -229,8 +272,15 @@
       *ngFor="let place of patientPlaces; let i = index"
     >
       <div>
-        <p class="m-0 p-0">Zone Name: {{ place.placeName }}</p>
-        <p class="m-0 p-0">Visted At: {{ place.recordedAt | cleanDate: 2 }}</p>
+        <p class="m-0 p-0">
+          {{ "LOCATION.ZONE_NAME_LABEL" | translate }}
+          {{ place.placeName }}
+        </p>
+
+        <p class="m-0 p-0">
+          {{ "LOCATION.VISITED_AT" | translate }}
+          {{ place.recordedAt | cleanDate: 2 }}
+        </p>
       </div>
     </div>
   </div>

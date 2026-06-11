@@ -20,11 +20,17 @@ import { RelativeRegisterInterface } from 'src/app/core/interfaces/relative-regi
 import { CaregiverRegisterInterface } from 'src/app/core/interfaces/caregiver-register-interface';
 import { ToastrService } from 'ngx-toastr';
 import { TranslateModule } from '@ngx-translate/core';
+import { SpareNavSecondComponent } from '../spare-nav-second/spare-nav-second.component';
 
 @Component({
   selector: 'app-register',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule,TranslateModule],
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    SpareNavSecondComponent,
+  ],
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss'],
 })

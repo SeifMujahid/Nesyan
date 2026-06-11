@@ -10,12 +10,12 @@
       class="top d-flex justify-content-between align-items-center mb-4 border-b"
     >
       <h2>
-        <i class="fa-solid fa-user-doctor me-2"></i
-        >{{ "DOCTOR.MY_PROFILE" | translate }}
+        <i class="fa-solid fa-user-doctor me-2"></i>
+        {{ "PROFILE.DOCTOR_PROFILE" | translate }}
       </h2>
-      <a routerLink="/doctor" class="btn btn-primary">{{
-        "DOCTOR.BACK_HOME" | translate
-      }}</a>
+      <a routerLink="/doctor" class="btn btn-primary">
+        {{ "PROFILE.BACK_BTN" | translate }}
+      </a>
     </div>
 
     <div
@@ -26,7 +26,7 @@
         <img
           class="w-100 rounded"
           src="https://nesyan-api.runasp.net/{{ doctorProfile.imageUrl }}"
-          alt="Doctor profile picture"
+          alt="{{ 'PROFILE.DOCTOR_PROFILE' | translate }}"
         />
       </div>
 
@@ -92,23 +92,23 @@
             class="form-top d-flex justify-content-between align-items-center w-100"
           >
             <div class="form-group">
-              <label for="country">Country</label>
+              <label for="country">{{ "PROFILE.COUNTRY" | translate }}</label>
               <input
                 id="country"
                 type="text"
                 [value]="doctorProfile.country"
                 disabled
-                aria-label="Country"
+                [attr.aria-label]="'PROFILE.COUNTRY' | translate"
               />
             </div>
             <div class="form-group">
-              <label for="city">City</label>
+              <label for="city">{{ "PROFILE.CITY" | translate }}</label>
               <input
                 id="city"
                 type="text"
                 [value]="doctorProfile.city"
                 disabled
-                aria-label="City"
+                [attr.aria-label]="'PROFILE.CITY' | translate"
               />
             </div>
           </div>
@@ -118,23 +118,23 @@
             class="form-top d-flex justify-content-between align-items-center w-100"
           >
             <div class="form-group">
-              <label for="phone">Phone</label>
+              <label for="phone">{{ "PROFILE.PHONE" | translate }}</label>
               <input
                 id="phone"
                 type="text"
                 [value]="doctorProfile.phone"
                 disabled
-                aria-label="Phone"
+                [attr.aria-label]="'PROFILE.PHONE' | translate"
               />
             </div>
             <div class="form-group">
-              <label for="email">Email</label>
+              <label for="email">{{ "PROFILE.EMAIL" | translate }}</label>
               <input
                 id="email"
                 type="text"
                 [value]="doctorProfile.email"
                 disabled
-                aria-label="Email"
+                [attr.aria-label]="'PROFILE.EMAIL' | translate"
               />
             </div>
           </div>
@@ -144,23 +144,25 @@
             class="form-top d-flex justify-content-between align-items-center w-100"
           >
             <div class="form-group">
-              <label for="gender">Gender</label>
+              <label for="gender">{{ "PROFILE.GENDER" | translate }}</label>
               <input
                 id="gender"
                 type="text"
                 [value]="doctorProfile.gender"
                 disabled
-                aria-label="Gender"
+                [attr.aria-label]="'PROFILE.GENDER' | translate"
               />
             </div>
             <div class="form-group">
-              <label for="nationalId">National Id</label>
+              <label for="nationalId">{{
+                "PROFILE.NATIONAL_ID" | translate
+              }}</label>
               <input
                 id="nationalId"
                 type="text"
                 [value]="doctorProfile.nationalId"
                 disabled
-                aria-label="National Id"
+                [attr.aria-label]="'PROFILE.NATIONAL_ID' | translate"
               />
             </div>
           </div>
@@ -170,13 +172,18 @@
             class="form-top d-flex justify-content-between align-items-center w-100"
           >
             <div class="form-group">
-              <label for="specialization">Specialization</label>
+              <label for="specialization">{{
+                "PROFILE.SPECIALIZATION" | translate
+              }}</label>
               <input
                 id="specialization"
                 type="text"
-                [value]="doctorProfile.specialization ?? '—'"
+                [value]="
+                  doctorProfile.specialization ??
+                  ('PROFILE.NO_DATA' | translate)
+                "
                 disabled
-                aria-label="Specialization"
+                [attr.aria-label]="'PROFILE.SPECIALIZATION' | translate"
               />
             </div>
             <div class="form-group"></div>
@@ -186,18 +193,21 @@
         <!-- ── Certificates ── -->
         <div class="certificates-section p-2">
           <h6 class="certificates-title mb-3">
-            <i class="fa-solid fa-id-card me-2"></i>Certificates & Documents
+            <i class="fa-solid fa-id-card me-2"></i>
+            {{ "PROFILE.CERTIFICATES" | translate }}
           </h6>
           <div class="certificates-grid">
             <!-- Graduation Degree -->
             <div class="certificate-card">
-              <span class="certificate-label">Graduation Degree</span>
+              <span class="certificate-label">{{
+                "PROFILE.GRADUATION_DEGREE" | translate
+              }}</span>
               <div class="certificate-img-wrapper">
                 <img
                   src="https://nesyan-api.runasp.net/{{
                     doctorProfile.graduationDegree
                   }}"
-                  alt="Graduation degree certificate"
+                  [attr.alt]="'PROFILE.GRADUATION_DEGREE' | translate"
                   class="certificate-img"
                 />
               </div>
@@ -205,13 +215,15 @@
 
             <!-- Medical Association Card -->
             <div class="certificate-card">
-              <span class="certificate-label">Medical Association Card</span>
+              <span class="certificate-label">{{
+                "PROFILE.MEDICAL_ASSOC_CARD" | translate
+              }}</span>
               <div class="certificate-img-wrapper">
                 <img
                   src="https://nesyan-api.runasp.net/{{
                     doctorProfile.medicalAssociationCard
                   }}"
-                  alt="Medical association card"
+                  [attr.alt]="'PROFILE.MEDICAL_ASSOC_CARD' | translate"
                   class="certificate-img"
                 />
               </div>

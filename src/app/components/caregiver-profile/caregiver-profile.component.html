@@ -10,12 +10,12 @@
       class="top d-flex justify-content-between align-items-center mb-4 border-b"
     >
       <h2>
-        <i class="fa-solid fa-user-tie me-2"></i
-        >{{ "PROFILE.CAREGIVER_PROFILE" | translate }}
+        <i class="fa-solid fa-user-tie me-2"></i>
+        {{ "PROFILE.CAREGIVER_PROFILE" | translate }}
       </h2>
-      <a routerLink="/caregiver" class="btn btn-primary">{{
-        "COMMON.BACK" | translate
-      }}</a>
+      <a routerLink="/caregiver" class="btn btn-primary">
+        {{ "PROFILE.BACK_BTN" | translate }}
+      </a>
     </div>
 
     <div
@@ -28,12 +28,11 @@
           <img
             class="w-100 rounded"
             src="https://nesyan-api.runasp.net/{{ imagePreview }}"
-            alt="Profile Image"
+            [attr.alt]="'PROFILE.CAREGIVER_PROFILE' | translate"
           />
-          <!-- Overlay shown only in edit mode -->
           <label *ngIf="isEditMode" for="imageUpload" class="image-overlay">
             <i class="fa-solid fa-camera"></i>
-            <span>Change</span>
+            <span>{{ "PROFILE.CHANGE_PHOTO" | translate }}</span>
           </label>
         </div>
         <input
@@ -92,7 +91,7 @@
               />
             </div>
             <div class="form-group">
-              <label for="age">Age</label>
+              <label for="age">{{ "PROFILE.AGE" | translate }}</label>
               <input
                 type="number"
                 id="age"
@@ -107,23 +106,35 @@
             class="form-bottom d-flex justify-content-between align-items-center w-100"
           >
             <div class="form-group">
-              <label for="country">Country</label>
+              <label for="country">{{ "PROFILE.COUNTRY" | translate }}</label>
               <select
                 id="country"
                 formControlName="country"
                 [class.editable-field]="isEditMode"
               >
-                <option value="" disabled hidden>Select your country</option>
-                <option value="egypt">Egypt</option>
-                <option value="saudi-arabia">Saudi Arabia</option>
-                <option value="kuwait">Kuwait</option>
-                <option value="qatar">Qatar</option>
-                <option value="uae">United Arab Emirates</option>
-                <option value="algeria">Algeria</option>
+                <option value="" disabled hidden>
+                  {{ "PROFILE.SELECT_COUNTRY" | translate }}
+                </option>
+                <option value="egypt">
+                  {{ "COUNTRIES.EGYPT" | translate }}
+                </option>
+                <option value="saudi-arabia">
+                  {{ "COUNTRIES.SAUDI_ARABIA" | translate }}
+                </option>
+                <option value="kuwait">
+                  {{ "COUNTRIES.KUWAIT" | translate }}
+                </option>
+                <option value="qatar">
+                  {{ "COUNTRIES.QATAR" | translate }}
+                </option>
+                <option value="uae">{{ "COUNTRIES.UAE" | translate }}</option>
+                <option value="algeria">
+                  {{ "COUNTRIES.ALGERIA" | translate }}
+                </option>
               </select>
             </div>
             <div class="form-group">
-              <label for="city">City</label>
+              <label for="city">{{ "PROFILE.CITY" | translate }}</label>
               <input
                 type="text"
                 id="city"
@@ -138,7 +149,7 @@
             class="form-top d-flex justify-content-between align-items-center w-100"
           >
             <div class="form-group">
-              <label for="phone">Phone</label>
+              <label for="phone">{{ "PROFILE.PHONE" | translate }}</label>
               <input
                 type="text"
                 id="phone"
@@ -147,9 +158,12 @@
               />
             </div>
             <div class="form-group">
-              <label for="email"
-                >Email <span class="readonly-badge">Read only</span></label
-              >
+              <label for="email">
+                {{ "PROFILE.EMAIL" | translate }}
+                <span class="readonly-badge">{{
+                  "PROFILE.READONLY_BADGE" | translate
+                }}</span>
+              </label>
               <input type="email" id="email" formControlName="email" />
             </div>
           </div>
@@ -159,16 +173,21 @@
             class="form-top d-flex justify-content-between align-items-center w-100"
           >
             <div class="form-group">
-              <label for="gender"
-                >Gender <span class="readonly-badge">Read only</span></label
-              >
+              <label for="gender">
+                {{ "PROFILE.GENDER" | translate }}
+                <span class="readonly-badge">{{
+                  "PROFILE.READONLY_BADGE" | translate
+                }}</span>
+              </label>
               <input type="text" id="gender" formControlName="gender" />
             </div>
             <div class="form-group">
-              <label for="nationalId"
-                >National Id
-                <span class="readonly-badge">Read only</span></label
-              >
+              <label for="nationalId">
+                {{ "PROFILE.NATIONAL_ID" | translate }}
+                <span class="readonly-badge">{{
+                  "PROFILE.READONLY_BADGE" | translate
+                }}</span>
+              </label>
               <input type="text" id="nationalId" formControlName="nationalId" />
             </div>
           </div>
@@ -183,14 +202,15 @@
             *ngIf="isEditMode"
             (click)="toggleEdit()"
           >
-            Cancel
+            {{ "PROFILE.CANCEL_BTN" | translate }}
           </button>
           <button
             class="btn btn-primary"
             *ngIf="!isEditMode"
             (click)="toggleEdit()"
           >
-            <i class="fa-solid fa-pen me-1"></i> Edit
+            <i class="fa-solid fa-pen me-1"></i>
+            {{ "PROFILE.EDIT_BTN" | translate }}
           </button>
           <button
             *ngIf="isEditMode"
@@ -198,7 +218,8 @@
             [disabled]="profileForm.invalid"
             (click)="saveProfile()"
           >
-            <i class="fa-solid fa-floppy-disk me-1"></i> Save
+            <i class="fa-solid fa-floppy-disk me-1"></i>
+            {{ "PROFILE.SAVE_BTN" | translate }}
           </button>
         </div>
       </div>
